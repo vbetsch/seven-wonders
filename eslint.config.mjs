@@ -51,7 +51,6 @@ export default tseslint.config(
         '@typescript-eslint/explicit-module-boundary-types': 'error',
         '@typescript-eslint/no-explicit-any': 'error',
         '@typescript-eslint/no-inferrable-types': 'off',
-        '@typescript-eslint/no-namespace': 'off',
         '@typescript-eslint/prefer-readonly': 'warn',
         '@typescript-eslint/prefer-reduce-type-parameter': 'warn',
         '@typescript-eslint/prefer-function-type': 'warn',

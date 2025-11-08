@@ -1,0 +1,37 @@
+name: lint
+
+on:
+  push:
+    branches:
+      - master
+      - develop
+      - feature/**
+      - hotfix/**
+      - bugfix/**
+      - chore/**
+      - refactor/**
+      - test/**
+
+jobs:
+  eslint:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v4
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      - name: Install dependencies
+        run: npm clean-install
+
+      - name: Run ESLint in strict mode
+        if: github.ref == 'refs/heads/master'
+        run: npm run lint:strict
+
+      - name: Run ESLint in default mode
+        if: github.ref != 'refs/heads/master'
+        run: npm run lint

@@ -1,6 +1,6 @@
-import { Profile } from '@engine/Profile/profile';
+import { PlayCommand } from './app/commands/play.command';
 
-const defaultProfile: Profile = new Profile({ name: 'default' });
+const playCommand: PlayCommand = new PlayCommand();
 
 console.log('--------- 7 WONDERS DUEL ---------');
-defaultProfile.play();
+playCommand.execute();

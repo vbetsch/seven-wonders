@@ -20,7 +20,7 @@ describe('Master', () => {
     const master: Master = new Master(game);
     expect(() => {
       master.prepare();
-    }).toThrow(new Error('Impossible to prepare game'));
+    }).toThrow(new Error('Impossible to go to next phase'));
   });
   it('should prepare a game', () => {
     const game: Game = new Game();
@@ -34,7 +34,7 @@ describe('Master', () => {
     const master: Master = new Master(game);
     expect(() => {
       master.run();
-    }).toThrow(new Error('Impossible to prepare game'));
+    }).toThrow(new Error('Impossible to go to next phase'));
   });
   it('should not run a game without preparing', () => {
     const game: Game = new Game();
@@ -42,7 +42,7 @@ describe('Master', () => {
     master.install();
     expect(() => {
       master.run();
-    }).toThrow(new Error('Impossible to prepare game'));
+    }).toThrow(new Error('Impossible to go to next phase'));
   });
   it('should run a game', () => {
     const game: Game = new Game();

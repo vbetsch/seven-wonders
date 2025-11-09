@@ -6,6 +6,8 @@
     "esModuleInterop": true,
     "baseUrl": "./src",
     "paths": {
+      "@commands/*": ["app/commands/*"],
+      "@usecases/*": ["app/usecases/*"],
       "@core/*": ["domain/core/*"],
       "@engine/*": ["domain/engine/*"]
     },

@@ -1,4 +1,4 @@
-import { CreateAndRunGameUseCase } from '../usecases/create-and-run-game.usecase';
+import { CreateAndRunGameUseCase } from '@usecases/create-and-run-game.usecase';
 
 export class PlayCommand {
   public execute(): void {

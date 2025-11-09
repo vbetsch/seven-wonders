@@ -1,4 +1,4 @@
-import { PlayCommand } from './app/commands/play.command';
+import { PlayCommand } from '@commands/play.command';
 
 const playCommand: PlayCommand = new PlayCommand();
 

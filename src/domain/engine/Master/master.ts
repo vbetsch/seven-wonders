@@ -21,4 +21,11 @@ export class Master {
     }
     this._game.phase = GamePhase.PREPARING;
   }
+
+  public run(): void {
+    if (this._game.phase !== GamePhase.PREPARING) {
+      throw new Error('Impossible to prepare game');
+    }
+    this._game.phase = GamePhase.RUNNING;
+  }
 }

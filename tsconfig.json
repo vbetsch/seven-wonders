@@ -1,29 +1,20 @@
 {
-    "compilerOptions": {
-        "target": "ES2020",
-        "module": "commonjs",
-        "outDir": "dist",
-        "esModuleInterop": true,
-        "baseUrl": "./src",
-        "paths": {
-            "@core/*": [
-                "domain/core/*"
-            ],
-            "@entities/*": [
-                "domain/entities/*"
-            ],
-            "@value-objects/*": [
-                "domain/value-objects/*"
-            ]
-        },
-        // Strictness
-        "strict": true,
-        "strictPropertyInitialization": true,
-        "noImplicitOverride": true,
-        "forceConsistentCasingInFileNames": true,
-        "noFallthroughCasesInSwitch": true,
+  "compilerOptions": {
+    "target": "ES2020",
+    "module": "commonjs",
+    "outDir": "dist",
+    "esModuleInterop": true,
+    "baseUrl": "./src",
+    "paths": {
+      "@core/*": ["domain/core/*"],
+      "@engine/*": ["domain/engine/*"]
     },
-    "include": [
-        "src"
-    ]
+    // Strictness
+    "strict": true,
+    "strictPropertyInitialization": true,
+    "noImplicitOverride": true,
+    "forceConsistentCasingInFileNames": true,
+    "noFallthroughCasesInSwitch": true
+  },
+  "include": ["src"]
 }

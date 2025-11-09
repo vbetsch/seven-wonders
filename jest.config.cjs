@@ -12,8 +12,7 @@ module.exports = {
   },
   moduleNameMapper: {
     '^@core/(.*)$': '<rootDir>/src/domain/core/$1',
-    '^@entities/(.*)$': '<rootDir>/src/domain/entities/$1',
-    '^@value-objects/(.*)$': '<rootDir>/src/domain/value-objects/$1',
+    '^@engine/(.*)$': '<rootDir>/src/domain/engine/$1',
   },
   coverageThreshold: {
     global: {

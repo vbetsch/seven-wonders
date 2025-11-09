@@ -1,7 +1,7 @@
 import { Game } from '@engine/Game/game';
 import { Master } from '@engine/Master/master';
 
-export class CreateGameUseCase {
+export class CreateAndRunGameUsecase {
   public handle(): void {
     const gameCreated = new Game();
     const gameMaster: Master = new Master(gameCreated);

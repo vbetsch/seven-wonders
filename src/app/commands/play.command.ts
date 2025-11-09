@@ -1,8 +1,9 @@
-import { CreateGameUseCase } from '../usecases/create-game.usecase';
+import { CreateAndRunGameUsecase } from '../usecases/create-and-run-game.usecase';
 
 export class PlayCommand {
   public execute(): void {
-    const createGameUseCase: CreateGameUseCase = new CreateGameUseCase();
+    const createGameUseCase: CreateAndRunGameUsecase =
+      new CreateAndRunGameUsecase();
     createGameUseCase.handle();
   }
 }

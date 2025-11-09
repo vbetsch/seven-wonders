@@ -7,5 +7,6 @@ export class CreateGameUseCase {
     const gameMaster: Master = new Master(gameCreated);
     gameMaster.install();
     gameMaster.prepare();
+    gameMaster.run();
   }
 }

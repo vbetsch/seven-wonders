@@ -1,5 +1,6 @@
 import { Game } from '@engine/Game/game';
 import { Master } from './master';
+import { GamePhase } from '@engine/Game/game-phase.enum';
 
 describe('Master', () => {
   it('should be well implemented', () => {
@@ -12,16 +13,20 @@ describe('Master', () => {
     const game: Game = new Game();
     const master: Master = new Master(game);
     master.install();
+    expect(game.phase).toStrictEqual(GamePhase.INSTALLING);
   });
   it('should prepare a game', () => {
     const game: Game = new Game();
     const master: Master = new Master(game);
     master.install();
     master.prepare();
+    expect(game.phase).toStrictEqual(GamePhase.PREPARING);
   });
   it('should not prepare a game', () => {
     const game: Game = new Game();
     const master: Master = new Master(game);
-    master.prepare();
+    expect(() => {
+      master.prepare();
+    }).toThrow(new Error('Impossible to prepare game'));
   });
 });

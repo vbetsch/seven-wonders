@@ -1,5 +1,6 @@
 import { ProfileParams } from '@engine/Profile/profile.params';
 import { Game } from '@engine/Game/game';
+import { Master } from '@engine/Master/master';
 
 export class Profile {
   private readonly _name: string;
@@ -13,6 +14,9 @@ export class Profile {
   }
 
   public play(): void {
-    new Game();
+    const game = new Game();
+    const master: Master = new Master(game);
+    master.install();
+    master.prepare();
   }
 }

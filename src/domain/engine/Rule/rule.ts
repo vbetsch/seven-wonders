@@ -1,24 +1,21 @@
 export class Rule {
-  private static readonly _ages = {
-    COUNT: 3,
-    CARDS_PER_AGE: 20,
-  };
+  private readonly _agesNumber: number = 3;
+  private readonly _availableWonders: number = 12;
+  private readonly _availablePerPlayer: number = 4;
+  private readonly _maxUsedWonders: number = 7;
 
-  private static readonly _wonders = {
-    TOTAL: 12,
-    PER_PLAYER: 4,
-    MAX_USED: 7,
-  };
-
-  public static get ages(): { COUNT: number; CARDS_PER_AGE: number } {
-    return this._ages;
-  }
-  public static get wonders(): {
-    TOTAL: number;
-    PER_PLAYER: number;
-    MAX_USED: number;
-  } {
-    return this._wonders;
+  public get agesNumber(): number {
+    return this._agesNumber;
   }
 
+  public get availableWonders(): number {
+    return this._availableWonders;
+  }
+
+  public get maxUsed(): number {
+    return this._maxUsedWonders;
+  }
+  public get availablePerPlayer(): number {
+    return this._availablePerPlayer;
+  }
 }

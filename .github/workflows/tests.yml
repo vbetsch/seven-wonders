@@ -24,7 +24,7 @@ jobs:
 
       - name: Run tests (with coverage on master)
         run: |
-          if [ "${{ github.ref_name }}" = "master" ]; then
+          if [ "${{ github.base_ref }}" = "master" ]; then
             npm run test:cov
           else
             npm test

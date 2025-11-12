@@ -1,7 +1,8 @@
 import { Game } from '@engine/Game/game';
 import { Master } from '@engine/Master/master';
+import { IUseCase } from '@usecases/abstract/usecase.interface';
 
-export class CreateAndRunGameUseCase {
+export class CreateAndRunGameUseCase implements IUseCase {
   public handle(): void {
     const gameCreated = new Game();
     const gameMaster: Master = new Master(gameCreated);

@@ -1,16 +1,21 @@
 import { Rule } from './rule';
 
 describe('Rule', () => {
+  // Expected
+  const agesNumberExpected: number = 3;
+  const availableWondersTotalExpected: number = 12;
+  const availableWondersPerPlayerExpected: number = 4;
+  const maxUsedWondersTotalExpected: number = 7;
+
+  // Tested
   const rule = new Rule();
 
   it('should have correct constant values', () => {
-    // eslint-disable-next-line @typescript-eslint/no-magic-numbers
-    expect(rule.agesNumber).toBe(3);
-    // eslint-disable-next-line @typescript-eslint/no-magic-numbers
-    expect(rule.availableWondersTotal).toBe(12);
-    // eslint-disable-next-line @typescript-eslint/no-magic-numbers
-    expect(rule.availableWondersPerPlayer).toBe(4);
-    // eslint-disable-next-line @typescript-eslint/no-magic-numbers
-    expect(rule.maxUsedWondersTotal).toBe(7);
+    expect(rule.agesNumber).toBe(agesNumberExpected);
+    expect(rule.availableWondersTotal).toBe(availableWondersTotalExpected);
+    expect(rule.availableWondersPerPlayer).toBe(
+      availableWondersPerPlayerExpected
+    );
+    expect(rule.maxUsedWondersTotal).toBe(maxUsedWondersTotalExpected);
   });
 });

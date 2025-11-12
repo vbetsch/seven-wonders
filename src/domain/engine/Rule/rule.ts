@@ -1,21 +1,21 @@
 export class Rule {
-  private readonly _agesNumber: number = 3;
-  private readonly _availableWonders: number = 12;
-  private readonly _availablePerPlayer: number = 4;
-  private readonly _maxUsedWonders: number = 7;
+  private readonly _agesNumber: number = 3; // The number of ages (default: 3)
+  private readonly _availableWondersTotal: number = 12; // The total number of wonders available (default: 12)
+  private readonly _availableWondersPerPlayer: number = 4; // The number of wonders available per player (default: 4)
+  private readonly _maxUsedWondersTotal: number = 7; // The maximum number of usable wonders (default: 7)
 
   public get agesNumber(): number {
     return this._agesNumber;
   }
 
-  public get availableWonders(): number {
-    return this._availableWonders;
+  public get availableWondersTotal(): number {
+    return this._availableWondersTotal;
   }
 
-  public get maxUsed(): number {
-    return this._maxUsedWonders;
+  public get maxUsedWondersTotal(): number {
+    return this._maxUsedWondersTotal;
   }
-  public get availablePerPlayer(): number {
-    return this._availablePerPlayer;
+  public get availableWondersPerPlayer(): number {
+    return this._availableWondersPerPlayer;
   }
 }

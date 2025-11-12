@@ -10,7 +10,7 @@ describe('Rule', () => {
   const maxUsedWondersTotalExpected: number = 7;
 
   // Tested
-  const rule = new Rule();
+  const rule: Rule = new Rule();
 
   it('should have correct constant values', () => {
     expect(rule.agesNumber).toBe(agesNumberExpected);

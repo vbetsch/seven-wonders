@@ -1,12 +1,30 @@
 import { Rule } from './rule';
 
 describe('Rule', () => {
-  const rule = new Rule();
+  const playersNumber: number = 2;
+
+  // Expected
+  const agesNumberExpected: number = 3;
+  const availableWondersTotalExpected: number = 12;
+  const availableWondersPerPlayerExpected: number = 4;
+  const maxUsedWondersTotalExpected: number = 7;
+
+  // Tested
+  const rule: Rule = new Rule();
 
   it('should have correct constant values', () => {
-    expect(rule.agesNumber).toBe(3);
-    expect(rule.availableWondersTotal).toBe(12);
-    expect(rule.availableWondersPerPlayer).toBe(4);
-    expect(rule.maxUsedWondersTotal).toBe(7);
+    expect(rule.agesNumber).toBe(agesNumberExpected);
+    expect(rule.availableWondersTotal).toBe(availableWondersTotalExpected);
+    expect(rule.availableWondersPerPlayer).toBe(
+      availableWondersPerPlayerExpected
+    );
+    expect(rule.maxUsedWondersTotal).toBe(maxUsedWondersTotalExpected);
+  });
+  it('should remain only one wonder', () => {
+    const wondersRemainingOnceMaximumReachedExpected: number = 1;
+    expect(
+      availableWondersPerPlayerExpected * playersNumber -
+        maxUsedWondersTotalExpected
+    ).toBe(wondersRemainingOnceMaximumReachedExpected);
   });
 });

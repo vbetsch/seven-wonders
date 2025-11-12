@@ -1,0 +1,13 @@
+[
+  {
+    "id": "baths",
+    "name": "Bains",
+    "category": "civilian",
+    "cost": { "coin": 2 },
+    "produces": { "points": 3 },
+    "chainFrom": null,
+    "chainTo": ["aqueduct"],
+    "effect": "science",
+    "symbol": "tablet"
+  }
+]

@@ -1,0 +1,72 @@
+{
+  "ages": [
+    {
+      "cards": [
+        {
+          "id": "baths",
+          "name": "Bains",
+          "category": "civilian",
+          "cost": { "coin": 2 },
+          "produces": { "points": 3 },
+          "chainFrom": null,
+          "chainTo": ["aqueduct"],
+          "effect": "science",
+          "symbol": "tablet"
+        }
+      ],
+      "structure": [
+        [true, true],
+        [false, false, false],
+        [true, true, true, true],
+        [false, false, false, false, false],
+        [true, true, true, true, true, true]
+      ]
+    },
+    {
+      "cards": [
+        {
+          "id": "baths",
+          "name": "Bains",
+          "category": "civilian",
+          "cost": { "coin": 2 },
+          "produces": { "points": 3 },
+          "chainFrom": null,
+          "chainTo": ["aqueduct"],
+          "effect": "science",
+          "symbol": "tablet"
+        }
+      ],
+      "structure": [
+        [true, true, true, true, true, true],
+        [false, false, false, false, false],
+        [true, true, true, true],
+        [false, false, false],
+        [true, true]
+      ]
+    },
+    {
+      "cards": [
+        {
+          "id": "baths",
+          "name": "Bains",
+          "category": "civilian",
+          "cost": { "coin": 2 },
+          "produces": { "points": 3 },
+          "chainFrom": null,
+          "chainTo": ["aqueduct"],
+          "effect": "science",
+          "symbol": "tablet"
+        }
+      ],
+      "structure": [
+        [true, true],
+        [false, false, false],
+        [true, true, true, true],
+        [false, false],
+        [true, true, true, true],
+        [false, false, false],
+        [true, true]
+      ]
+    }
+  ]
+}

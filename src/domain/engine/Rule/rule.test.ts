@@ -1,6 +1,8 @@
 import { Rule } from './rule';
 
 describe('Rule', () => {
+  const playersNumber: number = 2;
+
   // Expected
   const agesNumberExpected: number = 3;
   const availableWondersTotalExpected: number = 12;
@@ -17,5 +19,12 @@ describe('Rule', () => {
       availableWondersPerPlayerExpected
     );
     expect(rule.maxUsedWondersTotal).toBe(maxUsedWondersTotalExpected);
+  });
+  it('should remain only one wonder', () => {
+    const wondersRemainingOnceMaximumReachedExpected: number = 1;
+    expect(
+      availableWondersPerPlayerExpected * playersNumber -
+        maxUsedWondersTotalExpected
+    ).toBe(wondersRemainingOnceMaximumReachedExpected);
   });
 });

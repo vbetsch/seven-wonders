@@ -1,5 +1,6 @@
 export class Rule {
   private readonly _agesNumber: number = 3; // The number of ages (default: 3)
+  private readonly _maxTurnsPerAge: number = 20; // The number of cards in Age structure (default: 20)
   private readonly _availableWondersTotal: number = 12; // The total number of wonders available (default: 12)
   private readonly _availableWondersPerPlayer: number = 4; // The number of wonders available per player (default: 4)
   private readonly _maxUsedWondersTotal: number = 7; // The maximum number of usable wonders (default: 7)
@@ -17,5 +18,8 @@ export class Rule {
   }
   public get availableWondersPerPlayer(): number {
     return this._availableWondersPerPlayer;
+  }
+  public get maxTurnsPerAge(): number {
+    return this._maxTurnsPerAge;
   }
 }

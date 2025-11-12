@@ -5,6 +5,7 @@ describe('Rule', () => {
 
   it('should have correct constant values', () => {
     expect(rule.agesNumber).toBe(3);
+    expect(rule.maxTurnsPerAge).toBe(20);
     expect(rule.availableWondersTotal).toBe(12);
     expect(rule.availableWondersPerPlayer).toBe(4);
     expect(rule.maxUsedWondersTotal).toBe(7);

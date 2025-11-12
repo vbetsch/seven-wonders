@@ -32,5 +32,6 @@ export class Master {
   public run(): void {
     this._nextPhase(GamePhase.PREPARING, GamePhase.RUNNING);
     this._logger.log('Running the game...');
+    this._game.run();
   }
 }

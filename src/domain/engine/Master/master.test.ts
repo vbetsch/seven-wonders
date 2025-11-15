@@ -1,3 +1,4 @@
+import 'reflect-metadata';
 import { Game } from '@engine/Game/game';
 import { Master } from './master';
 import { GamePhase } from '@engine/Game/game-phase.enum';

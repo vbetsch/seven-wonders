@@ -1,8 +1,10 @@
+import 'reflect-metadata';
 import { Logger } from './logger';
 import { LoggerColorEnum } from './logger-color.enum';
+import { container } from 'tsyringe';
 
 describe('Logger', () => {
-  let logger: Logger;
+  const logger: Logger = container.resolve(Logger);
   let consoleLogSpy: jest.SpyInstance;
   let consoleDebugSpy: jest.SpyInstance;
   let consoleInfoSpy: jest.SpyInstance;
@@ -10,7 +12,6 @@ describe('Logger', () => {
   let consoleErrorSpy: jest.SpyInstance;
 
   beforeEach(() => {
-    logger = new Logger();
     consoleLogSpy = jest.spyOn(console, 'log').mockImplementation();
     consoleDebugSpy = jest.spyOn(console, 'debug').mockImplementation();
     consoleInfoSpy = jest.spyOn(console, 'info').mockImplementation();

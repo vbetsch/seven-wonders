@@ -1,7 +1,9 @@
 import { Game } from '@engine/Game/game';
 import { Master } from '@engine/Master/master';
 import { IUseCase } from '@usecases/abstract/usecase.interface';
+import { injectable } from 'tsyringe';
 
+@injectable()
 export class CreateAndRunGameUseCase implements IUseCase {
   public handle(): void {
     const gameCreated: Game = new Game();

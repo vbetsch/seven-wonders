@@ -23,8 +23,10 @@ jobs:
 
       - name: Run ESLint in strict mode
         if: github.ref == 'refs/heads/master'
+          || github.ref == 'refs/heads/develop'
         run: npm run lint:strict
 
       - name: Run ESLint in default mode
         if: github.ref != 'refs/heads/master'
+          && github.ref != 'refs/heads/develop'
         run: npm run lint

@@ -25,8 +25,8 @@ describe('Rules', () => {
   it('should remain only one wonder', () => {
     const wondersRemainingOnceMaximumReachedExpected: number = 1;
     expect(
-      availableWondersPerPlayerExpected * playersNumber -
-        maxUsedWondersTotalExpected
+      rules.availableWondersPerPlayer * playersNumber -
+        rules.maxUsedWondersTotal
     ).toBe(wondersRemainingOnceMaximumReachedExpected);
   });
 });

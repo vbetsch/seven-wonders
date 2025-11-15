@@ -1,8 +1,8 @@
 import 'reflect-metadata';
-import { Rule } from './rule';
+import { Rules } from './rules';
 import { container } from 'tsyringe';
 
-describe('Rule', () => {
+describe('Rules', () => {
   const playersNumber: number = 2;
 
   // Expected
@@ -12,15 +12,15 @@ describe('Rule', () => {
   const maxUsedWondersTotalExpected: number = 7;
 
   // Tested
-  const rule: Rule = container.resolve(Rule);
+  const rules: Rules = container.resolve(Rules);
 
   it('should have correct constant values', () => {
-    expect(rule.agesNumber).toBe(agesNumberExpected);
-    expect(rule.availableWondersTotal).toBe(availableWondersTotalExpected);
-    expect(rule.availableWondersPerPlayer).toBe(
+    expect(rules.agesNumber).toBe(agesNumberExpected);
+    expect(rules.availableWondersTotal).toBe(availableWondersTotalExpected);
+    expect(rules.availableWondersPerPlayer).toBe(
       availableWondersPerPlayerExpected
     );
-    expect(rule.maxUsedWondersTotal).toBe(maxUsedWondersTotalExpected);
+    expect(rules.maxUsedWondersTotal).toBe(maxUsedWondersTotalExpected);
   });
   it('should remain only one wonder', () => {
     const wondersRemainingOnceMaximumReachedExpected: number = 1;

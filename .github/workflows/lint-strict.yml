@@ -1,9 +1,9 @@
-name: lint
+name: lint-strict
 
 on:
-  push:
-    branches-ignore:
-      - main
+  pull_request:
+    branches:
+      - master
       - develop
 
 jobs:
@@ -22,5 +22,5 @@ jobs:
       - name: Install dependencies
         run: npm clean-install
 
-      - name: Run ESLint in default mode
-        run: npm run lint
+      - name: Run ESLint in strict mode
+        run: npm run lint:strict

@@ -3,9 +3,8 @@ import { Rules } from './rules';
 import { container } from 'tsyringe';
 
 describe('Rules', () => {
-  const playersNumber: number = 2;
-
   // Expected
+  const playersNumberExpected: number = 2;
   const agesNumberExpected: number = 3;
   const availableWondersTotalExpected: number = 12;
   const availableWondersPerPlayerExpected: number = 4;
@@ -15,6 +14,7 @@ describe('Rules', () => {
   const rules: Rules = container.resolve(Rules);
 
   it('should have correct constant values', () => {
+    expect(rules.playersNumber).toBe(playersNumberExpected);
     expect(rules.agesNumber).toBe(agesNumberExpected);
     expect(rules.availableWondersTotal).toBe(availableWondersTotalExpected);
     expect(rules.availableWondersPerPlayer).toBe(
@@ -25,8 +25,8 @@ describe('Rules', () => {
   it('should remain only one wonder', () => {
     const wondersRemainingOnceMaximumReachedExpected: number = 1;
     expect(
-      availableWondersPerPlayerExpected * playersNumber -
-        maxUsedWondersTotalExpected
+      rules.availableWondersPerPlayer * rules.playersNumber -
+        rules.maxUsedWondersTotal
     ).toBe(wondersRemainingOnceMaximumReachedExpected);
   });
 });

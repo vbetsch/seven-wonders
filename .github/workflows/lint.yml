@@ -2,9 +2,8 @@ name: lint
 
 on:
   push:
-    branches-ignore:
-      - main
-      - develop
+    branches:
+      - '**'
 
 jobs:
   eslint:

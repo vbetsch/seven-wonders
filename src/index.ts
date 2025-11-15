@@ -1,5 +1,5 @@
 import 'reflect-metadata';
-import { PlayCommand } from '@commands/play.command';
+import { PlayCommand } from '@commands/play/play.command';
 import { ICommand } from '@commands/abstract/command.interface';
 import { container } from 'tsyringe';
 

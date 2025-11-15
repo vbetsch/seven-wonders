@@ -13,21 +13,22 @@ describe('CreateAndRunGameUseCase', () => {
   let mockMaster: jest.Mocked<Master>;
 
   beforeEach(() => {
-    jest.clearAllMocks();
-
-    mockGame = new Game() as jest.Mocked<Game>;
+    mockGame = {} as jest.Mocked<Game>;
     mockMaster = {
       install: jest.fn(),
       prepare: jest.fn(),
       run: jest.fn(),
     } as unknown as jest.Mocked<Master>;
 
+    (Game as jest.MockedClass<typeof Game>).mockImplementation(() => mockGame);
     (Master as jest.MockedClass<typeof Master>).mockImplementation(
       () => mockMaster
     );
 
     container.clearInstances();
     useCase = container.resolve(CreateAndRunGameUseCase);
+
+    jest.clearAllMocks();
   });
 
   afterEach(() => {

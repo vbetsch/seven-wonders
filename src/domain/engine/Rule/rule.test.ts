@@ -1,4 +1,6 @@
+import 'reflect-metadata';
 import { Rule } from './rule';
+import { container } from 'tsyringe';
 
 describe('Rule', () => {
   const playersNumber: number = 2;
@@ -10,7 +12,7 @@ describe('Rule', () => {
   const maxUsedWondersTotalExpected: number = 7;
 
   // Tested
-  const rule: Rule = new Rule();
+  const rule: Rule = container.resolve(Rule);
 
   it('should have correct constant values', () => {
     expect(rule.agesNumber).toBe(agesNumberExpected);

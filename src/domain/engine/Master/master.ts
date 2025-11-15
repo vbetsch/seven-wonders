@@ -1,6 +1,7 @@
 import { Game } from '@engine/Game/game';
 import { GamePhase } from '@engine/Game/game-phase.enum';
 import { Logger } from '@core/Logger/logger';
+import { container } from 'tsyringe';
 
 export class Master {
   private readonly _logger: Logger;
@@ -15,7 +16,7 @@ export class Master {
   }
 
   public constructor(game: Game) {
-    this._logger = new Logger();
+    this._logger = container.resolve(Logger);
     this._game = game;
   }
 

@@ -1,5 +1,7 @@
 import { LoggerColorEnum } from './logger-color.enum';
+import { injectable } from 'tsyringe';
 
+@injectable()
 export class Logger {
   private readonly _prefix: string = '➔';
 

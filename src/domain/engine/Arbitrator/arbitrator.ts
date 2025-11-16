@@ -11,8 +11,8 @@ export class Arbitrator {
   public getGameResult(gameStatistics: GameStatisticsType): GameResultType {
     const winnerStats: PlayerStatistics =
       // eslint-disable-next-line max-params
-      gameStatistics.playersStatistics.reduce((max, player) =>
-        player.score > max.score ? player : max
+      gameStatistics.playersStatistics.reduce((maxStats, playerStats) =>
+        playerStats.score > maxStats.score ? playerStats : maxStats
       );
 
     const losers: string[] = gameStatistics.playersStatistics
@@ -27,7 +27,9 @@ export class Arbitrator {
     if (hasEquality) {
       return {
         winner: '',
-        losers: gameStatistics.playersStatistics.map((p) => p.id),
+        losers: gameStatistics.playersStatistics.map(
+          (playerStats) => playerStats.id
+        ),
       };
     }
 

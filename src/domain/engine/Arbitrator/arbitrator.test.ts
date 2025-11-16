@@ -16,60 +16,65 @@ describe('Arbitrator', () => {
     container.clearInstances();
   });
 
-  it('should be well implemented', () => {
-    expect(arbitrator).toBeTruthy();
-    expect(arbitrator).toBeInstanceOf(Arbitrator);
-    expect(arbitrator).toBeDefined();
+  describe('Initialization', () => {
+    it('should be properly instantiated', () => {
+      expect(arbitrator).toBeDefined();
+      expect(arbitrator).toBeInstanceOf(Arbitrator);
+    });
   });
 
-  it('should get game result - winner is player 2', () => {
-    const playersStatistics: PlayerStatisticsType[] = [
-      { id: 'Player 1', score: 32 },
-      { id: 'Player 2', score: 45 },
-    ];
-    const gameStatistics: GameStatistics = new GameStatistics(
-      playersStatistics
-    );
-    const gameResultExpected: GameResultType = {
-      winner: 'Player 2',
-      losers: ['Player 1'],
-    };
-    expect(arbitrator.getGameResult(gameStatistics)).toStrictEqual(
-      gameResultExpected
-    );
-  });
+  describe('getGameResult', () => {
+    it('should return null when there is equality', () => {
+      const playersStatistics: PlayerStatisticsType[] = [
+        { id: 'Player 1', score: 50 },
+        { id: 'Player 2', score: 50 },
+      ];
+      const gameStatistics: GameStatistics = new GameStatistics(
+        playersStatistics
+      );
 
-  it('should get game result - winner is player 1', () => {
-    const playersStatistics: PlayerStatisticsType[] = [
-      {
-        id: 'Player 1',
-        score: 53,
-      },
-      {
-        id: 'Player 2',
-        score: 29,
-      },
-    ];
-    const gameStatistics: GameStatistics = new GameStatistics(
-      playersStatistics
-    );
-    const gameResultExpected: GameResultType = {
-      winner: 'Player 1',
-      losers: ['Player 2'],
-    };
-    expect(arbitrator.getGameResult(gameStatistics)).toStrictEqual(
-      gameResultExpected
-    );
-  });
+      const result: GameResultType | null =
+        arbitrator.getGameResult(gameStatistics);
 
-  it('should get game result - equality', () => {
-    const playersStatistics: PlayerStatisticsType[] = [
-      { id: 'Player 1', score: 50 },
-      { id: 'Player 2', score: 50 },
-    ];
-    const gameStatistics: GameStatistics = new GameStatistics(
-      playersStatistics
-    );
-    expect(arbitrator.getGameResult(gameStatistics)).toBeNull();
+      expect(result).toBeNull();
+    });
+
+    it('should return correct result when Player 1 wins', () => {
+      const playersStatistics: PlayerStatisticsType[] = [
+        { id: 'Player 1', score: 53 },
+        { id: 'Player 2', score: 29 },
+      ];
+      const gameStatistics: GameStatistics = new GameStatistics(
+        playersStatistics
+      );
+      const expectedResult: GameResultType = {
+        winner: 'Player 1',
+        losers: ['Player 2'],
+      };
+
+      const result: GameResultType | null =
+        arbitrator.getGameResult(gameStatistics);
+
+      expect(result).toStrictEqual(expectedResult);
+    });
+
+    it('should return correct result when Player 2 wins', () => {
+      const playersStatistics: PlayerStatisticsType[] = [
+        { id: 'Player 1', score: 32 },
+        { id: 'Player 2', score: 45 },
+      ];
+      const gameStatistics: GameStatistics = new GameStatistics(
+        playersStatistics
+      );
+      const expectedResult: GameResultType = {
+        winner: 'Player 2',
+        losers: ['Player 1'],
+      };
+
+      const result: GameResultType | null =
+        arbitrator.getGameResult(gameStatistics);
+
+      expect(result).toStrictEqual(expectedResult);
+    });
   });
 });

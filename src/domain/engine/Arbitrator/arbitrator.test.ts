@@ -42,4 +42,25 @@ describe('Arbitrator', () => {
       gameResultExpected
     );
   });
+
+  it('should get game result - winner is player 1', () => {
+    const playersStatistics: PlayerStatistics[] = [
+      {
+        id: 'Player 1',
+        score: 53,
+      },
+      {
+        id: 'Player 2',
+        score: 29,
+      },
+    ];
+    const gameStatistics: GameStatisticsType = { playersStatistics };
+    const gameResultExpected: GameResultType = {
+      winner: 'Player 2',
+      loser: 'Player 1',
+    };
+    expect(arbitrator.getGameResult(gameStatistics)).toStrictEqual(
+      gameResultExpected
+    );
+  });
 });

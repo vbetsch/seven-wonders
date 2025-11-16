@@ -1,32 +1,32 @@
-import { PlayerStatistics } from '@engine/Player/player-statistics.type';
+import { PlayerStatisticsType } from '@engine/Player/player-statistics.type';
 
 export class GameStatistics {
-  private readonly _playersStatistics: PlayerStatistics[] = [];
+  private readonly _playersStatistics: PlayerStatisticsType[] = [];
 
-  public constructor(playersStatistics: PlayerStatistics[]) {
+  public constructor(playersStatistics: PlayerStatisticsType[]) {
     this._playersStatistics = playersStatistics;
   }
 
-  public get playersStatistics(): PlayerStatistics[] {
+  public get playersStatistics(): PlayerStatisticsType[] {
     return this._playersStatistics;
   }
 
-  public getWinnerStatistics(): PlayerStatistics {
+  public getWinnerStatistics(): PlayerStatisticsType {
     // eslint-disable-next-line max-params
     return this._playersStatistics.reduce((maxStats, playerStats) =>
       playerStats.score > maxStats.score ? playerStats : maxStats
     );
   }
 
-  public getLosersStatistics(): PlayerStatistics[] {
-    const winnerStatistics: PlayerStatistics = this.getWinnerStatistics();
+  public getLosersStatistics(): PlayerStatisticsType[] {
+    const winnerStatistics: PlayerStatisticsType = this.getWinnerStatistics();
     return this._playersStatistics.filter(
       (player) => player.id !== winnerStatistics.id
     );
   }
 
   public hasEquality(): boolean {
-    const winnerStatistics: PlayerStatistics = this.getWinnerStatistics();
+    const winnerStatistics: PlayerStatisticsType = this.getWinnerStatistics();
     return this._playersStatistics.some(
       (player) =>
         player.id !== winnerStatistics.id &&

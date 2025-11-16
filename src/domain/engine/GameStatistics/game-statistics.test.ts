@@ -1,5 +1,5 @@
 import { GameStatistics } from './game-statistics';
-import { PlayerStatistics } from '@engine/Player/player-statistics.type';
+import { PlayerStatisticsType } from '@engine/Player/player-statistics.type';
 
 describe('GameStatistics', () => {
   it('should be well implemented', () => {
@@ -9,7 +9,7 @@ describe('GameStatistics', () => {
     expect(gameStatistics).toBeDefined();
   });
   it('should have players statistics', () => {
-    const playersStatistics: PlayerStatistics[] = [
+    const playersStatistics: PlayerStatisticsType[] = [
       {
         id: 'Player 1',
         score: 71,

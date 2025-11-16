@@ -2,7 +2,7 @@ import 'reflect-metadata';
 import { container } from 'tsyringe';
 import { Arbitrator } from './arbitrator';
 import { GameResultType } from '@engine/Game/game-result.type';
-import { PlayerStatistics } from '@engine/Player/player-statistics.type';
+import { PlayerStatisticsType } from '@engine/Player/player-statistics.type';
 import { GameStatistics } from '@engine/GameStatistics/game-statistics';
 
 describe('Arbitrator', () => {
@@ -23,7 +23,7 @@ describe('Arbitrator', () => {
   });
 
   it('should get game result - winner is player 2', () => {
-    const playersStatistics: PlayerStatistics[] = [
+    const playersStatistics: PlayerStatisticsType[] = [
       { id: 'Player 1', score: 32 },
       { id: 'Player 2', score: 45 },
     ];
@@ -40,7 +40,7 @@ describe('Arbitrator', () => {
   });
 
   it('should get game result - winner is player 1', () => {
-    const playersStatistics: PlayerStatistics[] = [
+    const playersStatistics: PlayerStatisticsType[] = [
       {
         id: 'Player 1',
         score: 53,
@@ -63,7 +63,7 @@ describe('Arbitrator', () => {
   });
 
   it('should get game result - equality', () => {
-    const playersStatistics: PlayerStatistics[] = [
+    const playersStatistics: PlayerStatisticsType[] = [
       { id: 'Player 1', score: 50 },
       { id: 'Player 2', score: 50 },
     ];

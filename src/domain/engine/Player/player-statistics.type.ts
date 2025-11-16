@@ -1,4 +1,4 @@
-export type PlayerStatistics = {
-  id: string;
-  score: number;
+export type PlayerStatisticsType = {
+  readonly id: string;
+  readonly score: number;
 };

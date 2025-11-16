@@ -14,6 +14,7 @@ describe('GameLoop', () => {
 
     loop.start();
 
+    // eslint-disable-next-line @typescript-eslint/no-magic-numbers
     expect(mockLogger.log).toHaveBeenCalledTimes(rule.agesNumber * 2);
 
     for (let i = 1; i <= rule.agesNumber; i++) {

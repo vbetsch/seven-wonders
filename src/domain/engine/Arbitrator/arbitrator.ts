@@ -8,9 +8,26 @@ export class Arbitrator {
   public constructor(@inject(Rules) private readonly _rules: Rules) {}
 
   public getGameResult(gameStatistics: GameStatisticsType): GameResultType {
+    let maxScore: number = 0;
+    let winnerId: string = '';
+    let loserId: string = '';
+
+    gameStatistics.playersStatistics.forEach((playerStatistics) => {
+      if (playerStatistics.score > maxScore) {
+        maxScore = playerStatistics.score;
+        winnerId = playerStatistics.id;
+      }
+    });
+
+    gameStatistics.playersStatistics.forEach((playerStatistics) => {
+      if (playerStatistics.id !== winnerId) {
+        loserId = playerStatistics.id;
+      }
+    });
+
     return {
-      winner: 'Player 1',
-      loser: 'Player 2',
+      winner: winnerId,
+      loser: loserId,
     };
   }
 }

@@ -8,57 +8,19 @@ import { GameStatistics } from '@engine/GameStatistics/game-statistics';
 export class Arbitrator {
   public constructor(@inject(Rules) private readonly _rules: Rules) {}
 
-  private _getWinnerStatistics(
-    playersStatistics: PlayerStatistics[]
-  ): PlayerStatistics {
-    // eslint-disable-next-line max-params
-    return playersStatistics.reduce((maxStats, playerStats) =>
-      playerStats.score > maxStats.score ? playerStats : maxStats
-    );
-  }
-
-  // eslint-disable-next-line max-params
-  private _getLosersStatistics(
-    playersStatistics: PlayerStatistics[],
-    winnerStatistics: PlayerStatistics
-  ): PlayerStatistics[] {
-    return playersStatistics.filter(
-      (player) => player.id !== winnerStatistics.id
-    );
-  }
-
   private _getFormattedLosers(losersStatistics: PlayerStatistics[]): string[] {
     return losersStatistics.map((player) => player.id);
   }
 
-  // eslint-disable-next-line max-params
-  private _hasEquality(
-    playersStatistics: PlayerStatistics[],
-    winnerStatistics: PlayerStatistics
-  ): boolean {
-    return playersStatistics.some(
-      (player) =>
-        player.id !== winnerStatistics.id &&
-        player.score === winnerStatistics.score
-    );
-  }
-
   public getGameResult(gameStatistics: GameStatistics): GameResultType | null {
-    const winnerStatistics: PlayerStatistics = this._getWinnerStatistics(
-      gameStatistics.playersStatistics
-    );
+    const winnerStatistics: PlayerStatistics =
+      gameStatistics.getWinnerStatistics();
 
-    if (this._hasEquality(gameStatistics.playersStatistics, winnerStatistics))
-      return null;
+    if (gameStatistics.hasEquality()) return null;
 
     return {
       winner: winnerStatistics.id,
-      losers: this._getFormattedLosers(
-        this._getLosersStatistics(
-          gameStatistics.playersStatistics,
-          winnerStatistics
-        )
-      ),
+      losers: this._getFormattedLosers(gameStatistics.getLosersStatistics()),
     };
   }
 }

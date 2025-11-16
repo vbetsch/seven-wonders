@@ -63,4 +63,20 @@ describe('Arbitrator', () => {
       gameResultExpected
     );
   });
+
+  it('should get game result - equality', () => {
+    const playersStatistics: PlayerStatistics[] = [
+      {
+        id: 'Player 1',
+        score: 50,
+      },
+      {
+        id: 'Player 2',
+        score: 50,
+      },
+    ];
+    const gameStatistics: GameStatisticsType = { playersStatistics };
+    const gameResult: GameResultType = arbitrator.getGameResult(gameStatistics);
+    expect(gameResult.winner).toBe(gameResult.loser);
+  });
 });

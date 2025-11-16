@@ -24,19 +24,13 @@ describe('Arbitrator', () => {
 
   it('should get game result - winner is player 2', () => {
     const playersStatistics: PlayerStatistics[] = [
-      {
-        id: 'Player 1',
-        score: 32,
-      },
-      {
-        id: 'Player 2',
-        score: 45,
-      },
+      { id: 'Player 1', score: 32 },
+      { id: 'Player 2', score: 45 },
     ];
     const gameStatistics: GameStatisticsType = { playersStatistics };
     const gameResultExpected: GameResultType = {
       winner: 'Player 2',
-      loser: 'Player 1',
+      losers: ['Player 1'],
     };
     expect(arbitrator.getGameResult(gameStatistics)).toStrictEqual(
       gameResultExpected
@@ -57,7 +51,7 @@ describe('Arbitrator', () => {
     const gameStatistics: GameStatisticsType = { playersStatistics };
     const gameResultExpected: GameResultType = {
       winner: 'Player 1',
-      loser: 'Player 2',
+      losers: ['Player 2'],
     };
     expect(arbitrator.getGameResult(gameStatistics)).toStrictEqual(
       gameResultExpected
@@ -66,17 +60,12 @@ describe('Arbitrator', () => {
 
   it('should get game result - equality', () => {
     const playersStatistics: PlayerStatistics[] = [
-      {
-        id: 'Player 1',
-        score: 50,
-      },
-      {
-        id: 'Player 2',
-        score: 50,
-      },
+      { id: 'Player 1', score: 50 },
+      { id: 'Player 2', score: 50 },
     ];
     const gameStatistics: GameStatisticsType = { playersStatistics };
     const gameResult: GameResultType = arbitrator.getGameResult(gameStatistics);
-    expect(gameResult.winner).toBe(gameResult.loser);
+    expect(gameResult.winner).toBe('');
+    expect(gameResult.losers).toEqual(['Player 1', 'Player 2']);
   });
 });

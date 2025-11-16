@@ -1,6 +1,7 @@
 {
   "compilerOptions": {
-    "resolveJsonModule": true,
+    "experimentalDecorators": true,
+    "emitDecoratorMetadata": true,
     "target": "ES2020",
     "module": "commonjs",
     "outDir": "dist",
@@ -10,8 +11,7 @@
       "@commands/*": ["app/commands/*"],
       "@usecases/*": ["app/usecases/*"],
       "@core/*": ["domain/core/*"],
-      "@engine/*": ["domain/engine/*"],
-      "@infra/*": ["infra/*"]
+      "@engine/*": ["domain/engine/*"]
     },
     // Strictness
     "strict": true,

@@ -1,5 +1,7 @@
+import 'reflect-metadata';
 import { Logger } from './logger';
 import { LoggerColorEnum } from './logger-color.enum';
+import { container } from 'tsyringe';
 
 describe('Logger', () => {
   let logger: Logger;
@@ -10,7 +12,7 @@ describe('Logger', () => {
   let consoleErrorSpy: jest.SpyInstance;
 
   beforeEach(() => {
-    logger = new Logger();
+    logger = container.resolve(Logger);
     consoleLogSpy = jest.spyOn(console, 'log').mockImplementation();
     consoleDebugSpy = jest.spyOn(console, 'debug').mockImplementation();
     consoleInfoSpy = jest.spyOn(console, 'info').mockImplementation();
@@ -19,12 +21,13 @@ describe('Logger', () => {
   });
 
   afterEach(() => {
+    container.clearInstances();
     jest.restoreAllMocks();
   });
 
   describe('success', () => {
     it('should display a success message with the appropriate color', () => {
-      const message = 'Operation successful';
+      const message: string = 'Operation successful';
       logger.success(message);
 
       expect(consoleLogSpy).toHaveBeenCalledTimes(1);
@@ -36,7 +39,7 @@ describe('Logger', () => {
 
   describe('fail', () => {
     it('should display a failure message with the appropriate color', () => {
-      const message = 'Operation failed';
+      const message: string = 'Operation failed';
       logger.fail(message);
 
       expect(consoleLogSpy).toHaveBeenCalledTimes(1);
@@ -48,7 +51,7 @@ describe('Logger', () => {
 
   describe('log', () => {
     it('should display a simple message without color', () => {
-      const message = 'Standard message';
+      const message: string = 'Standard message';
       logger.log(message);
 
       expect(consoleLogSpy).toHaveBeenCalledTimes(1);
@@ -58,7 +61,7 @@ describe('Logger', () => {
 
   describe('debug', () => {
     it('should display a debug message with the appropriate color', () => {
-      const message = 'Debug message';
+      const message: string = 'Debug message';
       logger.debug(message);
 
       expect(consoleDebugSpy).toHaveBeenCalledTimes(1);
@@ -70,7 +73,7 @@ describe('Logger', () => {
 
   describe('info', () => {
     it('should display an information message with the appropriate color', () => {
-      const message = 'Information message';
+      const message: string = 'Information message';
       logger.info(message);
 
       expect(consoleInfoSpy).toHaveBeenCalledTimes(1);
@@ -82,7 +85,7 @@ describe('Logger', () => {
 
   describe('warn', () => {
     it('should display a warning message with the appropriate color', () => {
-      const message = 'Warning message';
+      const message: string = 'Warning message';
       logger.warn(message);
 
       expect(consoleWarnSpy).toHaveBeenCalledTimes(1);
@@ -94,7 +97,7 @@ describe('Logger', () => {
 
   describe('error', () => {
     it('should display an error message with the appropriate color', () => {
-      const message = 'Error message';
+      const message: string = 'Error message';
       logger.error(message);
 
       expect(consoleErrorSpy).toHaveBeenCalledTimes(1);
@@ -106,7 +109,7 @@ describe('Logger', () => {
 
   describe('_compute (indirect tests)', () => {
     it('should prefix all messages with ➔', () => {
-      const message = 'Test';
+      const message: string = 'Test';
       logger.log(message);
 
       expect(consoleLogSpy).toHaveBeenCalledWith(

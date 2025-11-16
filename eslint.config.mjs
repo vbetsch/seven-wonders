@@ -70,6 +70,12 @@ export default tseslint.config(
         '@typescript-eslint/class-literal-property-style': ['warn', 'fields'],
         '@typescript-eslint/no-empty-function': ['warn'],
         '@typescript-eslint/adjacent-overload-signatures': 'warn',
+        '@typescript-eslint/typedef': [
+          'error',
+          {
+            variableDeclaration: true,
+          },
+        ],
 
         // Naming conventions
         '@typescript-eslint/naming-convention': [

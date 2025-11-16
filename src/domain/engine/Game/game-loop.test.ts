@@ -1,25 +1,35 @@
+import 'reflect-metadata';
 import { GameLoop } from './game-loop';
 import { Logger } from '@core/Logger/logger';
-import { Rule } from '@engine/Rule/rule';
+import { Rules } from '@engine/Rules/rules';
+import { container } from 'tsyringe';
 
 jest.mock('@core/Logger/logger');
 
 describe('GameLoop', () => {
+  let rules: Rules;
+  let mockLogger: jest.Mocked<Logger>;
+  beforeEach(() => {
+    rules = container.resolve(Rules);
+    mockLogger = {
+      log: jest.fn(),
+    } as unknown as jest.Mocked<Logger>;
+
+    container.registerInstance(Logger, mockLogger);
+  });
+
+  afterEach(() => {
+    container.clearInstances();
+  });
   it('should run the expected number of ages', () => {
-    const mockLogger = { log: jest.fn() };
-    (Logger as jest.Mock).mockReturnValue(mockLogger);
-
-    const loop = new GameLoop();
-    const rule = new Rule();
-
+    const loop: GameLoop = new GameLoop();
     loop.start();
 
-    // eslint-disable-next-line @typescript-eslint/no-magic-numbers
-    expect(mockLogger.log).toHaveBeenCalledTimes(rule.agesNumber * 2);
-
-    for (let i = 1; i <= rule.agesNumber; i++) {
+    for (let i: number = 1; i <= rules.agesNumber; i++) {
       expect(mockLogger.log).toHaveBeenCalledWith(`age ${i}  started`);
       expect(mockLogger.log).toHaveBeenCalledWith(`age ${i}  finished`);
     }
+    // eslint-disable-next-line @typescript-eslint/no-magic-numbers
+    expect(mockLogger.log).toHaveBeenCalledTimes(rules.agesNumber * 2);
   });
 });

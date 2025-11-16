@@ -9,18 +9,18 @@ export class Arbitrator {
 
   public getGameResult(gameStatistics: GameStatisticsType): GameResultType {
     let maxScore: number = 0;
-    let winnerId: string = '';
-    let loserId: string = '';
-
     gameStatistics.playersStatistics.forEach((playerStatistics) => {
       if (playerStatistics.score > maxScore) {
         maxScore = playerStatistics.score;
-        winnerId = playerStatistics.id;
       }
     });
 
+    let winnerId: string = '';
+    let loserId: string = '';
     gameStatistics.playersStatistics.forEach((playerStatistics) => {
-      if (playerStatistics.id !== winnerId) {
+      if (playerStatistics.score === maxScore) {
+        winnerId = playerStatistics.id;
+      } else {
         loserId = playerStatistics.id;
       }
     });

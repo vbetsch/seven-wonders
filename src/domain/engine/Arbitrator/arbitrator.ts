@@ -13,7 +13,13 @@ export class Arbitrator {
     return losersStatistics.map((player) => player.id);
   }
 
-  public getGameResult(gameStatistics: GameStatistics): GameResultType | null {
+  public getGameResult(
+    playersStatistics: PlayerStatisticsType[]
+  ): GameResultType | null {
+    const gameStatistics: GameStatistics = new GameStatistics(
+      playersStatistics
+    );
+
     const winnerStatistics: PlayerStatisticsType =
       gameStatistics.getWinnerStatistics();
 

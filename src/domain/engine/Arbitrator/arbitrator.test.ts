@@ -2,6 +2,8 @@ import 'reflect-metadata';
 import { container } from 'tsyringe';
 import { Arbitrator } from './arbitrator';
 import { GameResultType } from '@engine/Game/game-result.type';
+import { GameStatisticsType } from '@engine/Game/game-statistics.type';
+import { PlayerStatistics } from '@engine/Player/player-statistics.type';
 
 describe('Arbitrator', () => {
   let arbitrator: Arbitrator;
@@ -20,11 +22,24 @@ describe('Arbitrator', () => {
     expect(arbitrator).toBeDefined();
   });
 
-  it('should get game result', () => {
-    const gameResult: GameResultType = {
-      winner: 'Player 1',
-      loser: 'Player 2',
+  it('should get game result - winner is player 2', () => {
+    const playersStatistics: PlayerStatistics[] = [
+      {
+        id: 'Player 1',
+        score: 32,
+      },
+      {
+        id: 'Player 2',
+        score: 45,
+      },
+    ];
+    const gameStatistics: GameStatisticsType = { playersStatistics };
+    const gameResultExpected: GameResultType = {
+      winner: 'Player 2',
+      loser: 'Player 1',
     };
-    expect(arbitrator.getGameResult()).toStrictEqual(gameResult);
+    expect(arbitrator.getGameResult(gameStatistics)).toStrictEqual(
+      gameResultExpected
+    );
   });
 });

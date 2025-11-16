@@ -64,8 +64,6 @@ describe('Arbitrator', () => {
       { id: 'Player 2', score: 50 },
     ];
     const gameStatistics: GameStatisticsType = { playersStatistics };
-    const gameResult: GameResultType = arbitrator.getGameResult(gameStatistics);
-    expect(gameResult.winner).toBe('');
-    expect(gameResult.losers).toEqual(['Player 1', 'Player 2']);
+    expect(arbitrator.getGameResult(gameStatistics)).toBeNull();
   });
 });

@@ -8,7 +8,9 @@ import { PlayerStatistics } from '@engine/Player/player-statistics.type';
 export class Arbitrator {
   public constructor(@inject(Rules) private readonly _rules: Rules) {}
 
-  public getGameResult(gameStatistics: GameStatisticsType): GameResultType {
+  public getGameResult(
+    gameStatistics: GameStatisticsType
+  ): GameResultType | null {
     const winnerStats: PlayerStatistics =
       // eslint-disable-next-line max-params
       gameStatistics.playersStatistics.reduce((maxStats, playerStats) =>
@@ -24,14 +26,7 @@ export class Arbitrator {
         player.id !== winnerStats.id && player.score === winnerStats.score
     );
 
-    if (hasEquality) {
-      return {
-        winner: '',
-        losers: gameStatistics.playersStatistics.map(
-          (playerStats) => playerStats.id
-        ),
-      };
-    }
+    if (hasEquality) return null;
 
     return {
       winner: winnerStats.id,

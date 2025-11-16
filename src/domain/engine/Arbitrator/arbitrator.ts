@@ -1,8 +1,8 @@
 import { inject, injectable } from 'tsyringe';
 import { Rules } from '@engine/Rules/rules';
 import { GameResultType } from '@engine/Game/game-result.type';
-import { GameStatisticsType } from '@engine/Game/game-statistics.type';
 import { PlayerStatistics } from '@engine/Player/player-statistics.type';
+import { GameStatistics } from '@engine/GameStatistics/game-statistics';
 
 @injectable()
 export class Arbitrator {
@@ -43,9 +43,7 @@ export class Arbitrator {
     );
   }
 
-  public getGameResult(
-    gameStatistics: GameStatisticsType
-  ): GameResultType | null {
+  public getGameResult(gameStatistics: GameStatistics): GameResultType | null {
     const winnerStatistics: PlayerStatistics = this._getWinnerStatistics(
       gameStatistics.playersStatistics
     );

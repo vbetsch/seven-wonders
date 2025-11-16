@@ -2,8 +2,8 @@ import 'reflect-metadata';
 import { container } from 'tsyringe';
 import { Arbitrator } from './arbitrator';
 import { GameResultType } from '@engine/Game/game-result.type';
-import { GameStatisticsType } from '@engine/Game/game-statistics.type';
 import { PlayerStatistics } from '@engine/Player/player-statistics.type';
+import { GameStatistics } from '@engine/GameStatistics/game-statistics';
 
 describe('Arbitrator', () => {
   let arbitrator: Arbitrator;
@@ -27,7 +27,9 @@ describe('Arbitrator', () => {
       { id: 'Player 1', score: 32 },
       { id: 'Player 2', score: 45 },
     ];
-    const gameStatistics: GameStatisticsType = { playersStatistics };
+    const gameStatistics: GameStatistics = new GameStatistics(
+      playersStatistics
+    );
     const gameResultExpected: GameResultType = {
       winner: 'Player 2',
       losers: ['Player 1'],
@@ -48,7 +50,9 @@ describe('Arbitrator', () => {
         score: 29,
       },
     ];
-    const gameStatistics: GameStatisticsType = { playersStatistics };
+    const gameStatistics: GameStatistics = new GameStatistics(
+      playersStatistics
+    );
     const gameResultExpected: GameResultType = {
       winner: 'Player 1',
       losers: ['Player 2'],
@@ -63,7 +67,9 @@ describe('Arbitrator', () => {
       { id: 'Player 1', score: 50 },
       { id: 'Player 2', score: 50 },
     ];
-    const gameStatistics: GameStatisticsType = { playersStatistics };
+    const gameStatistics: GameStatistics = new GameStatistics(
+      playersStatistics
+    );
     expect(arbitrator.getGameResult(gameStatistics)).toBeNull();
   });
 });

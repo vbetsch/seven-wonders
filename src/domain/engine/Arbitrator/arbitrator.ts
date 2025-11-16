@@ -15,6 +15,7 @@ export class Arbitrator {
       }
     });
 
+    let previousScore: number = 0;
     let winnerId: string = '';
     let loserId: string = '';
     gameStatistics.playersStatistics.forEach((playerStatistics) => {
@@ -23,6 +24,11 @@ export class Arbitrator {
       } else {
         loserId = playerStatistics.id;
       }
+      if (playerStatistics.score === previousScore) {
+        winnerId = '';
+        loserId = '';
+      }
+      previousScore = playerStatistics.score;
     });
 
     return {

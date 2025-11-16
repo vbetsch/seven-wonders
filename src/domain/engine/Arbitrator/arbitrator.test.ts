@@ -56,8 +56,8 @@ describe('Arbitrator', () => {
     ];
     const gameStatistics: GameStatisticsType = { playersStatistics };
     const gameResultExpected: GameResultType = {
-      winner: 'Player 2',
-      loser: 'Player 1',
+      winner: 'Player 1',
+      loser: 'Player 2',
     };
     expect(arbitrator.getGameResult(gameStatistics)).toStrictEqual(
       gameResultExpected

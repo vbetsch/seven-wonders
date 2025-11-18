@@ -5,6 +5,7 @@ on:
     branches:
       - master
       - develop
+
 jobs:
   tsc:
     runs-on: ubuntu-latest

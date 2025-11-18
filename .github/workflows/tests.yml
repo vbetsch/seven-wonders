@@ -22,10 +22,5 @@ jobs:
       - name: Install dependencies
         run: npm clean-install
 
-      - name: Run tests (with coverage on master)
-        run: |
-          if [ "${{ github.base_ref }}" = "master" ]; then
-            npm run test:cov
-          else
-            npm test
-          fi
+      - name: Run tests with coverage
+        run: npm run test:cov

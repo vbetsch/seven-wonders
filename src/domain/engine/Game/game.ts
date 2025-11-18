@@ -1,5 +1,5 @@
 import { GamePhase } from './game-phase.enum';
-import { GameLoop } from '@engine/Game/game-loop';
+import { GameLoop } from '@engine/GameLoop/game-loop';
 
 export class Game {
   private _phase: GamePhase;

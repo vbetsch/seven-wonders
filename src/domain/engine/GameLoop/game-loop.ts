@@ -12,10 +12,9 @@ export class GameLoop {
   }
 
   public start(): void {
-    for (let i: number = 1; i < this._rules.agesNumber + 1; i++) {
-      this._logger.log('age ' + i + '  started');
-      //implement turn by turn functionalities
-      this._logger.log('age ' + i + '  finished');
+    for (let i: number = 1; i <= this._rules.agesNumber; i++) {
+      this._logger.log('Age ' + i + '  started');
+      this._logger.log('Age ' + i + '  finished');
     }
   }
 }

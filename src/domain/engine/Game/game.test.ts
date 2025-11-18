@@ -1,4 +1,3 @@
-import 'reflect-metadata';
 import { Game } from './game';
 import { GamePhase } from './game-phase.enum';
 

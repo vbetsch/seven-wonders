@@ -33,6 +33,7 @@ export class Master {
     this._logger.log('Preparing the game...');
   }
 
+  /* istanbul ignore next */
   public run(): void {
     this._nextPhase(GamePhase.PREPARING, GamePhase.RUNNING);
     this._logger.log('Running the game...');

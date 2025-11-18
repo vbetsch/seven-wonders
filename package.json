@@ -5,7 +5,7 @@
   "type": "commonjs",
   "scripts": {
     "start": "ts-node --project tsconfig.json --require tsconfig-paths/register src/index.ts",
-    "start:prod": "ts-node --project tsconfig.json --require tsconfig-paths/register src/index.ts",
+    "start:prod": "node dist/index.js",
     "test": "jest --passWithNoTests",
     "test:cov": "jest --passWithNoTests --coverage",
     "lint": "eslint . --ext .ts",

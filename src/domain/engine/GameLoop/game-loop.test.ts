@@ -16,7 +16,7 @@ describe('GameLoop', () => {
     container.registerInstance(Logger, mockLogger);
 
     mockRules = {
-      agesNumber: 3, // valeur de test
+      agesNumber: 3,
     } as unknown as jest.Mocked<Rules>;
     container.registerInstance(Rules, mockRules);
 

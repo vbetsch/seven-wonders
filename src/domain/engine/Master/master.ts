@@ -36,7 +36,7 @@ export class Master {
   public run(): void {
     this._nextPhase(GamePhase.PREPARING, GamePhase.RUNNING);
     this._logger.log('Running the game...');
-
+    this._game.run();
     const arbitrator: Arbitrator = container.resolve(Arbitrator);
     // CASE 1
     this._logger.log('Arbitrator - CASE 1');

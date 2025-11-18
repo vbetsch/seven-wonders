@@ -25,6 +25,6 @@ coverage: node_modules
 
 # Aliases
 test: tests
-ci: lint coverage
-ci_build: ci build
-.PHONY: test ci ci_build
+ci: lint
+ci_prod: lint coverage build
+.PHONY: test ci ci_prod

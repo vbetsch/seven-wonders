@@ -2,6 +2,7 @@ import js from '@eslint/js';
 import tseslint from 'typescript-eslint';
 import eslintPluginPrettier from 'eslint-plugin-prettier';
 import importPlugin from 'eslint-plugin-import';
+import spellcheck from 'eslint-plugin-spellcheck';
 
 export default tseslint.config(
   [
@@ -22,6 +23,7 @@ export default tseslint.config(
       plugins: {
         prettier: eslintPluginPrettier,
         import: importPlugin,
+        spellcheck: spellcheck,
       },
       rules: {
         // Formatting
@@ -38,6 +40,37 @@ export default tseslint.config(
         'prefer-const': ['error', { destructuring: 'all' }],
         'require-object-destructuring': 'off',
         'import/no-unresolved': 'error',
+
+        // Ban inline comments
+        'no-inline-comments': 'warn',
+
+        // Force English-only in code, comments and strings
+        'spellcheck/spell-checker': [
+          'warn',
+          {
+            comments: true,
+            strings: true,
+            identifiers: false,
+            templates: true,
+            lang: 'en_US',
+            minLength: 3,
+          },
+        ],
+
+        // Ban unused code
+        '@typescript-eslint/no-unused-vars': [
+          'error',
+          {
+            argsIgnorePattern: '^_',
+            varsIgnorePattern: '^_',
+            caughtErrorsIgnorePattern: '^_',
+            vars: 'all',
+            args: 'all',
+            caughtErrors: 'all',
+            ignoreRestSiblings: false,
+          },
+        ],
+        'no-unused-private-class-members': 'error',
 
         // TypeScript strictness
         '@typescript-eslint/explicit-member-accessibility': [
@@ -59,10 +92,6 @@ export default tseslint.config(
           { ignoreEnums: true, ignore: [0, 1], enforceConst: true },
         ],
         '@typescript-eslint/no-unsafe-member-access': 'warn',
-        '@typescript-eslint/no-unused-vars': [
-          'error',
-          { argsIgnorePattern: '^_' },
-        ],
         '@typescript-eslint/no-extraneous-class': [
           'error',
           { allowConstructorOnly: false },

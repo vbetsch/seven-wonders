@@ -5,8 +5,6 @@ import { GameStatistics } from '@engine/GameStatistics/game-statistics';
 
 @injectable()
 export class Arbitrator {
-  // public constructor(@inject(Rules) private readonly _rules: Rules) {}
-
   private _getFormattedLosers(
     losersStatistics: PlayerStatisticsType[]
   ): string[] {

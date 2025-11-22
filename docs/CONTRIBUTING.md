@@ -1,165 +1,62 @@
 # Contributing to Seven Wonders Duel – Game Engine
 
-Thank you for considering contributing to this open-source project!  
-We aim to build a clean, scalable, and fully testable implementation of the Seven Wonders: Duel game engine.  
-Your help is welcome — whether it’s code, documentation, ideas, or feedback.
+Thank you for your interest in contributing!  
+This project aims to provide a clean, testable, and accurate implementation of the Seven Wonders: Duel game engine.
 
 ---
 
-## 🧭 Philosophy & Guiding Principles
+## 🛠️ Setup
 
-We follow:
-
-- Clean Code principles  
-- Strong domain-driven structure  
-- Maintainability and readability over clever tricks  
-- Small, incremental contributions inspired by Agile practices  
-- Full determinism and testability of the game engine  
-- Strict separation between:
-  - **Domain logic**
-  - **Application use cases**
-  - **Infrastructure code**
-
-Contributors should try to keep the codebase consistent with this philosophy.
-
----
-
-## 🛠️ Requirements
-
-Make sure you have:
-
-- **Node.js v22.17.1 LTS**
-- **npm** (bundled with Node)
-- The project dependencies installed using:
+Install dependencies:
 
 **npm install**
-
----
-
-## 🧱 Project Structure
-
-Key directories:
-
-src/  
-  app/  
-    commands/     → Application layer: entrypoints, orchestrators  
-    usecases/     → Core business interactions  
-  domain/  
-    core/         → Fundamental domain concepts  
-    engine/       → Game engine logic, rules, entities  
-
-Path aliases (configured in tsconfig):
-
-- `@commands/*`  
-- `@usecases/*`  
-- `@core/*`  
-- `@engine/*`
-
----
-
-## 🌱 How to Contribute
-
-### 1. Fork the repository
-
-Create your own fork on GitHub and clone it locally.
-
-### 2. Create a feature branch
-
-Example:
-
-**git checkout -b feature/age-setup**
-
-Branch naming conventions:
-
-- `feature/*` (new features)  
-- `fix/*` (bug fixes)  
-- `refactor/*` (improvements)  
-- `docs/*` (documentation updates)  
-
-### 3. Install dependencies
-
-**npm install**
-
-### 4. Run the linter
-
-**npm run lint**
-
-Auto-format code:
-
-**npm run format**
-
-### 5. Add or update tests
-
-All new logic **must** include tests.
 
 Run tests:
 
 **npm test**
 
-Run with coverage:
+Run tests with coverage:
 
 **npm run test:cov**
 
-### 6. Commit cleanly
+Lint code:
 
-Use clear, focused commits.
+**npm run lint**
 
-Example:
+Format code:
 
-feat(engine): implement military conflict progression rules
+**npm run format**
 
-### 7. Push and submit a Pull Request
+Build:
 
-Your PR should include:
+**npm run build**
 
-- A description of the feature/fix  
-- Updated tests  
-- Passing lint and test checks  
+---
+
+## 🌱 How to Contribute
+
+1. **Fork** the repository  
+2. **Create a branch** for your change  
+   (ex: `feature/age-setup`, `fix/resource-cost`)  
+3. Implement your change with clean, clear code  
+4. Add or update **unit tests**  
+5. Ensure lint + tests pass  
+6. Submit a **Pull Request** describing your change
 
 ---
 
 ## 📐 Code Style
 
-This project uses:
-
-- ESLint  
-- Prettier  
-- TypeScript strict mode  
-- Tsyringe decorators  
-
-Guidelines:
-
-- Prefer explicit types  
-- Keep functions small  
-- Avoid duplication  
-- Use meaningful names  
-- Avoid side effects inside domain logic  
-
----
-
-## 🧪 Testing Guidelines
-
-- Tests must be deterministic  
-- Follow Arrange / Act / Assert  
-- Cover edge cases  
-- No external side effects  
-- Domain logic should be isolated and highly testable  
-
----
-
-## 💬 Need Help?
-
-Feel free to open:
-
-- A Discussion  
-- An Issue  
-- A question in your PR  
-
-We’re glad to help contributors!
+- Follow TypeScript strictness  
+- Keep functions small and meaningful  
+- Maintain separation between domain, use cases, and commands  
+- No dead code, no commented-out blocks  
+- Prefer explicit, readable logic  
+- Clean Code > shortcuts
 
 ---
 
 ## 🤝 Thank You
 
-Every contribution — big or small — helps the project grow.  
-Thank you for your time and your work!
+Every contribution helps improve the project.  
+Feel free to open an issue or PR anytime!

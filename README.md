@@ -2,7 +2,7 @@
 
 ## 🎮 Overview
 
-This project aims to recreate the **Seven Wonders: Duel** board game as a fully playable digital experience.  
+This project aims to recreate the **Seven Wonders** board game as a fully playable digital experience.  
 The long-term goal is to provide a complete game engine, a bot you can challenge, and eventually an online multiplayer
 mode — all built in **TypeScript/Node.js**.
 
@@ -10,7 +10,7 @@ This repository currently focuses on the **core logic of the game**.
 
 ## 🧩 About the Board Game
 
-**Seven Wonders: Duel** is a 2-player competitive strategy game where players develop their civilization across three
+**Seven Wonders** is a 2-player competitive strategy game where players develop their civilization across three
 Ages.  
 Each Age uses a specific pyramid-like structure of cards, with some cards visible and others hidden until revealed.
 
@@ -33,7 +33,7 @@ progression — creating deep and varied strategic possibilities.
 
 ## 🧠 Project Purpose
 
-The goal of this repository is to implement the **entire game engine** of Seven Wonders: Duel, including:
+The goal of this repository is to implement the **entire game engine** of Seven Wonders, including:
 
 - Game entities (cards, Wonders, resources, players…)
 - Age setup and card pyramid generation

@@ -1,4 +1,4 @@
-# Seven Wonders Duel – Open Source Game Engine
+# Seven Wonders Duel Edition
 
 ## 🎮 Overview
 

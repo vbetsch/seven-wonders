@@ -131,7 +131,4 @@ We welcome anyone who wants to contribute — whether adding rules, improving ar
 
 Feel free to open issues or submit pull requests!
 
-## 📜 License
-
-MIT License  
-(Adapt if needed)
+[© 2025 vbetsch — MIT License](LICENSE)  

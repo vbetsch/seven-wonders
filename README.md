@@ -6,7 +6,6 @@ This project aims to recreate the **Seven Wonders: Duel** board game as a fully 
 The long-term goal is to provide a complete game engine, a bot you can challenge, and eventually an online multiplayer mode — all built in **TypeScript/Node.js**.
 
 This repository currently focuses on the **core logic of the game**.  
-Future versions will introduce an AI opponent and a web-based user interface.
 
 ## 🧩 About the Board Game
 

@@ -8,8 +8,6 @@ The long-term goal is to provide a complete game engine, a bot you can challenge
 This repository currently focuses on the **core logic of the game**.  
 Future versions will introduce an AI opponent and a web-based user interface.
 
----
-
 ## 🧩 About the Board Game
 
 **Seven Wonders: Duel** is a 2-player competitive strategy game where players develop their civilization across three Ages.  
@@ -30,8 +28,6 @@ Victory can be achieved in **three different ways**:
 - **Civil Victory** – have the highest victory points at the end of the third Age  
 
 The game combines drafting, resource management, chaining effects, Wonders, military pressure, and scientific progression — creating deep and varied strategic possibilities.
-
----
 
 ## 🧠 Project Purpose
 
@@ -72,8 +68,6 @@ Custom path aliases configured in `tsconfig.json`:
 - `@core/*`  
 - `@engine/*`  
 
----
-
 ## 🚀 Getting Started
 
 ### 1. Install dependencies
@@ -88,8 +82,6 @@ Custom path aliases configured in `tsconfig.json`:
 
 **npm run start:prod**
 
----
-
 ## 🧪 Running Tests
 
 ### Run all tests
@@ -99,8 +91,6 @@ Custom path aliases configured in `tsconfig.json`:
 ### Run tests with coverage
 
 **npm run test:cov**
-
----
 
 ## 🧹 Linting & Formatting
 
@@ -116,16 +106,12 @@ Custom path aliases configured in `tsconfig.json`:
 
 **npm run format**
 
----
-
 ## 🏗️ Building the Project
 
 **npm run build**
 
 This compiles the TypeScript sources into `dist/`  
 and fixes path aliases using `tsc-alias`.
-
----
 
 ## 🧼 Code Philosophy
 
@@ -139,15 +125,11 @@ This project is built with:
 
 We aim to deliver the cleanest and most robust implementation possible.
 
----
-
 ## 🤝 Contributing
 
 We welcome anyone who wants to contribute — whether adding rules, improving architecture, writing tests, or enhancing documentation.
 
 Feel free to open issues or submit pull requests!
-
----
 
 ## 📜 License
 

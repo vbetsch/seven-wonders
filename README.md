@@ -72,43 +72,35 @@ Custom path aliases configured in `tsconfig.json`:
 
 ### 1. Install dependencies
 
-**npm install**
+```bash
+npm install
+```
 
 ### 2. Start the project (development)
 
-**npm start**
-
-### 3. Start the project (production)
-
-**npm run start:prod**
+```bash
+npm start
+```
 
 ## 🧪 Running Tests
 
-### Run all tests
-
-**npm test**
-
-### Run tests with coverage
-
-**npm run test:cov**
+```bash
+npm run test:cov
+```
 
 ## 🧹 Linting & Formatting
 
-### Lint (non-strict mode)
+### Run linter and formatter checks
 
-**npm run lint**
-
-### Lint (strict mode, zero warnings allowed)
-
-**npm run lint:strict**
-
-### Format the entire codebase
-
-**npm run format**
+```bash
+npm run lint
+```
 
 ## 🏗️ Building the Project
 
-**npm run build**
+```bash
+npm run build
+```
 
 This compiles the TypeScript sources into `dist/`  
 and fixes path aliases using `tsc-alias`.

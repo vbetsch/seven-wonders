@@ -1,8 +1,8 @@
-# Contributing to Seven Wonders Duel – Game Engine
+# Contributing to Seven Wonders Duel
 
 Thank you for considering contributing to this open-source project!  
 We aim to build a clean, scalable, and fully testable implementation of the Seven Wonders: Duel game engine.  
-Your help is welcome — whether it’s code, documentation, ideas, or feedback.
+Your help is welcome, whether it’s code, documentation, ideas, or feedback.
 
 ## 🧭 Philosophy & Guiding Principles
 
@@ -22,13 +22,15 @@ Contributors should try to keep the codebase consistent with this philosophy.
 
 ## 🌱 How to Contribute
 
-1. **Fork** the repository
-2. **Create a branch** for your change  
-   (ex: `feature/age-setup`, `fix/resource-cost`)
-3. Implement your change with clean, clear code
-4. Add or update **unit tests**
-5. Ensure lint + tests pass
-6. Submit a **Pull Request** describing your change
+1. **Create an issue** if necessary and submit it to us
+2. Waiting for our validation
+3. **Fork** the repository
+4. **Create a branch** for your change with the issue title
+   (ex: `65-resource-cost`)
+5. Implement your change with clean and clear code
+6. Add or update **unit tests**
+7. Ensure lint + tests pass
+8. Submit a **Pull Request** describing your change
 
 ## 📐 Code Style
 
@@ -41,23 +43,18 @@ Contributors should try to keep the codebase consistent with this philosophy.
 
 ## 🧪 Testing Guidelines
 
-- Tests must be deterministic  
-- Follow Arrange / Act / Assert  
-- Cover edge cases  
-- No external side effects  
-- Domain logic should be isolated and highly testable  
+- Tests must be deterministic
+- Follow Arrange / Act / Assert
+- Cover edge cases
+- No external side effects
+- Domain logic should be isolated and highly testable
 
 ## 💬 Need Help?
 
-Feel free to open:
-
-- A Discussion  
-- An Issue  
-- A question in your PR  
-
+Feel free to open an issue or a question in your PR.
 We’re glad to help contributors!
 
 ## 🤝 Thank You
 
-Every contribution — big or small — helps the project grow.  
+Every contribution, big or small, helps the project grow.  
 Thank you for your time and your work!

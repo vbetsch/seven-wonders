@@ -1,5 +1,155 @@
-# 7 Wonders - Duel Edition
+# Seven Wonders Duel – Open Source Game Engine
 
-## Requirements
+## 🎮 Overview
 
- - [NodeJS](https://nodejs.org/en/download/current) v22.17.1 (LTS)
+This project aims to recreate the **Seven Wonders: Duel** board game as a fully playable digital experience.  
+The long-term goal is to provide a complete game engine, a bot you can challenge, and eventually an online multiplayer mode — all built in **TypeScript/Node.js**.
+
+This repository currently focuses on the **core logic of the game**.  
+Future versions will introduce an AI opponent and a web-based user interface.
+
+---
+
+## 🧩 About the Board Game
+
+**Seven Wonders: Duel** is a 2-player competitive strategy game where players develop their civilization across three Ages.  
+Each Age uses a specific pyramid-like structure of cards, with some cards visible and others hidden until revealed.
+
+During their turn, players:
+
+1. Pick a visible card from the structure.
+2. Choose one of the following actions:
+   - Construct the building by paying its resource cost  
+   - Discard the card to gain coins  
+   - Use the card to build one of their Wonders  
+
+Victory can be achieved in **three different ways**:
+
+- **Scientific Victory** – collect 6 different scientific symbols  
+- **Military Victory** – push the conflict pawn to the opponent’s capital  
+- **Civil Victory** – have the highest victory points at the end of the third Age  
+
+The game combines drafting, resource management, chaining effects, Wonders, military pressure, and scientific progression — creating deep and varied strategic possibilities.
+
+---
+
+## 🧠 Project Purpose
+
+The goal of this repository is to implement the **entire game engine** of Seven Wonders: Duel, including:
+
+- Game entities (cards, Wonders, resources, players…)  
+- Age setup and card pyramid generation  
+- Turn management and game state transitions  
+- Military and scientific progression  
+- Victory condition checks  
+- Rules validation and enforcement  
+- Deterministic, testable logic  
+
+In the future, the project will also include:
+
+### 🤖 AI Bot
+A computer-controlled opponent capable of evaluating decisions and simulating strategies.
+
+### 🌐 Multiplayer Support
+A web-based interface allowing matches against other human players.
+
+---
+
+## 🛠️ Tech Stack
+
+- **Node.js v22.17.1 LTS**
+- **TypeScript** (decorators enabled)
+- **Tsyringe** (dependency injection)
+- **Jest** (unit tests)
+- **ESLint + Prettier** (quality and formatting)
+- **ts-node** (development runtime)
+- **tsc-alias** (path alias resolution)
+
+Custom path aliases configured in `tsconfig.json`:
+
+- `@commands/*`  
+- `@usecases/*`  
+- `@core/*`  
+- `@engine/*`  
+
+---
+
+## 🚀 Getting Started
+
+### 1. Install dependencies
+
+**npm install**
+
+### 2. Start the project (development)
+
+**npm start**
+
+### 3. Start the project (production)
+
+**npm run start:prod**
+
+---
+
+## 🧪 Running Tests
+
+### Run all tests
+
+**npm test**
+
+### Run tests with coverage
+
+**npm run test:cov**
+
+---
+
+## 🧹 Linting & Formatting
+
+### Lint (non-strict mode)
+
+**npm run lint**
+
+### Lint (strict mode, zero warnings allowed)
+
+**npm run lint:strict**
+
+### Format the entire codebase
+
+**npm run format**
+
+---
+
+## 🏗️ Building the Project
+
+**npm run build**
+
+This compiles the TypeScript sources into `dist/`  
+and fixes path aliases using `tsc-alias`.
+
+---
+
+## 🧼 Code Philosophy
+
+This project is built with:
+
+- Clean Code principles  
+- High-level maintainability  
+- Strong domain separation  
+- Clear and modular architecture  
+- Agile-inspired processes  
+
+We aim to deliver the cleanest and most robust implementation possible.
+
+---
+
+## 🤝 Contributing
+
+We welcome anyone who wants to contribute — whether adding rules, improving architecture, writing tests, or enhancing documentation.
+
+Feel free to open issues or submit pull requests!
+
+---
+
+## 📜 License
+
+MIT License  
+(Adapt if needed)

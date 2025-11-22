@@ -43,6 +43,8 @@ Contributors should try to keep the codebase consistent with this philosophy.
 
 ## 🧪 Testing Guidelines
 
+> **Your entire code must be tested, otherwise it will not be accepted.**
+
 - Tests must be deterministic
 - Follow Arrange / Act / Assert
 - Cover edge cases

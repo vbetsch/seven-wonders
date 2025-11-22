@@ -117,9 +117,11 @@ This project is built with:
 
 ## 🤝 Contributing
 
-We welcome anyone who wants to contribute — whether adding rules, improving architecture, writing tests, or enhancing
-documentation.
+We welcome anyone who wants to participate in improving the project!  
+Before contributing, please read the dedicated guide:
 
-Feel free to open issues or submit pull requests!
+👉 **See [CONTRIBUTING.md](docs/CONTRIBUTING.md) for detailed contribution instructions.**
+
+Feel free to open issues, propose improvements, or submit pull requests.
 
 [© 2025 vbetsch — MIT License](LICENSE)  

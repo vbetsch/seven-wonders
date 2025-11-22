@@ -60,13 +60,6 @@ A web-based interface allowing matches against other human players.
 - **ts-node** (development runtime)
 - **tsc-alias** (path alias resolution)
 
-Custom path aliases configured in `tsconfig.json`:
-
-- `@commands/*`  
-- `@usecases/*`  
-- `@core/*`  
-- `@engine/*`  
-
 ## 🚀 Getting Started
 
 ### 1. Install dependencies

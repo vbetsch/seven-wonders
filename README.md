@@ -113,7 +113,7 @@ This project is built with:
 - Clear and modular architecture
 - Agile-inspired processes
 
-We aim to deliver the cleanest and most robust implementation possible.
+**We aim to deliver the cleanest and most robust implementation possible.**
 
 ## 🤝 Contributing
 

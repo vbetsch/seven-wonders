@@ -16,9 +16,15 @@ describe('Game', () => {
     expect(game).toBeInstanceOf(Game);
   });
 
-  it('should have a phase', () => {
+  it('should have a defined phase', () => {
     expect(game.phase).toBeDefined();
     expect(game.phase).toStrictEqual(GamePhase.WAITING);
+  });
+
+  it('should set a phase', () => {
+    expect(game.phase).toBeDefined();
+    game.phase = GamePhase.ENDING;
+    expect(game.phase).toBe(GamePhase.ENDING);
   });
 
   it('should start the loop', () => {

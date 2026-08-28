@@ -30,8 +30,12 @@ describe('CreateAndRunGameUseCase', () => {
       run: vi.fn(),
     } as unknown as Mocked<Master>;
 
-    vi.mocked(Game).mockImplementation(() => mockGame);
-    vi.mocked(Master).mockImplementation(() => mockMaster);
+    vi.mocked(Game).mockImplementation(function () {
+      return mockGame;
+    });
+    vi.mocked(Master).mockImplementation(function () {
+      return mockMaster;
+    });
 
     container.clearInstances();
     useCase = container.resolve(CreateAndRunGameUseCase);

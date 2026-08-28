@@ -9,6 +9,9 @@ export class Rules {
   private readonly _agesNumber: number = 3;
 
   // eslint-disable-next-line @typescript-eslint/no-magic-numbers
+  private readonly _agesCardsNumber: number[] = [42, 38, 54];
+
+  // eslint-disable-next-line @typescript-eslint/no-magic-numbers
   private readonly _availableWondersTotal: number = 12;
 
   // eslint-disable-next-line @typescript-eslint/no-magic-numbers
@@ -29,6 +32,13 @@ export class Rules {
    */
   public get agesNumber(): number {
     return this._agesNumber;
+  }
+
+  /**
+   * The number of cards by age order by index (default: [42, 38, 54])
+   */
+  public get agesCardsNumber(): number[] {
+    return this._agesCardsNumber;
   }
 
   /**

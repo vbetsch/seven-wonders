@@ -1,4 +1,4 @@
-import {Age} from './age';
+import { Age } from './age';
 
 describe('Age', () => {
   let age: Age;
@@ -15,5 +15,5 @@ describe('Age', () => {
   it('should have an identifier', () => {
     expect(age.identifier).toBeDefined();
     expect(age.identifier).toBe(1);
-  })
+  });
 });

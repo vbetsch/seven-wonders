@@ -53,7 +53,7 @@ The goal of this repository is to implement the **entire game engine** of Seven 
 - **Node.js v22.17.1 LTS**
 - **TypeScript** (decorators enabled)
 - **Tsyringe** (dependency injection)
-- **Jest** (unit tests)
+- **Vitest** (unit tests)
 - **ESLint + Prettier** (quality and formatting)
 - **ts-node** (development runtime)
 - **tsc-alias** (path alias resolution)

@@ -5,7 +5,6 @@ import { injectable } from 'tsyringe';
 export class Logger {
   private readonly _prefix: string = '➔';
 
-  // eslint-disable-next-line max-params
   private _compute(message?: string, color?: LoggerColorEnum): string | void {
     const content: string = `${this._prefix} ${message}`;
     if (color) {

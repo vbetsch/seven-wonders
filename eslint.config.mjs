@@ -32,7 +32,6 @@ export default tseslint.config(
         'max-len': ['warn', { code: 300, ignoreUrls: true }],
 
         // Code structure and clarity
-        'max-params': ['warn', 1],
         'default-case': 'warn',
         'require-await': 'error',
         'no-undefined': 'warn',
@@ -87,10 +86,6 @@ export default tseslint.config(
         '@typescript-eslint/prefer-readonly': 'warn',
         '@typescript-eslint/prefer-reduce-type-parameter': 'warn',
         '@typescript-eslint/prefer-function-type': 'warn',
-        // '@typescript-eslint/no-magic-numbers': [
-        //   'warn',
-        //   { ignoreEnums: true, ignore: [0, 1], enforceConst: true },
-        // ],
         '@typescript-eslint/no-unsafe-member-access': 'warn',
         '@typescript-eslint/no-extraneous-class': [
           'error',

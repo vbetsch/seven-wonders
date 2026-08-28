@@ -17,7 +17,6 @@ export class GameStatistics {
         'Cannot determine winner: no player statistics available'
       );
     }
-    // eslint-disable-next-line max-params
     return this._playersStatistics.reduce((maxStats, playerStats) =>
       playerStats.score > maxStats.score ? playerStats : maxStats
     );

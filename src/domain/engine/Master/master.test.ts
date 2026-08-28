@@ -5,12 +5,15 @@ import { GamePhase } from '@engine/Game/game-phase.enum';
 import { Logger } from '@core/Logger/logger';
 
 describe('Master', () => {
-  let game: Game;
+  let game: jest.Mocked<Game>;
   let master: Master;
   let loggerLogSpy: jest.SpyInstance;
 
   beforeEach(() => {
-    game = new Game();
+    game = {
+      phase: GamePhase.WAITING,
+      run: jest.fn(),
+    } as unknown as jest.Mocked<Game>;
     master = new Master(game);
     loggerLogSpy = jest.spyOn(Logger.prototype, 'log');
   });
@@ -58,6 +61,7 @@ describe('Master', () => {
     master.prepare();
     master.run();
     expect(game.phase).toStrictEqual(GamePhase.RUNNING);
+    expect(game.run).toHaveBeenCalledTimes(1);
     expect(loggerLogSpy).toHaveBeenCalledWith(
       expect.stringContaining('Running the game')
     );

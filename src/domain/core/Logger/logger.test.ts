@@ -22,19 +22,11 @@ describe('Logger', () => {
 
   beforeEach(() => {
     logger = container.resolve(Logger);
-    consoleLogSpy = vi.spyOn(console, 'log').mockImplementation(function () {});
-    consoleDebugSpy = vi
-      .spyOn(console, 'debug')
-      .mockImplementation(function () {});
-    consoleInfoSpy = vi
-      .spyOn(console, 'info')
-      .mockImplementation(function () {});
-    consoleWarnSpy = vi
-      .spyOn(console, 'warn')
-      .mockImplementation(function () {});
-    consoleErrorSpy = vi
-      .spyOn(console, 'error')
-      .mockImplementation(function () {});
+    consoleLogSpy = vi.spyOn(console, 'log').mockReturnValue();
+    consoleDebugSpy = vi.spyOn(console, 'debug').mockReturnValue();
+    consoleInfoSpy = vi.spyOn(console, 'info').mockReturnValue();
+    consoleWarnSpy = vi.spyOn(console, 'warn').mockReturnValue();
+    consoleErrorSpy = vi.spyOn(console, 'error').mockReturnValue();
   });
 
   afterEach(() => {

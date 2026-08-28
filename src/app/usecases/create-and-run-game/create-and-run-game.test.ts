@@ -8,7 +8,6 @@ import {
   afterEach,
   vi,
   type Mocked,
-  type MockedClass,
 } from 'vitest';
 import { CreateAndRunGameUseCase } from '@usecases/create-and-run-game/create-and-run-game.usecase';
 import { Game } from '@engine/Game/game';

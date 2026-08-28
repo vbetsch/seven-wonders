@@ -7,6 +7,7 @@ import {
   afterEach,
   vi,
   type Mocked,
+  MockedFunction,
 } from 'vitest';
 import { container } from 'tsyringe';
 import { GameLoop } from './game-loop';
@@ -18,7 +19,7 @@ vi.mock('@engine/Age/age');
 describe('GameLoop', () => {
   let mockRules: Mocked<Rules>;
   let loop: GameLoop;
-  const AgeMock = vi.mocked(Age);
+  const AgeMock: MockedFunction<typeof Age> = vi.mocked(Age);
 
   beforeEach(() => {
     mockRules = {

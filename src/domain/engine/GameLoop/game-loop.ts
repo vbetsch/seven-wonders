@@ -11,8 +11,8 @@ export class GameLoop {
   }
 
   public start(): void {
-    for (let i: number = 1; i <= this._rules.agesNumber; i++) {
-      new Age(i);
-    }
+    this._rules.agesCardsNumber.forEach((value, index) => {
+      new Age(index, value);
+    });
   }
 }

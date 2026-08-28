@@ -28,8 +28,8 @@ describe('GameLoop', () => {
     loop.start();
 
     expect(AgeMock).toHaveBeenCalledTimes(3);
-    expect(AgeMock).toHaveBeenNthCalledWith(1, 0, 42);
-    expect(AgeMock).toHaveBeenNthCalledWith(2, 1, 38);
-    expect(AgeMock).toHaveBeenNthCalledWith(3, 2, 54);
+    expect(AgeMock).toHaveBeenNthCalledWith(1, 1, 42);
+    expect(AgeMock).toHaveBeenNthCalledWith(2, 2, 38);
+    expect(AgeMock).toHaveBeenNthCalledWith(3, 3, 54);
   });
 });

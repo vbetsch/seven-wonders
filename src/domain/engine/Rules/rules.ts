@@ -4,7 +4,7 @@ import { injectable } from 'tsyringe';
 export class Rules {
   private readonly _playersNumber: number = 2;
   private readonly _agesNumber: number = 3;
-  private readonly _agesCardsNumber: number[] = [42, 38, 54];
+  private readonly _agesCardsNumbers: number[] = [42, 38, 54];
   private readonly _availableWondersTotal: number = 12;
   private readonly _availableWondersPerPlayer: number = 4;
   private readonly _maxUsedWondersTotal: number = 7;
@@ -24,10 +24,10 @@ export class Rules {
   }
 
   /**
-   * The number of cards by age order by index (default: [42, 38, 54])
+   * Numbers of cards by age order by index (default: [42, 38, 54])
    */
-  public get agesCardsNumber(): number[] {
-    return this._agesCardsNumber;
+  public get agesCardsNumbers(): number[] {
+    return this._agesCardsNumbers;
   }
 
   /**

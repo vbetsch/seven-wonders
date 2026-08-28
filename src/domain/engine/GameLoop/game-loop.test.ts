@@ -13,7 +13,7 @@ describe('GameLoop', () => {
 
   beforeEach(() => {
     mockRules = {
-      agesCardsNumber: [42, 38, 54],
+      agesCardsNumbers: [42, 38, 54],
     } as unknown as jest.Mocked<Rules>;
     container.registerInstance(Rules, mockRules);
     loop = container.resolve(GameLoop);

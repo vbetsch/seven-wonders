@@ -9,7 +9,7 @@ jest.mock('@engine/Age/age');
 describe('GameLoop', () => {
   let mockRules: jest.Mocked<Rules>;
   let loop: GameLoop;
-  const AgeMock = jest.mocked(Age);
+  const AgeMock: jest.MockedObjectDeep<typeof Age> = jest.mocked(Age);
 
   beforeEach(() => {
     mockRules = {
@@ -24,7 +24,7 @@ describe('GameLoop', () => {
     jest.clearAllMocks();
   });
 
-  it('should instanciate ages', () => {
+  it('should instantiate ages', () => {
     loop.start();
 
     expect(AgeMock).toHaveBeenCalledTimes(3);

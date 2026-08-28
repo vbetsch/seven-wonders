@@ -42,6 +42,6 @@ describe('Rules', () => {
   });
 
   it('should be consistent about number of ages', () => {
-    expect(rules.agesCardsNumbers.length).toBe(rules.agesNumber);
+    expect(rules.agesCardsNumbers).toHaveLength(rules.agesNumber);
   });
 });

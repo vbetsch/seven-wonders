@@ -8,7 +8,6 @@ describe('Rules', () => {
   // Expected
   const playersNumberExpected: number = 2;
   const agesNumberExpected: number = 3;
-  // eslint-disable-next-line @typescript-eslint/no-magic-numbers
   const agesCardsNumberExpected: number[] = [42, 38, 54];
   const availableWondersTotalExpected: number = 12;
   const availableWondersPerPlayerExpected: number = 4;

@@ -2,22 +2,11 @@ import { injectable } from 'tsyringe';
 
 @injectable()
 export class Rules {
-  // eslint-disable-next-line @typescript-eslint/no-magic-numbers
   private readonly _playersNumber: number = 2;
-
-  // eslint-disable-next-line @typescript-eslint/no-magic-numbers
   private readonly _agesNumber: number = 3;
-
-  // eslint-disable-next-line @typescript-eslint/no-magic-numbers
   private readonly _agesCardsNumber: number[] = [42, 38, 54];
-
-  // eslint-disable-next-line @typescript-eslint/no-magic-numbers
   private readonly _availableWondersTotal: number = 12;
-
-  // eslint-disable-next-line @typescript-eslint/no-magic-numbers
   private readonly _availableWondersPerPlayer: number = 4;
-
-  // eslint-disable-next-line @typescript-eslint/no-magic-numbers
   private readonly _maxUsedWondersTotal: number = 7;
 
   /**

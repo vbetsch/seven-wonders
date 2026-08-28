@@ -1,22 +1,33 @@
 import 'reflect-metadata';
+import {
+  describe,
+  it,
+  expect,
+  beforeEach,
+  afterEach,
+  vi,
+  type Mocked,
+  type MockInstance,
+} from 'vitest';
 import { Game } from '@engine/Game/game';
 import { Master } from './master';
 import { GamePhase } from '@engine/Game/game-phase.enum';
 import { Logger } from '@core/Logger/logger';
 
 describe('Master', () => {
-  let game: jest.Mocked<Game>;
+  let game: Mocked<Game>;
   let master: Master;
-  let loggerLogSpy: jest.SpyInstance;
+  let loggerLogSpy: MockInstance;
 
   beforeEach(() => {
     game = {
       phase: GamePhase.WAITING,
-      run: jest.fn(),
-    } as unknown as jest.Mocked<Game>;
+      run: vi.fn(),
+    } as unknown as Mocked<Game>;
     master = new Master(game);
-    loggerLogSpy = jest.spyOn(Logger.prototype, 'log');
+    loggerLogSpy = vi.spyOn(Logger.prototype, 'log');
   });
+
   afterEach(() => {
     loggerLogSpy.mockRestore();
   });
@@ -25,6 +36,7 @@ describe('Master', () => {
     expect(master).toBeDefined();
     expect(master).toBeInstanceOf(Master);
   });
+
   it('should install a game', () => {
     master.install();
     expect(game.phase).toStrictEqual(GamePhase.INSTALLING);
@@ -32,11 +44,13 @@ describe('Master', () => {
       expect.stringContaining('Installing the game')
     );
   });
+
   it('should not prepare a game without install', () => {
     expect(() => {
       master.prepare();
-    }).toThrow(new Error('Impossible to go to next phase'));
+    }).toThrow('Impossible to go to next phase');
   });
+
   it('should prepare a game', () => {
     master.install();
     master.prepare();
@@ -45,17 +59,20 @@ describe('Master', () => {
       expect.stringContaining('Preparing the game')
     );
   });
+
   it('should not run a game without preparing and install', () => {
     expect(() => {
       master.run();
-    }).toThrow(new Error('Impossible to go to next phase'));
+    }).toThrow('Impossible to go to next phase');
   });
+
   it('should not run a game without preparing', () => {
     master.install();
     expect(() => {
       master.run();
-    }).toThrow(new Error('Impossible to go to next phase'));
+    }).toThrow('Impossible to go to next phase');
   });
+
   it('should run a game', () => {
     master.install();
     master.prepare();

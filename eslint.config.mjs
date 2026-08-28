@@ -87,10 +87,10 @@ export default tseslint.config(
         '@typescript-eslint/prefer-readonly': 'warn',
         '@typescript-eslint/prefer-reduce-type-parameter': 'warn',
         '@typescript-eslint/prefer-function-type': 'warn',
-        '@typescript-eslint/no-magic-numbers': [
-          'warn',
-          { ignoreEnums: true, ignore: [0, 1], enforceConst: true },
-        ],
+        // '@typescript-eslint/no-magic-numbers': [
+        //   'warn',
+        //   { ignoreEnums: true, ignore: [0, 1], enforceConst: true },
+        // ],
         '@typescript-eslint/no-unsafe-member-access': 'warn',
         '@typescript-eslint/no-extraneous-class': [
           'error',

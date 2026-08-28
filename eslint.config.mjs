@@ -10,7 +10,7 @@ export default tseslint.config(
     ...tseslint.configs.recommended,
 
     {
-      ignores: ['node_modules', 'dist', 'jest.config.cjs', 'vitest.config.ts'],
+      ignores: ['node_modules', 'dist', 'vitest.config.ts'],
     },
 
     {

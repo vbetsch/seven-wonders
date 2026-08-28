@@ -1,12 +1,11 @@
 import { defineConfig } from 'vitest/config';
-import path from 'path';
 
 export default defineConfig({
   test: {
     environment: 'node',
     include: ['**/src/**/**/**/*.test.ts'],
     coverage: {
-      provider: 'v8', // 'v8' est le défaut recommandé, mais nécessite le paquet @vitest/coverage-v8
+      provider: 'v8',
       thresholds: {
         lines: 100,
         functions: 100,
@@ -16,11 +15,6 @@ export default defineConfig({
     },
   },
   resolve: {
-    alias: {
-      '@commands': path.resolve(__dirname, './src/app/commands'),
-      '@usecases': path.resolve(__dirname, './src/app/usecases'),
-      '@core': path.resolve(__dirname, './src/domain/core'),
-      '@engine': path.resolve(__dirname, './src/domain/engine'),
-    },
+    tsconfigPaths: true,
   },
 });

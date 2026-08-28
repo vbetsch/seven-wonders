@@ -6,8 +6,8 @@
   "scripts": {
     "start": "ts-node --project tsconfig.json --require tsconfig-paths/register src/index.ts",
     "start:prod": "node dist/index.js",
-    "test": "jest --passWithNoTests",
-    "test:cov": "jest --passWithNoTests --coverage",
+    "test": "vitest",
+    "test:cov": "vitest run --coverage",
     "lint": "eslint . --ext .ts",
     "lint:strict": "eslint . --ext .ts --max-warnings=0",
     "format": "prettier --write .",

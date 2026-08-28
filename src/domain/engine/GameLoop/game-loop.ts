@@ -13,8 +13,8 @@ export class GameLoop {
 
   public start(): void {
     for (let i: number = 1; i <= this._rules.agesNumber; i++) {
-      this._logger.log('Age ' + i + '  started');
-      this._logger.log('Age ' + i + '  finished');
+      this._logger.log('Age ' + i + ' started');
+      this._logger.log('Age ' + i + ' finished');
     }
   }
 }

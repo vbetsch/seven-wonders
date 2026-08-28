@@ -31,8 +31,8 @@ describe('GameLoop', () => {
     loop.start();
 
     for (let i: number = 1; i <= mockRules.agesNumber; i++) {
-      expect(mockLogger.log).toHaveBeenCalledWith(`Age ${i}  started`);
-      expect(mockLogger.log).toHaveBeenCalledWith(`Age ${i}  finished`);
+      expect(mockLogger.log).toHaveBeenCalledWith(`Age ${i} started`);
+      expect(mockLogger.log).toHaveBeenCalledWith(`Age ${i} finished`);
     }
     // eslint-disable-next-line @typescript-eslint/no-magic-numbers
     expect(mockLogger.log).toHaveBeenCalledTimes(mockRules.agesNumber * 2);

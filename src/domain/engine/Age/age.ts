@@ -12,6 +12,9 @@ export class Age {
     this._identifier = identifier;
     this._cardsNumber = cardsNumber;
     this._logger.log('Age ' + identifier + ' started');
+    this._logger.log(
+      `There are ${cardsNumber} cards to discover during this age !`
+    );
     this._logger.log('Age ' + identifier + ' finished');
   }
 

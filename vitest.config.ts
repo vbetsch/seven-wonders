@@ -12,6 +12,7 @@ export default defineConfig({
         branches: 100,
         statements: 100,
       },
+      exclude: ['node_modules/**', 'vitest.config.ts', 'vitest-report/**'],
     },
   },
   resolve: {

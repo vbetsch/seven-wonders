@@ -1,15 +1,25 @@
 import 'reflect-metadata';
+import {
+  describe,
+  it,
+  expect,
+  beforeEach,
+  afterEach,
+  vi,
+  type MockInstance,
+} from 'vitest';
 import { Logger } from '@core/Logger/logger';
 import { Age } from './age';
 
 describe('Age', () => {
-  let loggerLogSpy: jest.SpyInstance;
+  let loggerLogSpy: MockInstance;
   let age: Age;
 
   beforeEach(() => {
-    loggerLogSpy = jest.spyOn(Logger.prototype, 'log');
+    loggerLogSpy = vi.spyOn(Logger.prototype, 'log');
     age = new Age(1, 12);
   });
+
   afterEach(() => {
     loggerLogSpy.mockRestore();
   });

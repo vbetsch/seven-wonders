@@ -1,4 +1,5 @@
 import 'reflect-metadata';
+import { describe, it, expect, beforeEach, afterEach } from 'vitest';
 import { Rules } from './rules';
 import { container } from 'tsyringe';
 

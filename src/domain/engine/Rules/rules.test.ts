@@ -40,4 +40,8 @@ describe('Rules', () => {
         rules.maxUsedWondersTotal
     ).toBe(wondersRemainingOnceMaximumReachedExpected);
   });
+
+  it('should be consistent about number of ages', () => {
+    expect(rules.agesCardsNumber.length).toBe(rules.agesNumber);
+  });
 });

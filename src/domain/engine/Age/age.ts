@@ -1,7 +1,7 @@
 export class Age {
   private readonly _identifier: number;
 
-  public constructor(identifier: number): void {
+  public constructor(identifier: number) {
     this._identifier = identifier;
   }
 

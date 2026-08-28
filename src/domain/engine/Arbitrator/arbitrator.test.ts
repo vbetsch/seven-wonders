@@ -1,4 +1,5 @@
 import 'reflect-metadata';
+import { describe, it, expect, beforeEach, afterEach } from 'vitest';
 import { container } from 'tsyringe';
 import { Arbitrator } from './arbitrator';
 import { GameResultType } from '@engine/Game/game-result.type';

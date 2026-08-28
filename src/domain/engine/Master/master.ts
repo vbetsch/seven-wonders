@@ -7,7 +7,6 @@ export class Master {
   private readonly _logger: Logger;
   private readonly _game: Game;
 
-  // eslint-disable-next-line max-params
   private _nextPhase(previous: GamePhase, next: GamePhase): void {
     if (this._game.phase !== previous) {
       throw new Error('Impossible to go to next phase');

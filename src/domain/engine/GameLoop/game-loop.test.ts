@@ -1,40 +1,35 @@
 import 'reflect-metadata';
-import { GameLoop } from './game-loop';
-import { Logger } from '@core/Logger/logger';
-import { Rules } from '@engine/Rules/rules';
 import { container } from 'tsyringe';
+import { GameLoop } from './game-loop';
+import { Rules } from '@engine/Rules/rules';
+import { Age } from '@engine/Age/age';
+
+jest.mock('@engine/Age/age');
 
 describe('GameLoop', () => {
   let mockRules: jest.Mocked<Rules>;
-  let mockLogger: jest.Mocked<Logger>;
   let loop: GameLoop;
+  const AgeMock: jest.MockedObjectDeep<typeof Age> = jest.mocked(Age);
 
   beforeEach(() => {
-    mockLogger = {
-      log: jest.fn(),
-    } as unknown as jest.Mocked<Logger>;
-    container.registerInstance(Logger, mockLogger);
-
     mockRules = {
-      agesNumber: 3,
+      agesCardsNumbers: [42, 38, 54],
     } as unknown as jest.Mocked<Rules>;
     container.registerInstance(Rules, mockRules);
-
     loop = container.resolve(GameLoop);
   });
 
   afterEach(() => {
     container.clearInstances();
+    jest.clearAllMocks();
   });
 
-  it('should run the expected number of ages', () => {
+  it('should instantiate ages', () => {
     loop.start();
 
-    for (let i: number = 1; i <= mockRules.agesNumber; i++) {
-      expect(mockLogger.log).toHaveBeenCalledWith(`Age ${i}  started`);
-      expect(mockLogger.log).toHaveBeenCalledWith(`Age ${i}  finished`);
-    }
-    // eslint-disable-next-line @typescript-eslint/no-magic-numbers
-    expect(mockLogger.log).toHaveBeenCalledTimes(mockRules.agesNumber * 2);
+    expect(AgeMock).toHaveBeenCalledTimes(3);
+    expect(AgeMock).toHaveBeenNthCalledWith(1, 1, 42);
+    expect(AgeMock).toHaveBeenNthCalledWith(2, 2, 38);
+    expect(AgeMock).toHaveBeenNthCalledWith(3, 3, 54);
   });
 });

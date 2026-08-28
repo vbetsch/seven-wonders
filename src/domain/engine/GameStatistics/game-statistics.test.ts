@@ -65,7 +65,6 @@ describe('GameStatistics', () => {
       const losers: PlayerStatisticsType[] =
         gameStatistics.getLosersStatistics();
 
-      // eslint-disable-next-line @typescript-eslint/no-magic-numbers
       expect(losers).toHaveLength(2);
       expect(losers).toEqual([
         { id: 'Player 1', score: 71 },

@@ -1,14 +1,27 @@
+import {
+  describe,
+  it,
+  expect,
+  beforeEach,
+  afterEach,
+  vi,
+  type MockInstance,
+} from 'vitest';
 import { Game } from './game';
 import { GamePhase } from './game-phase.enum';
 import { GameLoop } from '@engine/GameLoop/game-loop';
 
 describe('Game', () => {
-  let gameLoopStartSpy: jest.SpyInstance;
+  let gameLoopStartSpy: MockInstance;
   let game: Game;
 
   beforeEach(() => {
-    gameLoopStartSpy = jest.spyOn(GameLoop.prototype, 'start');
+    gameLoopStartSpy = vi.spyOn(GameLoop.prototype, 'start');
     game = new Game();
+  });
+
+  afterEach(() => {
+    gameLoopStartSpy.mockRestore();
   });
 
   it('should be well implemented', () => {

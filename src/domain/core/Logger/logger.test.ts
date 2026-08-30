@@ -1,28 +1,37 @@
 import 'reflect-metadata';
+import {
+  describe,
+  it,
+  expect,
+  beforeEach,
+  afterEach,
+  vi,
+  type MockInstance,
+} from 'vitest';
+import { container } from 'tsyringe';
 import { Logger } from './logger';
 import { LoggerColorEnum } from './logger-color.enum';
-import { container } from 'tsyringe';
 
 describe('Logger', () => {
   let logger: Logger;
-  let consoleLogSpy: jest.SpyInstance;
-  let consoleDebugSpy: jest.SpyInstance;
-  let consoleInfoSpy: jest.SpyInstance;
-  let consoleWarnSpy: jest.SpyInstance;
-  let consoleErrorSpy: jest.SpyInstance;
+  let consoleLogSpy: MockInstance;
+  let consoleDebugSpy: MockInstance;
+  let consoleInfoSpy: MockInstance;
+  let consoleWarnSpy: MockInstance;
+  let consoleErrorSpy: MockInstance;
 
   beforeEach(() => {
     logger = container.resolve(Logger);
-    consoleLogSpy = jest.spyOn(console, 'log').mockImplementation();
-    consoleDebugSpy = jest.spyOn(console, 'debug').mockImplementation();
-    consoleInfoSpy = jest.spyOn(console, 'info').mockImplementation();
-    consoleWarnSpy = jest.spyOn(console, 'warn').mockImplementation();
-    consoleErrorSpy = jest.spyOn(console, 'error').mockImplementation();
+    consoleLogSpy = vi.spyOn(console, 'log').mockReturnValue();
+    consoleDebugSpy = vi.spyOn(console, 'debug').mockReturnValue();
+    consoleInfoSpy = vi.spyOn(console, 'info').mockReturnValue();
+    consoleWarnSpy = vi.spyOn(console, 'warn').mockReturnValue();
+    consoleErrorSpy = vi.spyOn(console, 'error').mockReturnValue();
   });
 
   afterEach(() => {
     container.clearInstances();
-    jest.restoreAllMocks();
+    vi.restoreAllMocks();
   });
 
   describe('success', () => {

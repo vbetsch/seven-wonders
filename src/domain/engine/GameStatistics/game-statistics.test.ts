@@ -1,3 +1,4 @@
+import { describe, it, expect } from 'vitest';
 import { GameStatistics } from './game-statistics';
 import { PlayerStatisticsType } from '@engine/Player/player-statistics.type';
 
@@ -38,16 +39,16 @@ describe('GameStatistics', () => {
 
       expect(winner).toEqual({ id: 'Player 2', score: 75 });
     });
+
     it('should throw an error if stats are empty', () => {
       const playersStatistics: PlayerStatisticsType[] = [];
       const gameStatistics: GameStatistics = new GameStatistics(
         playersStatistics
       );
+
       expect(() => {
         gameStatistics.getWinnerStatistics();
-      }).toThrow(
-        new Error('Cannot determine winner: no player statistics available')
-      );
+      }).toThrow('Cannot determine winner: no player statistics available');
     });
   });
 

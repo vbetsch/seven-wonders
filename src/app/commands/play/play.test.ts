@@ -1,17 +1,26 @@
 import 'reflect-metadata';
 import { container } from 'tsyringe';
+import {
+  describe,
+  it,
+  expect,
+  beforeEach,
+  afterEach,
+  vi,
+  type Mocked,
+} from 'vitest';
 import { PlayCommand } from '@commands/play/play.command';
 import { CreateAndRunGameUseCase } from '@usecases/create-and-run-game/create-and-run-game.usecase';
 import { IUseCase } from '@usecases/abstract/usecase.interface';
 
 describe('Play', () => {
   let command: PlayCommand;
-  let mockUseCase: jest.Mocked<IUseCase>;
+  let mockUseCase: Mocked<IUseCase>;
 
   beforeEach(() => {
     mockUseCase = {
-      handle: jest.fn(),
-    } satisfies IUseCase as jest.Mocked<IUseCase>;
+      handle: vi.fn(),
+    } satisfies IUseCase as Mocked<IUseCase>;
 
     container.clearInstances();
     container.registerInstance(CreateAndRunGameUseCase, mockUseCase);

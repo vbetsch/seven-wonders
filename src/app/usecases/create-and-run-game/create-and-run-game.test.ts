@@ -1,34 +1,45 @@
 import 'reflect-metadata';
 import { container } from 'tsyringe';
+import {
+  describe,
+  it,
+  expect,
+  beforeEach,
+  afterEach,
+  vi,
+  type Mocked,
+} from 'vitest';
 import { CreateAndRunGameUseCase } from '@usecases/create-and-run-game/create-and-run-game.usecase';
 import { Game } from '@engine/Game/game';
 import { Master } from '@engine/Master/master';
 
-jest.mock('@engine/Game/game');
-jest.mock('@engine/Master/master');
+vi.mock('@engine/Game/game');
+vi.mock('@engine/Master/master');
 
 describe('CreateAndRunGameUseCase', () => {
   let useCase: CreateAndRunGameUseCase;
-  let mockGame: jest.Mocked<Game>;
-  let mockMaster: jest.Mocked<Master>;
+  let mockGame: Mocked<Game>;
+  let mockMaster: Mocked<Master>;
 
   beforeEach(() => {
-    mockGame = {} as jest.Mocked<Game>;
+    mockGame = {} as Mocked<Game>;
     mockMaster = {
-      install: jest.fn(),
-      prepare: jest.fn(),
-      run: jest.fn(),
-    } as unknown as jest.Mocked<Master>;
+      install: vi.fn(),
+      prepare: vi.fn(),
+      run: vi.fn(),
+    } as unknown as Mocked<Master>;
 
-    (Game as jest.MockedClass<typeof Game>).mockImplementation(() => mockGame);
-    (Master as jest.MockedClass<typeof Master>).mockImplementation(
-      () => mockMaster
-    );
+    vi.mocked(Game).mockImplementation(function () {
+      return mockGame;
+    });
+    vi.mocked(Master).mockImplementation(function () {
+      return mockMaster;
+    });
 
     container.clearInstances();
     useCase = container.resolve(CreateAndRunGameUseCase);
 
-    jest.clearAllMocks();
+    vi.clearAllMocks();
   });
 
   afterEach(() => {
@@ -62,12 +73,8 @@ describe('CreateAndRunGameUseCase', () => {
     expect(mockMaster.prepare).toHaveBeenCalledTimes(1);
     expect(mockMaster.run).toHaveBeenCalledTimes(1);
 
-    const installOrder: number = mockMaster.install.mock.invocationCallOrder[0];
-    const prepareOrder: number = mockMaster.prepare.mock.invocationCallOrder[0];
-    const runOrder: number = mockMaster.run.mock.invocationCallOrder[0];
-
-    expect(installOrder).toBeLessThan(prepareOrder);
-    expect(prepareOrder).toBeLessThan(runOrder);
+    expect(mockMaster.install).toHaveBeenCalledBefore(mockMaster.prepare);
+    expect(mockMaster.prepare).toHaveBeenCalledBefore(mockMaster.run);
   });
 
   it('should execute the complete game flow', () => {

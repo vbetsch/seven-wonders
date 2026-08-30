@@ -6,8 +6,10 @@
   "scripts": {
     "start": "ts-node --project tsconfig.json --require tsconfig-paths/register src/index.ts",
     "start:prod": "node dist/index.js",
-    "test": "jest --passWithNoTests",
-    "test:cov": "jest --passWithNoTests --coverage",
+    "test": "vitest run",
+    "test:cov": "vitest run --coverage --reporter=default --reporter=html --outputFile=vitest-report/index.html",
+    "test:cov:read": "vite preview --outDir vitest-report",
+    "test:watch": "vitest",
     "lint": "eslint . --ext .ts",
     "lint:strict": "eslint . --ext .ts --max-warnings=0",
     "format": "prettier --write .",
@@ -18,27 +20,27 @@
   "license": "ISC",
   "description": "",
   "devDependencies": {
-    "@types/jest": "^30.0.0",
+    "@eslint/js": "9.39.5",
     "@typescript-eslint/eslint-plugin": "^8.35.0",
     "@typescript-eslint/parser": "^8.35.0",
+    "@vitest/coverage-v8": "4.1.11",
+    "@vitest/ui": "4.1.11",
     "eslint": "^9.29.0",
     "eslint-config-prettier": "^10.1.5",
     "eslint-import-resolver-typescript": "4.4.4",
     "eslint-plugin-import": "2.32.0",
     "eslint-plugin-prettier": "^5.5.1",
     "eslint-plugin-spellcheck": "0.0.20",
-    "jest": "^30.0.3",
     "prettier": "^3.6.1",
-    "ts-jest": "^29.4.0",
     "ts-node": "^10.9.2",
     "tsc-alias": "1.8.16",
-    "typescript": "^5.8.3"
+    "typescript": "^5.8.3",
+    "typescript-eslint": "8.68.0",
+    "vitest": "4.1.11"
   },
   "dependencies": {
-    "@eslint/js": "^9.29.0",
     "reflect-metadata": "0.2.2",
     "tsconfig-paths": "4.2.0",
-    "tsyringe": "4.10.0",
-    "typescript-eslint": "^8.35.0"
+    "tsyringe": "4.10.0"
   }
 }

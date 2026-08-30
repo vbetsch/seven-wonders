@@ -1,27 +1,38 @@
 import 'reflect-metadata';
+import {
+  describe,
+  it,
+  expect,
+  beforeEach,
+  afterEach,
+  vi,
+  type Mocked,
+  MockedFunction,
+} from 'vitest';
 import { container } from 'tsyringe';
 import { GameLoop } from './game-loop';
 import { Rules } from '@engine/Rules/rules';
 import { Age } from '@engine/Age/age';
 
-jest.mock('@engine/Age/age');
+vi.mock('@engine/Age/age');
 
 describe('GameLoop', () => {
-  let mockRules: jest.Mocked<Rules>;
+  let mockRules: Mocked<Rules>;
   let loop: GameLoop;
-  const AgeMock: jest.MockedObjectDeep<typeof Age> = jest.mocked(Age);
+  const AgeMock: MockedFunction<typeof Age> = vi.mocked(Age);
 
   beforeEach(() => {
     mockRules = {
       agesCardsNumbers: [42, 38, 54],
-    } as unknown as jest.Mocked<Rules>;
+    } as unknown as Mocked<Rules>;
+
     container.registerInstance(Rules, mockRules);
     loop = container.resolve(GameLoop);
   });
 
   afterEach(() => {
     container.clearInstances();
-    jest.clearAllMocks();
+    vi.clearAllMocks();
   });
 
   it('should instantiate ages', () => {

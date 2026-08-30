@@ -18,12 +18,12 @@ format: node_modules
 build: node_modules
 	npm run build
 
-coverage: node_modules
+cov: node_modules
 	npm run test:cov
 
-.PHONY: start tests lint format build coverage
+.PHONY: start tests lint format build cov
 
 # Aliases
 test: tests
-ci: lint coverage build
+ci: lint cov build
 .PHONY: test ci

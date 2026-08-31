@@ -1,11 +1,33 @@
 {
+  "author": "vbetsch",
+  "dependencies": {
+    "tsx": "^4.23.12",
+    "reflect-metadata": "0.2.2",
+    "tsyringe": "4.10.0"
+  },
+  "description": "Digital adaptation of the Duel edition board game",
+  "devDependencies": {
+    "@vbetsch/config-eslint": "^1.0.5",
+    "@vbetsch/config-prettier": "^1.0.2",
+    "@vbetsch/config-tsconfig": "^1.0.4",
+    "@vitest/coverage-v8": "4.1.11",
+    "@vitest/ui": "4.1.11",
+    "eslint": "^9.29.0",
+    "eslint-config-prettier": "^10.1.5",
+    "eslint-import-resolver-typescript": "4.4.4",
+    "eslint-plugin-import": "2.32.0",
+    "eslint-plugin-prettier": "^5.5.1",
+    "eslint-plugin-spellcheck": "0.0.20",
+    "typescript": "^5.8.3",
+    "typescript-eslint": "8.68.0",
+    "vitest": "4.1.11"
+  },
   "engines": {
     "node": "24.14.1"
   },
-  "name": "seven-wonders",
-  "version": "0.1.0",
+  "license": "MIT",
   "main": "src/index.ts",
-  "type": "module",
+  "name": "seven-wonders",
   "scripts": {
     "start:dev": "npm run check && tsx src/index.ts",
     "start:prod": "node dist/index.js",
@@ -19,35 +41,6 @@
     "build": "tsc -p tsconfig.build.json",
     "check": "tsc"
   },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
-  "description": "",
-  "devDependencies": {
-    "@eslint/js": "9.39.5",
-    "@typescript-eslint/eslint-plugin": "^8.35.0",
-    "@typescript-eslint/parser": "^8.35.0",
-    "@vbetsch/config-eslint": "^1.0.5",
-    "@vbetsch/config-prettier": "^1.0.2",
-    "@vbetsch/config-tsconfig": "^1.0.4",
-    "@vitest/coverage-v8": "4.1.11",
-    "@vitest/ui": "4.1.11",
-    "eslint": "^9.29.0",
-    "eslint-config-prettier": "^10.1.5",
-    "eslint-import-resolver-typescript": "4.4.4",
-    "eslint-plugin-import": "2.32.0",
-    "eslint-plugin-prettier": "^5.5.1",
-    "eslint-plugin-spellcheck": "0.0.20",
-    "prettier": "^3.6.1",
-    "tsc-alias": "1.8.16",
-    "tsx": "^4.23.12",
-    "typescript": "^5.8.3",
-    "typescript-eslint": "8.68.0",
-    "vitest": "4.1.11"
-  },
-  "dependencies": {
-    "reflect-metadata": "0.2.2",
-    "tsconfig-paths": "4.2.0",
-    "tsyringe": "4.10.0"
-  }
+  "type": "module",
+  "version": "0.1.0"
 }

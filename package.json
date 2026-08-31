@@ -7,7 +7,7 @@
   "main": "src/index.ts",
   "type": "module",
   "scripts": {
-    "start:dev": "tsx src/index.ts",
+    "start:dev": "npm run check && tsx src/index.ts",
     "start:prod": "node dist/index.js",
     "test": "vitest run",
     "test:cov": "vitest run --coverage --reporter=default --reporter=html --outputFile=vitest-report/index.html",
@@ -16,7 +16,7 @@
     "lint": "eslint",
     "lint:strict": "eslint --max-warnings=0",
     "format": "prettier --write .",
-    "build": "tsc --project tsconfig.build.json && tsc-alias",
+    "build": "tsc -p tsconfig.build.json",
     "check": "tsc"
   },
   "keywords": [],

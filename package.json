@@ -13,8 +13,8 @@
     "test:cov": "vitest run --coverage --reporter=default --reporter=html --outputFile=vitest-report/index.html",
     "test:cov:read": "vite preview --outDir vitest-report",
     "test:watch": "vitest",
-    "lint": "eslint . --ext .ts",
-    "lint:strict": "eslint . --ext .ts --max-warnings=0",
+    "lint": "eslint",
+    "lint:strict": "eslint --max-warnings=0",
     "format": "prettier --write .",
     "build": "tsc --project tsconfig.build.json && tsc-alias"
   },

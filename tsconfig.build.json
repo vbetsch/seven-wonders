@@ -13,5 +13,8 @@
     "outDir": "./dist/"
 
     /* Overrides */
+  },
+  "tsc-alias": {
+    "resolveFullPaths": true
   }
 }

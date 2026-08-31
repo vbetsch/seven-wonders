@@ -16,7 +16,8 @@
     "lint": "eslint",
     "lint:strict": "eslint --max-warnings=0",
     "format": "prettier --write .",
-    "build": "tsc --project tsconfig.build.json && tsc-alias"
+    "build": "tsc --project tsconfig.build.json && tsc-alias",
+    "check": "tsc"
   },
   "keywords": [],
   "author": "",

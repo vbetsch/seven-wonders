@@ -12,15 +12,12 @@
     "@vbetsch/config-tsconfig": "^1.0.4",
     "@vitest/coverage-v8": "4.1.11",
     "@vitest/ui": "4.1.11",
-    "eslint": "^9.29.0",
     "eslint-config-prettier": "^10.1.5",
-    "eslint-import-resolver-typescript": "4.4.4",
     "eslint-plugin-import": "2.32.0",
     "eslint-plugin-prettier": "^5.5.1",
     "eslint-plugin-spellcheck": "0.0.20",
     "tsc-alias": "^1.9.2",
     "typescript": "^5.8.3",
-    "typescript-eslint": "8.68.0",
     "vitest": "4.1.11"
   },
   "engines": {

@@ -1,4 +1,17 @@
 {
-  "extends": "./tsconfig.json",
-  "exclude": ["**/*.test.ts"]
+  "exclude": [
+    "**/*.spec.ts",
+    "**/*.test.ts",
+    "**/coverage/**",
+    "**/dist/**",
+    "**/node_modules/**",
+    "**/tests/**"
+  ],
+  "extends": ["./tsconfig.json", "@vbetsch/config-tsconfig/build/base"],
+  "compilerOptions": {
+    /* IMPORTANT: You have to define it ! */
+    "outDir": "./dist/"
+
+    /* Overrides */
+  }
 }

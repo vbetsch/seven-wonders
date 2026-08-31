@@ -12,8 +12,8 @@ export default [
   spellcheckVbetsch,
   ...prettierVbetsch,
 
+  /* IMPORTANT: You have to add these lines only for the strict module ! */
   {
-    /* IMPORTANT: You have to add these lines only for the strict module ! */
     languageOptions: {
       parserOptions: {
         project: './tsconfig.json',

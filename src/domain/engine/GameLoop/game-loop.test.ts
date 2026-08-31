@@ -7,7 +7,7 @@ import {
   afterEach,
   vi,
   type Mocked,
-  MockedFunction,
+  type MockedFunction,
 } from 'vitest';
 import { container } from 'tsyringe';
 import { GameLoop } from './game-loop';

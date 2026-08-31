@@ -1,4 +1,4 @@
-import { PlayerStatisticsType } from '@engine/Player/player-statistics.type';
+import type { PlayerStatisticsType } from '@engine/Player/player-statistics.type';
 
 export class GameStatistics {
   private readonly _playersStatistics: PlayerStatisticsType[] = [];

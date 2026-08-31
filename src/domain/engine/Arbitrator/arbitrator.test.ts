@@ -2,8 +2,8 @@ import 'reflect-metadata';
 import { describe, it, expect, beforeEach, afterEach } from 'vitest';
 import { container } from 'tsyringe';
 import { Arbitrator } from './arbitrator';
-import { GameResultType } from '@engine/Game/game-result.type';
-import { PlayerStatisticsType } from '@engine/Player/player-statistics.type';
+import type { GameResultType } from '@engine/Game/game-result.type';
+import type { PlayerStatisticsType } from '@engine/Player/player-statistics.type';
 
 describe('Arbitrator', () => {
   let arbitrator: Arbitrator;

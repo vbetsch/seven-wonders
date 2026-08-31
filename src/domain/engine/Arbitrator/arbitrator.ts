@@ -1,6 +1,6 @@
 import { injectable } from 'tsyringe';
-import { GameResultType } from '@engine/Game/game-result.type';
-import { PlayerStatisticsType } from '@engine/Player/player-statistics.type';
+import type { GameResultType } from '@engine/Game/game-result.type';
+import type { PlayerStatisticsType } from '@engine/Player/player-statistics.type';
 import { GameStatistics } from '@engine/GameStatistics/game-statistics';
 
 @injectable()

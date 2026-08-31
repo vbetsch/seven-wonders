@@ -10,7 +10,7 @@
     "start:dev": "npm run check && tsx src/index.ts",
     "start:prod": "node dist/index.js",
     "test": "vitest run",
-    "test:cov": "vitest run --coverage --reporter=default --reporter=html --outputFile=vitest-report/index.html",
+    "test:cov": "vitest run --coverage",
     "test:cov:read": "vite preview --outDir vitest-report",
     "test:watch": "vitest",
     "lint": "eslint",

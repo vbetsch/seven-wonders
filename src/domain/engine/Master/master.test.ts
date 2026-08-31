@@ -9,7 +9,7 @@ import {
   type Mocked,
   type MockInstance,
 } from 'vitest';
-import { Game } from '@engine/Game/game';
+import { type Game } from '@engine/Game/game';
 import { Master } from './master';
 import { GamePhase } from '@engine/Game/game-phase.enum';
 import { Logger } from '@core/Logger/logger';

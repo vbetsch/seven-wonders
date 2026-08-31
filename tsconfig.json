@@ -1,26 +1,15 @@
 {
   "exclude": ["**/coverage/**", "**/dist/**", "**/node_modules/**", "**/vitest-report/**"],
+  "extends": ["@vbetsch/config-tsconfig/base", "@vbetsch/config-tsconfig/strict"],
+  /* Overrides */
   "compilerOptions": {
-    "experimentalDecorators": true,
-    "emitDecoratorMetadata": true,
-    "target": "ES2020",
-    "module": "ESNext",
-    "moduleResolution": "bundler",
-    "outDir": "dist",
-    "esModuleInterop": true,
-    "baseUrl": "./src",
+    "baseUrl": ".",
     "paths": {
+      "@/*": ["src/*"],
       "@commands/*": ["app/commands/*"],
       "@usecases/*": ["app/usecases/*"],
       "@core/*": ["domain/core/*"],
       "@engine/*": ["domain/engine/*"]
-    },
-    // Strictness
-    "strict": true,
-    "strictPropertyInitialization": true,
-    "noImplicitOverride": true,
-    "forceConsistentCasingInFileNames": true,
-    "noFallthroughCasesInSwitch": true
-  },
-  "include": ["src"]
+    }
+  }
 }

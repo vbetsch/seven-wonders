@@ -1,4 +1,3 @@
-import 'reflect-metadata';
 import { Logger } from '@core/Logger/logger';
 import { container } from 'tsyringe';
 

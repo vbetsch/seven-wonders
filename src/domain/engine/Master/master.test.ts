@@ -40,9 +40,7 @@ describe('Master', () => {
   it('should install a game', () => {
     master.install();
     expect(game.phase).toStrictEqual(GamePhase.INSTALLING);
-    expect(loggerLogSpy).toHaveBeenCalledWith(
-      expect.stringContaining('Installing the game')
-    );
+    expect(loggerLogSpy).toHaveBeenCalledWith(expect.stringContaining('Installing the game'));
   });
 
   it('should not prepare a game without install', () => {
@@ -55,9 +53,7 @@ describe('Master', () => {
     master.install();
     master.prepare();
     expect(game.phase).toStrictEqual(GamePhase.PREPARING);
-    expect(loggerLogSpy).toHaveBeenCalledWith(
-      expect.stringContaining('Preparing the game')
-    );
+    expect(loggerLogSpy).toHaveBeenCalledWith(expect.stringContaining('Preparing the game'));
   });
 
   it('should not run a game without preparing and install', () => {
@@ -79,8 +75,6 @@ describe('Master', () => {
     master.run();
     expect(game.phase).toStrictEqual(GamePhase.RUNNING);
     expect(game.run).toHaveBeenCalledTimes(1);
-    expect(loggerLogSpy).toHaveBeenCalledWith(
-      expect.stringContaining('Running the game')
-    );
+    expect(loggerLogSpy).toHaveBeenCalledWith(expect.stringContaining('Running the game'));
   });
 });

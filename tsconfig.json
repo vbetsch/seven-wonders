@@ -1,10 +1,5 @@
 {
-  "exclude": [
-    "**/coverage/**",
-    "**/dist/**",
-    "**/node_modules/**",
-    "**/vitest-report/**"
-  ],
+  "exclude": ["**/coverage/**", "**/dist/**", "**/node_modules/**", "**/vitest-report/**"],
   "compilerOptions": {
     "experimentalDecorators": true,
     "emitDecoratorMetadata": true,

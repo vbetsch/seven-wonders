@@ -5,21 +5,14 @@ import { GameStatistics } from '@engine/GameStatistics/game-statistics';
 
 @injectable()
 export class Arbitrator {
-  private _getFormattedLosers(
-    losersStatistics: PlayerStatisticsType[]
-  ): string[] {
+  private _getFormattedLosers(losersStatistics: PlayerStatisticsType[]): string[] {
     return losersStatistics.map((player) => player.id);
   }
 
-  public getGameResult(
-    playersStatistics: PlayerStatisticsType[]
-  ): GameResultType | null {
-    const gameStatistics: GameStatistics = new GameStatistics(
-      playersStatistics
-    );
+  public getGameResult(playersStatistics: PlayerStatisticsType[]): GameResultType | null {
+    const gameStatistics: GameStatistics = new GameStatistics(playersStatistics);
 
-    const winnerStatistics: PlayerStatisticsType =
-      gameStatistics.getWinnerStatistics();
+    const winnerStatistics: PlayerStatisticsType = gameStatistics.getWinnerStatistics();
 
     if (gameStatistics.hasEquality()) return null;
 

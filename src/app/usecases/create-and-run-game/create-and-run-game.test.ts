@@ -1,14 +1,6 @@
 import 'reflect-metadata';
 import { container } from 'tsyringe';
-import {
-  describe,
-  it,
-  expect,
-  beforeEach,
-  afterEach,
-  vi,
-  type Mocked,
-} from 'vitest';
+import { describe, it, expect, beforeEach, afterEach, vi, type Mocked } from 'vitest';
 import { CreateAndRunGameUseCase } from '@usecases/create-and-run-game/create-and-run-game.usecase';
 import { Game } from '@engine/Game/game';
 import { Master } from '@engine/Master/master';

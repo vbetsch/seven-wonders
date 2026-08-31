@@ -1,13 +1,5 @@
 import 'reflect-metadata';
-import {
-  describe,
-  it,
-  expect,
-  beforeEach,
-  afterEach,
-  vi,
-  type MockInstance,
-} from 'vitest';
+import { describe, it, expect, beforeEach, afterEach, vi, type MockInstance } from 'vitest';
 import { container } from 'tsyringe';
 import { Logger } from './logger';
 import { LoggerColorEnum } from './logger-color.enum';
@@ -121,9 +113,7 @@ describe('Logger', () => {
       const message: string = 'Test';
       logger.log(message);
 
-      expect(consoleLogSpy).toHaveBeenCalledWith(
-        expect.stringContaining('➔ Test')
-      );
+      expect(consoleLogSpy).toHaveBeenCalledWith(expect.stringContaining('➔ Test'));
     });
 
     it('should handle empty strings', () => {

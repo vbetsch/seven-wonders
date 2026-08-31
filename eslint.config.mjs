@@ -76,10 +76,7 @@ export default tseslint.config(
           'error',
           { accessibility: 'explicit' },
         ],
-        '@typescript-eslint/explicit-function-return-type': [
-          'error',
-          { allowExpressions: false },
-        ],
+        '@typescript-eslint/explicit-function-return-type': ['error', { allowExpressions: false }],
         '@typescript-eslint/explicit-module-boundary-types': 'error',
         '@typescript-eslint/no-explicit-any': 'error',
         '@typescript-eslint/no-inferrable-types': 'off',
@@ -87,10 +84,7 @@ export default tseslint.config(
         '@typescript-eslint/prefer-reduce-type-parameter': 'warn',
         '@typescript-eslint/prefer-function-type': 'warn',
         '@typescript-eslint/no-unsafe-member-access': 'warn',
-        '@typescript-eslint/no-extraneous-class': [
-          'error',
-          { allowConstructorOnly: false },
-        ],
+        '@typescript-eslint/no-extraneous-class': ['error', { allowConstructorOnly: false }],
         '@typescript-eslint/class-literal-property-style': ['warn', 'fields'],
         '@typescript-eslint/no-empty-function': ['warn'],
         '@typescript-eslint/adjacent-overload-signatures': 'warn',

@@ -30,8 +30,7 @@ describe('Arbitrator', () => {
         { id: 'Player 2', score: 50 },
       ];
 
-      const result: GameResultType | null =
-        arbitrator.getGameResult(playersStatistics);
+      const result: GameResultType | null = arbitrator.getGameResult(playersStatistics);
 
       expect(result).toBeNull();
     });
@@ -46,8 +45,7 @@ describe('Arbitrator', () => {
         losers: ['Player 2'],
       };
 
-      const result: GameResultType | null =
-        arbitrator.getGameResult(playersStatistics);
+      const result: GameResultType | null = arbitrator.getGameResult(playersStatistics);
 
       expect(result).toStrictEqual(expectedResult);
     });
@@ -62,8 +60,7 @@ describe('Arbitrator', () => {
         losers: ['Player 1'],
       };
 
-      const result: GameResultType | null =
-        arbitrator.getGameResult(playersStatistics);
+      const result: GameResultType | null = arbitrator.getGameResult(playersStatistics);
 
       expect(result).toStrictEqual(expectedResult);
     });

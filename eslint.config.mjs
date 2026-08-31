@@ -20,9 +20,6 @@ export default [
         tsconfigRootDir: import.meta.dirname,
       },
     },
-    rules: {
-      '@typescript-eslint/no-magic-numbers': 'off',
-    },
   },
 
   /* --- Overrides --- */
@@ -47,5 +44,15 @@ export default [
         },
       ],
     },
+  },
+
+  {
+    rules: {
+      '@typescript-eslint/no-magic-numbers': 'off',
+    },
+  },
+
+  {
+    ignores: ['vitest-report/', 'vitest.config.ts'],
   },
 ];

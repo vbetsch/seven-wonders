@@ -1,5 +1,11 @@
 {
-  "exclude": ["**/coverage/**", "**/dist/**", "**/node_modules/**", "**/vitest-report/**"],
+  "exclude": [
+    "**/coverage/**",
+    "**/dist/**",
+    "**/node_modules/**",
+    "**/vitest-report/**",
+    "vitest.config.ts"
+  ],
   "extends": ["@vbetsch/config-tsconfig/base", "@vbetsch/config-tsconfig/strict"],
   /* Overrides */
   "compilerOptions": {

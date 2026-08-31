@@ -55,7 +55,7 @@ The goal of this repository is to implement the **entire game engine** of Seven 
 - **Tsyringe** (dependency injection)
 - **Vitest** (unit tests)
 - **ESLint + Prettier** (quality and formatting)
-- **ts-node** (development runtime)
+- **tsx** (development runtime)
 - **tsc-alias** (path alias resolution)
 
 ## 🚀 Getting Started

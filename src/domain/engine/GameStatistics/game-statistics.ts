@@ -22,13 +22,13 @@ export class GameStatistics {
 
   public getLosersStatistics(): PlayerStatisticsType[] {
     const winnerStatistics: PlayerStatisticsType = this.getWinnerStatistics();
-    return this._playersStatistics.filter((player) => player.id !== winnerStatistics.id);
+    return this._playersStatistics.filter(player => player.id !== winnerStatistics.id);
   }
 
   public hasEquality(): boolean {
     const winnerStatistics: PlayerStatisticsType = this.getWinnerStatistics();
     return this._playersStatistics.some(
-      (player) => player.id !== winnerStatistics.id && player.score === winnerStatistics.score
+      player => player.id !== winnerStatistics.id && player.score === winnerStatistics.score
     );
   }
 }

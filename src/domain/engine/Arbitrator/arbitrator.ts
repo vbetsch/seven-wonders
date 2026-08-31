@@ -6,7 +6,7 @@ import { GameStatistics } from '@engine/GameStatistics/game-statistics';
 @injectable()
 export class Arbitrator {
   private _getFormattedLosers(losersStatistics: PlayerStatisticsType[]): string[] {
-    return losersStatistics.map((player) => player.id);
+    return losersStatistics.map(player => player.id);
   }
 
   public getGameResult(playersStatistics: PlayerStatisticsType[]): GameResultType | null {

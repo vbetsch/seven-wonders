@@ -7,7 +7,7 @@
   "main": "index.js",
   "type": "commonjs",
   "scripts": {
-    "start:dev": "ts-node --project tsconfig.json --require tsconfig-paths/register src/index.ts",
+    "start:dev": "tsx watch src/index.ts",
     "start:prod": "node dist/index.js",
     "test": "vitest run",
     "test:cov": "vitest run --coverage --reporter=default --reporter=html --outputFile=vitest-report/index.html",
@@ -41,6 +41,7 @@
     "prettier": "^3.6.1",
     "ts-node": "^10.9.2",
     "tsc-alias": "1.8.16",
+    "tsx": "^4.23.12",
     "typescript": "^5.8.3",
     "typescript-eslint": "8.68.0",
     "vitest": "4.1.11"

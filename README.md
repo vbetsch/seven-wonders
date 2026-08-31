@@ -50,7 +50,7 @@ The goal of this repository is to implement the **entire game engine** of Seven 
 
 ## 🛠️ Tech Stack
 
-- **Node.js v22.17.1 LTS**
+- **Node.js v24.14.1 LTS**
 - **TypeScript** (decorators enabled)
 - **Tsyringe** (dependency injection)
 - **Vitest** (unit tests)

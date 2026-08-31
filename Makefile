@@ -3,8 +3,8 @@ node_modules:
 	npm install
 
 # Commands
-start: node_modules
-	npm run start
+dev: node_modules
+	npm run start:dev
 
 tests: node_modules
 	npm test
@@ -21,7 +21,7 @@ build: node_modules
 cov: node_modules
 	npm run test:cov
 
-.PHONY: start tests lint format build cov
+.PHONY: dev tests lint format build cov
 
 # Aliases
 test: tests

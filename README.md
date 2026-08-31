@@ -71,7 +71,7 @@ npm install
 ### Run the CLI interface
 
 ```bash
-npm start
+npm run start:dev
 ```
 
 ## 🧪 Running Tests

@@ -6,7 +6,7 @@ node_modules:
 dev: node_modules
 	npm run start:dev
 
-tests: node_modules
+test: node_modules
 	npm test
 
 lint: node_modules
@@ -21,9 +21,9 @@ build: node_modules
 cov: node_modules
 	npm run test:cov
 
-.PHONY: dev tests lint format build cov
+.PHONY: dev test lint format build cov
 
 # Aliases
-test: tests
+tests: test
 ci: lint cov build
-.PHONY: test ci
+.PHONY: tests ci

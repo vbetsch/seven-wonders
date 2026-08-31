@@ -3,8 +3,7 @@
     "node": "24.14.1"
   },
   "name": "seven-wonders",
-  "version": "1.0.0",
-  "main": "index.js",
+  "version": "0.1.0",
   "main": "src/index.ts",
   "type": "commonjs",
   "scripts": {

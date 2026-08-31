@@ -16,7 +16,6 @@
     "tsc-alias": "^1.9.2",
     "tsx": "^4.23.12",
     "tsyringe": "^4.10.0",
-    "typescript": "^5.8.3",
     "vitest": "4.1.11"
   },
   "engines": {

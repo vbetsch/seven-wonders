@@ -1,0 +1,19 @@
+name: build
+
+on:
+  workflow_call:
+
+jobs:
+  tsc:
+    name: Tsc
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v7
+
+      - name: Restore Env & Node
+        uses: ./.github/actions/setup-project
+
+      - name: Build application
+        run: npm run build

@@ -1,13 +1,5 @@
 import 'reflect-metadata';
-import {
-  describe,
-  it,
-  expect,
-  beforeEach,
-  afterEach,
-  vi,
-  type MockInstance,
-} from 'vitest';
+import { describe, it, expect, beforeEach, afterEach, vi, type MockInstance } from 'vitest';
 import { Logger } from '@core/Logger/logger';
 import { Age } from './age';
 
@@ -41,9 +33,7 @@ describe('Age', () => {
 
   it('should log during instantiation', () => {
     expect(loggerLogSpy).toHaveBeenCalledWith('Age 1 started');
-    expect(loggerLogSpy).toHaveBeenCalledWith(
-      'There are 12 cards to discover during this age !'
-    );
+    expect(loggerLogSpy).toHaveBeenCalledWith('There are 12 cards to discover during this age !');
     expect(loggerLogSpy).toHaveBeenCalledWith('Age 1 finished');
   });
 });

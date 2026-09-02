@@ -1,5 +1,53 @@
-/.idea/
-/coverage/
-/dist/
-/node_modules/
-/vitest-report/
+# Imported from @vbetsch/lib-config-ts
+
+# --- System Files ---
+.DS_Store
+Thumbs.db
+
+# --- Dependencies ---
+node_modules/
+.pnpm-store/
+
+# --- Build & Output ---
+dist/
+build/
+out/
+*.tsbuildinfo
+
+# --- Tests & Coverage ---
+coverage/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+.pnpm-debug.log*
+
+# --- IDE & Editors ---
+.vscode/*
+!.vscode/extensions.json
+!.vscode/settings.json
+.idea/
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
+
+# --- Tooling & Cache ---
+.eslintcache
+.prettiercache
+.swc/
+.jest/
+.turbo/
+
+# --- Environment & Secrets ---
+.env
+.env.local
+.env.*.local
+
+# --- Logs ---
+logs
+*.log
+
+
+# --- Overrides ---
+vitest-report/

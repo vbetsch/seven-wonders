@@ -2,8 +2,8 @@ import 'reflect-metadata';
 import { describe, it, expect, beforeEach, afterEach } from 'vitest';
 import { container } from 'tsyringe';
 import { Arbitrator } from './arbitrator';
-import { GameResultType } from '@engine/Game/game-result.type';
-import { PlayerStatisticsType } from '@engine/Player/player-statistics.type';
+import type { GameResultType } from '@engine/Game/game-result.type';
+import type { PlayerStatisticsType } from '@engine/Player/player-statistics.type';
 
 describe('Arbitrator', () => {
   let arbitrator: Arbitrator;
@@ -30,8 +30,7 @@ describe('Arbitrator', () => {
         { id: 'Player 2', score: 50 },
       ];
 
-      const result: GameResultType | null =
-        arbitrator.getGameResult(playersStatistics);
+      const result: GameResultType | null = arbitrator.getGameResult(playersStatistics);
 
       expect(result).toBeNull();
     });
@@ -46,8 +45,7 @@ describe('Arbitrator', () => {
         losers: ['Player 2'],
       };
 
-      const result: GameResultType | null =
-        arbitrator.getGameResult(playersStatistics);
+      const result: GameResultType | null = arbitrator.getGameResult(playersStatistics);
 
       expect(result).toStrictEqual(expectedResult);
     });
@@ -62,8 +60,7 @@ describe('Arbitrator', () => {
         losers: ['Player 1'],
       };
 
-      const result: GameResultType | null =
-        arbitrator.getGameResult(playersStatistics);
+      const result: GameResultType | null = arbitrator.getGameResult(playersStatistics);
 
       expect(result).toStrictEqual(expectedResult);
     });

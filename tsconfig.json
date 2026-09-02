@@ -3,28 +3,18 @@
     "**/coverage/**",
     "**/dist/**",
     "**/node_modules/**",
-    "**/vitest-report/**"
+    "**/vitest-report/**",
+    "vitest.config.ts"
   ],
+  "extends": ["@vbetsch/config-tsconfig/base", "@vbetsch/config-tsconfig/strict"],
+  /* Overrides */
   "compilerOptions": {
-    "experimentalDecorators": true,
-    "emitDecoratorMetadata": true,
-    "target": "ES2020",
-    "module": "commonjs",
-    "outDir": "dist",
-    "esModuleInterop": true,
-    "baseUrl": "./src",
     "paths": {
-      "@commands/*": ["app/commands/*"],
-      "@usecases/*": ["app/usecases/*"],
-      "@core/*": ["domain/core/*"],
-      "@engine/*": ["domain/engine/*"]
-    },
-    // Strictness
-    "strict": true,
-    "strictPropertyInitialization": true,
-    "noImplicitOverride": true,
-    "forceConsistentCasingInFileNames": true,
-    "noFallthroughCasesInSwitch": true
-  },
-  "include": ["src"]
+      "@/*": ["./src/*"],
+      "@commands/*": ["./src/app/commands/*"],
+      "@usecases/*": ["./src/app/usecases/*"],
+      "@core/*": ["./src/domain/core/*"],
+      "@engine/*": ["./src/domain/engine/*"]
+    }
+  }
 }

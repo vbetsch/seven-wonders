@@ -1,4 +1,3 @@
-import 'reflect-metadata';
 import { container } from 'tsyringe';
 import { Rules } from '@engine/Rules/rules';
 import { Age } from '@engine/Age/age';

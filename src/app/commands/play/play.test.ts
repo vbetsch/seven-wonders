@@ -1,17 +1,9 @@
 import 'reflect-metadata';
 import { container } from 'tsyringe';
-import {
-  describe,
-  it,
-  expect,
-  beforeEach,
-  afterEach,
-  vi,
-  type Mocked,
-} from 'vitest';
+import { describe, it, expect, beforeEach, afterEach, vi, type Mocked } from 'vitest';
 import { PlayCommand } from '@commands/play/play.command';
 import { CreateAndRunGameUseCase } from '@usecases/create-and-run-game/create-and-run-game.usecase';
-import { IUseCase } from '@usecases/abstract/usecase.interface';
+import type { IUseCase } from '@usecases/abstract/usecase.interface';
 
 describe('Play', () => {
   let command: PlayCommand;

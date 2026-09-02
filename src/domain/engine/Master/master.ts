@@ -1,4 +1,4 @@
-import { Game } from '@engine/Game/game';
+import { type Game } from '@engine/Game/game';
 import { GamePhase } from '@engine/Game/game-phase.enum';
 import { Logger } from '@core/Logger/logger';
 import { container } from 'tsyringe';

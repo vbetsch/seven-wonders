@@ -27,18 +27,15 @@ describe('Rules', () => {
     expect(rules.agesNumber).toBe(agesNumberExpected);
     expect(rules.agesCardsNumbers).toStrictEqual(agesCardsNumbersExpected);
     expect(rules.availableWondersTotal).toBe(availableWondersTotalExpected);
-    expect(rules.availableWondersPerPlayer).toBe(
-      availableWondersPerPlayerExpected
-    );
+    expect(rules.availableWondersPerPlayer).toBe(availableWondersPerPlayerExpected);
     expect(rules.maxUsedWondersTotal).toBe(maxUsedWondersTotalExpected);
   });
 
   it('should remain only expected wonders number', () => {
     const wondersRemainingOnceMaximumReachedExpected: number = 1;
-    expect(
-      rules.availableWondersPerPlayer * rules.playersNumber -
-        rules.maxUsedWondersTotal
-    ).toBe(wondersRemainingOnceMaximumReachedExpected);
+    expect(rules.availableWondersPerPlayer * rules.playersNumber - rules.maxUsedWondersTotal).toBe(
+      wondersRemainingOnceMaximumReachedExpected
+    );
   });
 
   it('should be consistent about number of ages', () => {

@@ -7,7 +7,7 @@ import {
   afterEach,
   vi,
   type Mocked,
-  MockedFunction,
+  type MockedFunction,
 } from 'vitest';
 import { container } from 'tsyringe';
 import { GameLoop } from './game-loop';
@@ -19,7 +19,7 @@ vi.mock('@engine/Age/age');
 describe('GameLoop', () => {
   let mockRules: Mocked<Rules>;
   let loop: GameLoop;
-  const AgeMock: MockedFunction<typeof Age> = vi.mocked(Age);
+  const ageMock: MockedFunction<typeof Age> = vi.mocked(Age);
 
   beforeEach(() => {
     mockRules = {
@@ -38,9 +38,9 @@ describe('GameLoop', () => {
   it('should instantiate ages', () => {
     loop.start();
 
-    expect(AgeMock).toHaveBeenCalledTimes(3);
-    expect(AgeMock).toHaveBeenNthCalledWith(1, 1, 42);
-    expect(AgeMock).toHaveBeenNthCalledWith(2, 2, 38);
-    expect(AgeMock).toHaveBeenNthCalledWith(3, 3, 54);
+    expect(ageMock).toHaveBeenCalledTimes(3);
+    expect(ageMock).toHaveBeenNthCalledWith(1, 1, 42);
+    expect(ageMock).toHaveBeenNthCalledWith(2, 2, 38);
+    expect(ageMock).toHaveBeenNthCalledWith(3, 3, 54);
   });
 });

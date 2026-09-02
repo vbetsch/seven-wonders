@@ -1,6 +1,6 @@
 import { Game } from '@engine/Game/game';
 import { Master } from '@engine/Master/master';
-import { IUseCase } from '@usecases/abstract/usecase.interface';
+import type { IUseCase } from '@usecases/abstract/usecase.interface';
 import { injectable } from 'tsyringe';
 
 @injectable()

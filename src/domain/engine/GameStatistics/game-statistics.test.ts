@@ -1,6 +1,6 @@
 import { describe, it, expect } from 'vitest';
 import { GameStatistics } from './game-statistics';
-import { PlayerStatisticsType } from '@engine/Player/player-statistics.type';
+import type { PlayerStatisticsType } from '@engine/Player/player-statistics.type';
 
 describe('GameStatistics', () => {
   describe('Initialization', () => {
@@ -17,9 +17,7 @@ describe('GameStatistics', () => {
         { id: 'Player 2', score: 75 },
       ];
 
-      const gameStatistics: GameStatistics = new GameStatistics(
-        playersStatistics
-      );
+      const gameStatistics: GameStatistics = new GameStatistics(playersStatistics);
 
       expect(gameStatistics.playersStatistics).toStrictEqual(playersStatistics);
     });
@@ -31,9 +29,7 @@ describe('GameStatistics', () => {
         { id: 'Player 1', score: 71 },
         { id: 'Player 2', score: 75 },
       ];
-      const gameStatistics: GameStatistics = new GameStatistics(
-        playersStatistics
-      );
+      const gameStatistics: GameStatistics = new GameStatistics(playersStatistics);
 
       const winner: PlayerStatisticsType = gameStatistics.getWinnerStatistics();
 
@@ -42,9 +38,7 @@ describe('GameStatistics', () => {
 
     it('should throw an error if stats are empty', () => {
       const playersStatistics: PlayerStatisticsType[] = [];
-      const gameStatistics: GameStatistics = new GameStatistics(
-        playersStatistics
-      );
+      const gameStatistics: GameStatistics = new GameStatistics(playersStatistics);
 
       expect(() => {
         gameStatistics.getWinnerStatistics();
@@ -59,12 +53,9 @@ describe('GameStatistics', () => {
         { id: 'Player 2', score: 75 },
         { id: 'Player 3', score: 60 },
       ];
-      const gameStatistics: GameStatistics = new GameStatistics(
-        playersStatistics
-      );
+      const gameStatistics: GameStatistics = new GameStatistics(playersStatistics);
 
-      const losers: PlayerStatisticsType[] =
-        gameStatistics.getLosersStatistics();
+      const losers: PlayerStatisticsType[] = gameStatistics.getLosersStatistics();
 
       expect(losers).toHaveLength(2);
       expect(losers).toEqual([
@@ -80,9 +71,7 @@ describe('GameStatistics', () => {
         { id: 'Player 1', score: 75 },
         { id: 'Player 2', score: 75 },
       ];
-      const gameStatistics: GameStatistics = new GameStatistics(
-        playersStatistics
-      );
+      const gameStatistics: GameStatistics = new GameStatistics(playersStatistics);
 
       const hasEquality: boolean = gameStatistics.hasEquality();
 
@@ -94,9 +83,7 @@ describe('GameStatistics', () => {
         { id: 'Player 1', score: 71 },
         { id: 'Player 2', score: 75 },
       ];
-      const gameStatistics: GameStatistics = new GameStatistics(
-        playersStatistics
-      );
+      const gameStatistics: GameStatistics = new GameStatistics(playersStatistics);
 
       const hasEquality: boolean = gameStatistics.hasEquality();
 

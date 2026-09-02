@@ -1,12 +1,5 @@
-import {
-  describe,
-  it,
-  expect,
-  beforeEach,
-  afterEach,
-  vi,
-  type MockInstance,
-} from 'vitest';
+import 'reflect-metadata';
+import { describe, it, expect, beforeEach, afterEach, vi, type MockInstance } from 'vitest';
 import { Game } from './game';
 import { GamePhase } from './game-phase.enum';
 import { GameLoop } from '@engine/GameLoop/game-loop';

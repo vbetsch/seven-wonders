@@ -2,12 +2,13 @@ name: CI
 
 on:
   pull_request:
-#    TODO: paths-ignore:
-#      - '.vscode/**'
-#      - 'docs/**'
-#      - '.editorconfig'
-#      - '.gitignore'
-#      - 'README.md'
+    paths-ignore:
+      - 'docs/**'
+      - '.editorconfig'
+      - '.gitignore'
+      - 'LICENCE'
+      - 'Makefile'
+      - 'README.md'
 
 concurrency:
   group: ${{ github.workflow }}-${{ github.head_ref || github.run_id }}

@@ -18,3 +18,7 @@ jobs:
   run-build:
     name: Build
     uses: ./.github/workflows/ci-build.yml
+
+  run-linter:
+    name: Linter
+    uses: ./.github/workflows/ci-linter.yml

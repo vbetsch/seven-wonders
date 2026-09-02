@@ -22,3 +22,7 @@ jobs:
   run-linter:
     name: Linter
     uses: ./.github/workflows/ci-linter.yml
+
+  run-tests-unit:
+    name: Unit Tests
+    uses: ./.github/workflows/ci-tests-unit.yml

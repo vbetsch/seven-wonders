@@ -1,0 +1,28 @@
+name: CI
+
+on:
+  pull_request:
+    paths-ignore:
+      - 'docs/**'
+      - '.editorconfig'
+      - '.gitignore'
+      - 'LICENCE'
+      - 'Makefile'
+      - 'README.md'
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.head_ref || github.run_id }}
+  cancel-in-progress: true
+
+jobs:
+  run-build:
+    name: Build
+    uses: ./.github/workflows/ci-build.yml
+
+  run-linter:
+    name: Linter
+    uses: ./.github/workflows/ci-linter.yml
+
+  run-tests-unit:
+    name: Unit Tests
+    uses: ./.github/workflows/ci-tests-unit.yml

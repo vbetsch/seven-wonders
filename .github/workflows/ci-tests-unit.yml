@@ -1,0 +1,27 @@
+name: unit tests
+
+on:
+  workflow_call:
+
+jobs:
+  vitest:
+    name: Vitest
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v7
+
+      - name: Restore Env & Node
+        uses: ./.github/actions/setup-project
+
+      - name: Run unit tests with coverage
+        run: npm run test:cov
+
+      - name: Upload Vitest Report (On Failure Only)
+        uses: actions/upload-artifact@v7
+        if: failure()
+        with:
+          name: vitest-report
+          path: vitest-report/
+          retention-days: 7

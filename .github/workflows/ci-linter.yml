@@ -1,0 +1,22 @@
+name: linter
+
+on:
+  workflow_call:
+
+jobs:
+  local:
+    name: Local Checks
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v7
+
+      - name: Restore Env & Node
+        uses: ./.github/actions/setup-project
+
+      - name: Check TypeScript
+        run: npm run check
+
+      - name: Run ESLint in strict mode
+        run: npm run lint:strict

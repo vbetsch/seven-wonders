@@ -1,0 +1,19 @@
+name: 'Setup Project'
+description: 'Set-up NodeJS and install dependencies if needed'
+
+runs:
+  using: 'composite'
+  steps:
+    - uses: actions/setup-node@v6
+      with:
+        node-version: '24.14.1'
+
+    - id: cache-nodemodules
+      uses: actions/cache@v5
+      with:
+        path: node_modules
+        key: ${{ runner.os }}-node-modules-${{ hashFiles('**/package-lock.json') }}
+
+    - if: steps.cache-nodemodules.outputs.cache-hit != 'true'
+      run: npm install
+      shell: bash

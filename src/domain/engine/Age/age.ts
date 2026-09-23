@@ -11,7 +11,10 @@ export class Age {
     this._identifier = identifier;
     this._cardsNumber = cardsNumber;
     this._logger.log(`Age ${identifier} started`);
-    this._logger.log(`There are ${cardsNumber} cards to discover during this age !`);
+    this._logger.log('It is the Player 1 turn to play.');
+    this._logger.log('It is the Player 2 turn to play.');
+    this._logger.log('It is the Player 1 turn to play.');
+    this._logger.log('It is the Player 2 turn to play.');
     this._logger.log(`Age ${identifier} finished`);
   }
 

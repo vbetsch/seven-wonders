@@ -33,7 +33,10 @@ describe('Age', () => {
 
   it('should log during instantiation', () => {
     expect(loggerLogSpy).toHaveBeenCalledWith('Age 1 started');
-    expect(loggerLogSpy).toHaveBeenCalledWith('There are 12 cards to discover during this age !');
+    expect(loggerLogSpy).toHaveBeenCalledWith('It is the Player 1 turn to play.');
+    expect(loggerLogSpy).toHaveBeenCalledWith('It is the Player 2 turn to play.');
+    expect(loggerLogSpy).toHaveBeenCalledWith('It is the Player 1 turn to play.');
+    expect(loggerLogSpy).toHaveBeenCalledWith('It is the Player 2 turn to play.');
     expect(loggerLogSpy).toHaveBeenCalledWith('Age 1 finished');
   });
 });

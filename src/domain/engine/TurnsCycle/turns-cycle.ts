@@ -12,8 +12,15 @@ export class TurnsCycle {
   }
 
   public launch(): void {
-    for (let i = 0; i < this._rules.playersNumber; i++) {
-      this._logger.log(`It is the Player ${i + 1}'s turn to play.`);
+    // TODO: Remove this variable
+    const turnsNumberBeforeEndGame: number = 2;
+
+    let endedTurnsNumber: number = 0;
+    while (endedTurnsNumber < turnsNumberBeforeEndGame) {
+      for (let i = 0; i < this._rules.playersNumber; i++) {
+        this._logger.log(`It is the Player ${i + 1}'s turn to play.`);
+      }
+      endedTurnsNumber += 1;
     }
   }
 }

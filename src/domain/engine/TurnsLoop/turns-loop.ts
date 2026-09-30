@@ -1,8 +1,9 @@
 import { Logger } from '@core/Logger/logger';
 import { container } from 'tsyringe';
 import { Rules } from '@engine/Rules/rules';
+import type { ILoop } from '@core/ILoop/loop.interface';
 
-export class TurnsLoop {
+export class TurnsLoop implements ILoop {
   private readonly _logger: Logger;
   private readonly _rules: Rules;
 

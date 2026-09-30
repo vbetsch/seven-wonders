@@ -1,6 +1,6 @@
 import 'reflect-metadata';
 import { container } from 'tsyringe';
-import { TurnsLoop } from '@engine/TurnsLoop/turns-loop';
+import { TurnsLoop } from './turns-loop';
 import { afterEach, beforeEach, describe, expect, it, type MockInstance, vi } from 'vitest';
 import { Logger } from '@core/Logger/logger';
 

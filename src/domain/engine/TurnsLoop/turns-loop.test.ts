@@ -21,7 +21,7 @@ describe('TurnsLoop', () => {
   it('should run turn by turn', () => {
     loop.start();
 
-    expect(loggerLogSpy).toHaveBeenCalledWith('It is the Player 1 turn to play.');
-    expect(loggerLogSpy).toHaveBeenCalledWith('It is the Player 2 turn to play.');
+    expect(loggerLogSpy).toHaveBeenCalledWith("It is the Player 1's turn to play.");
+    expect(loggerLogSpy).toHaveBeenCalledWith("It is the Player 2's turn to play.");
   });
 });

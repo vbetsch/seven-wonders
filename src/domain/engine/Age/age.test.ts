@@ -6,12 +6,12 @@ import { TurnsCycle } from '@engine/TurnsCycle/turns-cycle';
 
 describe('Age', () => {
   let loggerLogSpy: MockInstance;
-  let turnsCycleStartSpy: MockInstance;
+  let turnsCycleLaunchSpy: MockInstance;
   let age: Age;
 
   beforeEach(() => {
     loggerLogSpy = vi.spyOn(Logger.prototype, 'log');
-    turnsCycleStartSpy = vi.spyOn(TurnsCycle.prototype, 'launch');
+    turnsCycleLaunchSpy = vi.spyOn(TurnsCycle.prototype, 'launch');
     age = new Age(1, 12);
   });
 
@@ -36,7 +36,7 @@ describe('Age', () => {
 
   it('should log during instantiation', () => {
     expect(loggerLogSpy).toHaveBeenCalledWith('Age 1 started');
-    expect(turnsCycleStartSpy).toHaveBeenCalledTimes(1);
+    expect(turnsCycleLaunchSpy).toHaveBeenCalledTimes(1);
     expect(loggerLogSpy).toHaveBeenCalledWith('Age 1 finished');
   });
 });

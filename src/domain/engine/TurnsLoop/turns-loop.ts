@@ -13,7 +13,7 @@ export class TurnsLoop {
 
   public start(): void {
     for (let i = 0; i < this._rules.playersNumber; i++) {
-      this._logger.log(`It is the Player ${i + 1} turn to play.`);
+      this._logger.log(`It is the Player ${i + 1}'s turn to play.`);
     }
   }
 }

@@ -36,7 +36,7 @@ describe('Age', () => {
 
   it('should log during instantiation', () => {
     expect(loggerLogSpy).toHaveBeenCalledWith('Age 1 started');
-    expect(turnsCycleLaunchSpy).toHaveBeenCalledTimes(1);
+    expect(turnsCycleLaunchSpy).toHaveBeenCalledOnce();
     expect(loggerLogSpy).toHaveBeenCalledWith('Age 1 finished');
   });
 });

@@ -35,6 +35,6 @@ describe('Game', () => {
 
   it('should start the loop', () => {
     game.run();
-    expect(gameLoopStartSpy).toHaveBeenCalledTimes(1);
+    expect(gameLoopStartSpy).toHaveBeenCalledOnce();
   });
 });

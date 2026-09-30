@@ -32,7 +32,7 @@ describe('Play', () => {
 
   it('should call the use case handle method when execute is called', () => {
     command.execute();
-    expect(mockUseCase.handle).toHaveBeenCalledTimes(1);
+    expect(mockUseCase.handle).toHaveBeenCalledOnce();
     expect(mockUseCase.handle).toHaveBeenCalledWith();
   });
 });

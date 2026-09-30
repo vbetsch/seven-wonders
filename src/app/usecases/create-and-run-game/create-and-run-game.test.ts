@@ -47,23 +47,23 @@ describe('CreateAndRunGameUseCase', () => {
   it('should create a new Game instance', () => {
     useCase.handle();
 
-    expect(Game).toHaveBeenCalledTimes(1);
+    expect(Game).toHaveBeenCalledOnce();
     expect(Game).toHaveBeenCalledWith();
   });
 
   it('should create a Master with the Game instance', () => {
     useCase.handle();
 
-    expect(Master).toHaveBeenCalledTimes(1);
+    expect(Master).toHaveBeenCalledOnce();
     expect(Master).toHaveBeenCalledWith(mockGame);
   });
 
   it('should call install, prepare and run methods in order', () => {
     useCase.handle();
 
-    expect(mockMaster.install).toHaveBeenCalledTimes(1);
-    expect(mockMaster.prepare).toHaveBeenCalledTimes(1);
-    expect(mockMaster.run).toHaveBeenCalledTimes(1);
+    expect(mockMaster.install).toHaveBeenCalledOnce();
+    expect(mockMaster.prepare).toHaveBeenCalledOnce();
+    expect(mockMaster.run).toHaveBeenCalledOnce();
 
     expect(mockMaster.install).toHaveBeenCalledBefore(mockMaster.prepare);
     expect(mockMaster.prepare).toHaveBeenCalledBefore(mockMaster.run);

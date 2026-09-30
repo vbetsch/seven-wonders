@@ -74,7 +74,7 @@ describe('Master', () => {
     master.prepare();
     master.run();
     expect(game.phase).toStrictEqual(GamePhase.RUNNING);
-    expect(game.run).toHaveBeenCalledTimes(1);
+    expect(game.run).toHaveBeenCalledOnce();
     expect(loggerLogSpy).toHaveBeenCalledWith(expect.stringContaining('Running the game'));
   });
 });

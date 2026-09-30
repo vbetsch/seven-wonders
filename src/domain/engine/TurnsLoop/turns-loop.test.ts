@@ -22,7 +22,5 @@ describe('TurnsLoop', () => {
 
     expect(loggerLogSpy).toHaveBeenCalledWith('It is the Player 1 turn to play.');
     expect(loggerLogSpy).toHaveBeenCalledWith('It is the Player 2 turn to play.');
-    expect(loggerLogSpy).toHaveBeenCalledWith('It is the Player 1 turn to play.');
-    expect(loggerLogSpy).toHaveBeenCalledWith('It is the Player 2 turn to play.');
   });
 });

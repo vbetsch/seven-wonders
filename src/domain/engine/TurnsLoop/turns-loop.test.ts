@@ -15,6 +15,7 @@ describe('TurnsLoop', () => {
 
   afterEach(() => {
     container.clearInstances();
+    vi.restoreAllMocks();
   });
 
   it('should run turn by turn', () => {

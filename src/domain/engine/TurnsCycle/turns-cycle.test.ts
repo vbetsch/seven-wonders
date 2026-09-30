@@ -1,5 +1,5 @@
 import 'reflect-metadata';
-import { beforeEach, describe, expect, it, type MockInstance, vi } from 'vitest';
+import { afterEach, beforeEach, describe, expect, it, type MockInstance, vi } from 'vitest';
 import { Logger } from '@core/Logger/logger';
 import { TurnsCycle } from './turns-cycle';
 
@@ -10,6 +10,10 @@ describe('TurnsCycle', () => {
   beforeEach(() => {
     loggerLogSpy = vi.spyOn(Logger.prototype, 'log');
     cycle = new TurnsCycle();
+  });
+
+  afterEach(() => {
+    vi.restoreAllMocks();
   });
 
   it('should run turn by turn', () => {

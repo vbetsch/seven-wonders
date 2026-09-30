@@ -16,7 +16,7 @@ describe('Age', () => {
   });
 
   afterEach(() => {
-    loggerLogSpy.mockRestore();
+    vi.restoreAllMocks();
   });
 
   it('should be well implemented', () => {

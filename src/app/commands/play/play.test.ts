@@ -1,7 +1,7 @@
 import 'reflect-metadata';
 import { container } from 'tsyringe';
 import { describe, it, expect, beforeEach, afterEach, vi, type Mocked } from 'vitest';
-import { PlayCommand } from '@commands/play/play.command';
+import { PlayCommand } from './play.command';
 import { CreateAndRunGameUseCase } from '@usecases/create-and-run-game/create-and-run-game.usecase';
 import type { IUseCase } from '@usecases/abstract/usecase.interface';
 
@@ -32,7 +32,7 @@ describe('Play', () => {
 
   it('should call the use case handle method when execute is called', () => {
     command.execute();
-    expect(mockUseCase.handle).toHaveBeenCalledTimes(1);
+    expect(mockUseCase.handle).toHaveBeenCalledOnce();
     expect(mockUseCase.handle).toHaveBeenCalledWith();
   });
 });

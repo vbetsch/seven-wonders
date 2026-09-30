@@ -2,18 +2,21 @@ import 'reflect-metadata';
 import { describe, it, expect, beforeEach, afterEach, vi, type MockInstance } from 'vitest';
 import { Logger } from '@core/Logger/logger';
 import { Age } from './age';
+import { TurnsCycle } from '@engine/TurnsCycle/turns-cycle';
 
 describe('Age', () => {
   let loggerLogSpy: MockInstance;
+  let turnsCycleLaunchSpy: MockInstance;
   let age: Age;
 
   beforeEach(() => {
     loggerLogSpy = vi.spyOn(Logger.prototype, 'log');
+    turnsCycleLaunchSpy = vi.spyOn(TurnsCycle.prototype, 'launch');
     age = new Age(1, 12);
   });
 
   afterEach(() => {
-    loggerLogSpy.mockRestore();
+    vi.restoreAllMocks();
   });
 
   it('should be well implemented', () => {
@@ -33,7 +36,7 @@ describe('Age', () => {
 
   it('should log during instantiation', () => {
     expect(loggerLogSpy).toHaveBeenCalledWith('Age 1 started');
-    expect(loggerLogSpy).toHaveBeenCalledWith('There are 12 cards to discover during this age !');
+    expect(turnsCycleLaunchSpy).toHaveBeenCalledOnce();
     expect(loggerLogSpy).toHaveBeenCalledWith('Age 1 finished');
   });
 });

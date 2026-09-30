@@ -10,15 +10,15 @@ import {
   type MockedFunction,
 } from 'vitest';
 import { container } from 'tsyringe';
-import { GameLoop } from './game-loop';
+import { AgesLoop } from './ages-loop';
 import { Rules } from '@engine/Rules/rules';
 import { Age } from '@engine/Age/age';
 
 vi.mock('@engine/Age/age');
 
-describe('GameLoop', () => {
+describe('AgesLoop', () => {
   let mockRules: Mocked<Rules>;
-  let loop: GameLoop;
+  let loop: AgesLoop;
   const ageMock: MockedFunction<typeof Age> = vi.mocked(Age);
 
   beforeEach(() => {
@@ -27,7 +27,7 @@ describe('GameLoop', () => {
     } as unknown as Mocked<Rules>;
 
     container.registerInstance(Rules, mockRules);
-    loop = container.resolve(GameLoop);
+    loop = container.resolve(AgesLoop);
   });
 
   afterEach(() => {

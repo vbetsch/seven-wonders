@@ -2,7 +2,7 @@ import { container } from 'tsyringe';
 import { Rules } from '@engine/Rules/rules';
 import { Age } from '@engine/Age/age';
 
-export class GameLoop {
+export class AgesLoop {
   private readonly _rules: Rules;
 
   public constructor() {

@@ -1,13 +1,13 @@
 import { GamePhase } from './game-phase.enum';
-import { GameLoop } from '@engine/GameLoop/game-loop';
+import { AgesLoop } from '@engine/AgesLoop/ages-loop';
 
 export class Game {
   private _phase: GamePhase;
-  private readonly _loop: GameLoop;
+  private readonly _loop: AgesLoop;
 
   public constructor() {
     this._phase = GamePhase.WAITING;
-    this._loop = new GameLoop();
+    this._loop = new AgesLoop();
   }
 
   public get phase(): GamePhase {

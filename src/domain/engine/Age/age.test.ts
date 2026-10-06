@@ -34,7 +34,7 @@ describe('Age', () => {
     expect(age.cardsNumber).toBe(12);
   });
 
-  it('should log during instantiation', () => {
+  it('should log and launch turns cycle during instantiation', () => {
     expect(loggerLogSpy).toHaveBeenCalledWith('Age 1 started');
     expect(turnsCycleLaunchSpy).toHaveBeenCalledOnce();
     expect(loggerLogSpy).toHaveBeenCalledWith('Age 1 finished');

@@ -7,8 +7,6 @@ import type { PlayerType } from '@logic/Player/player.type';
 export class TurnsLoop implements ILoop {
   private readonly _logger: Logger;
   private readonly _rules: Rules;
-  // TODO: Remove this variable
-  private readonly _maxWarProgress: number = 2;
 
   private _playerOne: PlayerType = {
     id: 1,
@@ -32,7 +30,7 @@ export class TurnsLoop implements ILoop {
   }
 
   public get warIsFinished() {
-    return this._playerOne.warProgress < this._maxWarProgress;
+    return this._playerOne.warProgress < this._rules.maxWarProgress;
   }
 
   public start(): void {
@@ -49,7 +47,7 @@ export class TurnsLoop implements ILoop {
         this._playerOne.warProgress += 1;
       }
 
-      if (this._playerOne.warProgress == this._maxWarProgress) {
+      if (this._playerOne.warProgress == this._rules.maxWarProgress) {
         this._logger.log(
           `War is finished ! Winner=Player ${this._playerOne.id}, Loser=Player ${this._getLoser(this._playerOne).id}`
         );

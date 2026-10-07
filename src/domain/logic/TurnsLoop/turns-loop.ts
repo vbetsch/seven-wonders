@@ -24,14 +24,14 @@ export class TurnsLoop implements ILoop {
   }
 
   public start(): void {
-    for (let i = 0; i < this._rules.playersNumber; i++) {
-      this._logger.log(`It is the Player ${i + 1}'s turn to play.`);
+    for (let index = 0; index < this._rules.playersNumber; index++) {
+      this._logger.log(`It is the Player ${index + 1}'s turn to play.`);
       // TODO: Remove this code block
-      if (i == 0) {
+      if (index == 0) {
         this._playerOneWarProgress += 1;
       }
       if (this._playerOneWarProgress == this._maxWarProgress) {
-        this._logger.log(`War is finished ! Winner=Player ${i + 1}, Loser=Player 2`);
+        this._logger.log(`War is finished ! Winner=Player ${index + 1}, Loser=Player 2`);
         break;
       }
     }

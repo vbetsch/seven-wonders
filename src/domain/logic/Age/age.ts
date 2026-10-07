@@ -1,4 +1,4 @@
-import { Logger } from '@core/Logger/logger';
+import { Logger } from '@/domain/engine/Logger/logger';
 import { container } from 'tsyringe';
 import { TurnsCycle } from '@/domain/logic/TurnsCycle/turns-cycle';
 

@@ -1,6 +1,6 @@
 import { type Game } from '@/domain/logic/Game/game';
 import { GamePhase } from '@/domain/logic/Game/game-phase.enum';
-import { Logger } from '@core/Logger/logger';
+import { Logger } from '@/domain/engine/Logger/logger';
 import { container } from 'tsyringe';
 
 export class Master {

@@ -1,16 +1,33 @@
 import 'reflect-metadata';
 import { container } from 'tsyringe';
 import { TurnsLoop } from './turns-loop';
-import { afterEach, beforeEach, describe, expect, it, type MockInstance, vi } from 'vitest';
+import {
+  afterEach,
+  beforeEach,
+  describe,
+  expect,
+  it,
+  type Mocked,
+  type MockInstance,
+  vi,
+} from 'vitest';
 import { Logger } from '@/domain/engine/Logger/logger';
+import { Rules } from '@logic/Rules/rules';
 
 describe('TurnsLoop', () => {
   let loggerLogSpy: MockInstance;
+  let mockRules: Mocked<Rules>;
   let loop: TurnsLoop;
 
   beforeEach(() => {
-    loop = container.resolve(TurnsLoop);
     loggerLogSpy = vi.spyOn(Logger.prototype, 'log');
+    mockRules = {
+      playersNumber: 2,
+      maxWarProgress: 2,
+    } as unknown as Mocked<Rules>;
+
+    container.registerInstance(Rules, mockRules);
+    loop = container.resolve(TurnsLoop);
   });
 
   afterEach(() => {

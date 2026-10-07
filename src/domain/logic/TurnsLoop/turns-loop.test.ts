@@ -35,6 +35,18 @@ describe('TurnsLoop', () => {
     vi.restoreAllMocks();
   });
 
+  it('should return true if war is finished', () => {
+    expect(loop.warIsFinished).toBe(true);
+  });
+
+  it('should return false if war is not finished', () => {
+    (loop as any)._playerOne = {
+      id: 1,
+      warProgress: 2,
+    };
+    expect(loop.warIsFinished).toBe(false);
+  });
+
   it('should run turn by turn', () => {
     loop.start();
 

@@ -8,13 +8,8 @@ export class TurnsCycle {
   }
 
   public launch(): void {
-    // TODO: Remove this variable
-    const turnsNumberBeforeEndGame: number = 2;
-
-    let endedTurnsNumber: number = 0;
-    while (endedTurnsNumber < turnsNumberBeforeEndGame) {
+    while (this._turnsLoop.playerOneWarProgress < this._turnsLoop.maxWarProgress) {
       this._turnsLoop.start();
-      endedTurnsNumber += 1;
     }
   }
 }

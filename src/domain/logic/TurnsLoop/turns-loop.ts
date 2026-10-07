@@ -24,6 +24,13 @@ export class TurnsLoop implements ILoop {
     this._rules = container.resolve(Rules);
   }
 
+  private _getLoser(winner: PlayerType): PlayerType {
+    if (winner.id == this._playerOne.id) {
+      return this._playerTwo;
+    }
+    return this._playerOne;
+  }
+
   public get warIsFinished() {
     return this._playerOne.warProgress < this._maxWarProgress;
   }
@@ -43,7 +50,9 @@ export class TurnsLoop implements ILoop {
       }
 
       if (this._playerOne.warProgress == this._maxWarProgress) {
-        this._logger.log(`War is finished ! Winner=Player ${this._playerOne.id}, Loser=Player 2`);
+        this._logger.log(
+          `War is finished ! Winner=Player ${this._playerOne.id}, Loser=Player ${this._getLoser(this._playerOne).id}`
+        );
         break;
       }
     }

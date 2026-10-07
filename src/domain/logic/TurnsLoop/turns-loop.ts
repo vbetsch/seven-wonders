@@ -41,7 +41,9 @@ export class TurnsLoop implements ILoop {
       } else if (this._playerTwo.id == index + 1) {
         currentPlayer = this._playerTwo;
       }
+
       this._logger.log(`It is the Player ${currentPlayer?.id}'s turn to play.`);
+
       // TODO: Remove this code block
       if (currentPlayer?.id == this._playerOne.id) {
         this._playerOne.warProgress += 1;

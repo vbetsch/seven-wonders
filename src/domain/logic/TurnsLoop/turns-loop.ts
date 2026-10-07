@@ -31,7 +31,7 @@ export class TurnsLoop implements ILoop {
         this._playerOneWarProgress += 1;
       }
       if (this._playerOneWarProgress == this._maxWarProgress) {
-        this._logger.log('War is finished ! Winner=Player 1, Loser=Player 2');
+        this._logger.log(`War is finished ! Winner=Player ${i + 1}, Loser=Player 2`);
         break;
       }
     }

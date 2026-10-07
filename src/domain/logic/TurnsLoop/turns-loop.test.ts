@@ -2,7 +2,7 @@ import 'reflect-metadata';
 import { container } from 'tsyringe';
 import { TurnsLoop } from './turns-loop';
 import { afterEach, beforeEach, describe, expect, it, type MockInstance, vi } from 'vitest';
-import { Logger } from '@core/Logger/logger';
+import { Logger } from '@/domain/engine/Logger/logger';
 
 describe('TurnsLoop', () => {
   let loggerLogSpy: MockInstance;

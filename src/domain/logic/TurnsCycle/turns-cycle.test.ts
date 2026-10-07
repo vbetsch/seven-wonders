@@ -1,6 +1,6 @@
 import 'reflect-metadata';
 import { afterEach, beforeEach, describe, expect, it, type MockInstance, vi } from 'vitest';
-import { Logger } from '@core/Logger/logger';
+import { Logger } from '@/domain/engine/Logger/logger';
 import { TurnsCycle } from './turns-cycle';
 
 describe('TurnsCycle', () => {

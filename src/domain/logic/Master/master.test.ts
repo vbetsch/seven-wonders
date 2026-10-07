@@ -12,7 +12,7 @@ import {
 import { type Game } from '@/domain/logic/Game/game';
 import { Master } from './master';
 import { GamePhase } from '@/domain/logic/Game/game-phase.enum';
-import { Logger } from '@core/Logger/logger';
+import { Logger } from '@/domain/engine/Logger/logger';
 
 describe('Master', () => {
   let game: Mocked<Game>;

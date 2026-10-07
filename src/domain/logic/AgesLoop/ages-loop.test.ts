@@ -11,10 +11,10 @@ import {
 } from 'vitest';
 import { container } from 'tsyringe';
 import { AgesLoop } from './ages-loop';
-import { Rules } from '@engine/Rules/rules';
-import { Age } from '@engine/Age/age';
+import { Rules } from '@/domain/logic/Rules/rules';
+import { Age } from '@/domain/logic/Age/age';
 
-vi.mock('@engine/Age/age');
+vi.mock('@logic/Age/age');
 
 describe('AgesLoop', () => {
   let mockRules: Mocked<Rules>;

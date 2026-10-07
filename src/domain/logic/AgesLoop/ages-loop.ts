@@ -1,6 +1,6 @@
 import { container } from 'tsyringe';
-import { Rules } from '@engine/Rules/rules';
-import { Age } from '@engine/Age/age';
+import { Rules } from '@/domain/logic/Rules/rules';
+import { Age } from '@/domain/logic/Age/age';
 import type { ILoop } from '@core/ILoop/loop.interface';
 
 export class AgesLoop implements ILoop {

@@ -1,4 +1,4 @@
-import { TurnsLoop } from '@engine/TurnsLoop/turns-loop';
+import { TurnsLoop } from '@/domain/logic/TurnsLoop/turns-loop';
 
 export class TurnsCycle {
   private readonly _turnsLoop: TurnsLoop;

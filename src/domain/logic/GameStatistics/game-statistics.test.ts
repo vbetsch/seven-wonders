@@ -1,6 +1,6 @@
 import { describe, it, expect } from 'vitest';
 import { GameStatistics } from './game-statistics';
-import type { PlayerStatisticsType } from '@engine/Player/player-statistics.type';
+import type { PlayerStatisticsType } from '@/domain/logic/Player/player-statistics.type';
 
 describe('GameStatistics', () => {
   describe('Initialization', () => {

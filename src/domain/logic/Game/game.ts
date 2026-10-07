@@ -1,5 +1,5 @@
 import { GamePhase } from './game-phase.enum';
-import { AgesLoop } from '@engine/AgesLoop/ages-loop';
+import { AgesLoop } from '@/domain/logic/AgesLoop/ages-loop';
 
 export class Game {
   private _phase: GamePhase;

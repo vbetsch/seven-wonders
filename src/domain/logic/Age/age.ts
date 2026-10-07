@@ -1,6 +1,6 @@
 import { Logger } from '@core/Logger/logger';
 import { container } from 'tsyringe';
-import { TurnsCycle } from '@engine/TurnsCycle/turns-cycle';
+import { TurnsCycle } from '@/domain/logic/TurnsCycle/turns-cycle';
 
 export class Age {
   private readonly _logger: Logger;

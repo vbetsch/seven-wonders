@@ -21,6 +21,9 @@ describe('TurnsCycle', () => {
     expect(loggerLogSpy).toHaveBeenNthCalledWith(1, "It is the Player 1's turn to play.");
     expect(loggerLogSpy).toHaveBeenNthCalledWith(2, "It is the Player 2's turn to play.");
     expect(loggerLogSpy).toHaveBeenNthCalledWith(3, "It is the Player 1's turn to play.");
-    expect(loggerLogSpy).toHaveBeenNthCalledWith(4, "It is the Player 2's turn to play.");
+    expect(loggerLogSpy).toHaveBeenNthCalledWith(
+      4,
+      'War is finished ! Winner=Player 1, Loser=Player 2'
+    );
   });
 });

@@ -15,12 +15,8 @@ export class TurnsLoop implements ILoop {
     this._rules = container.resolve(Rules);
   }
 
-  public get maxWarProgress(): number {
-    return this._maxWarProgress;
-  }
-
-  public get playerOneWarProgress(): number {
-    return this._playerOneWarProgress;
+  public get warIsFinished() {
+    return this._playerOneWarProgress < this._maxWarProgress;
   }
 
   public start(): void {
@@ -30,6 +26,7 @@ export class TurnsLoop implements ILoop {
       if (index == 0) {
         this._playerOneWarProgress += 1;
       }
+
       if (this._playerOneWarProgress == this._maxWarProgress) {
         this._logger.log(`War is finished ! Winner=Player ${index + 1}, Loser=Player 2`);
         break;

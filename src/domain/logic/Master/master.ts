@@ -1,5 +1,5 @@
-import { type Game } from '@engine/Game/game';
-import { GamePhase } from '@engine/Game/game-phase.enum';
+import { type Game } from '@/domain/logic/Game/game';
+import { GamePhase } from '@/domain/logic/Game/game-phase.enum';
 import { Logger } from '@core/Logger/logger';
 import { container } from 'tsyringe';
 

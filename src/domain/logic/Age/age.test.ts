@@ -2,7 +2,7 @@ import 'reflect-metadata';
 import { describe, it, expect, beforeEach, afterEach, vi, type MockInstance } from 'vitest';
 import { Logger } from '@core/Logger/logger';
 import { Age } from './age';
-import { TurnsCycle } from '@engine/TurnsCycle/turns-cycle';
+import { TurnsCycle } from '@/domain/logic/TurnsCycle/turns-cycle';
 
 describe('Age', () => {
   let loggerLogSpy: MockInstance;

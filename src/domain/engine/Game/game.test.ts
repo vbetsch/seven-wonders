@@ -2,19 +2,19 @@ import 'reflect-metadata';
 import { describe, it, expect, beforeEach, afterEach, vi, type MockInstance } from 'vitest';
 import { Game } from './game';
 import { GamePhase } from './game-phase.enum';
-import { GameLoop } from '@engine/GameLoop/game-loop';
+import { AgesLoop } from '@engine/AgesLoop/ages-loop';
 
 describe('Game', () => {
-  let gameLoopStartSpy: MockInstance;
+  let agesLoopStartSpy: MockInstance;
   let game: Game;
 
   beforeEach(() => {
-    gameLoopStartSpy = vi.spyOn(GameLoop.prototype, 'start');
+    agesLoopStartSpy = vi.spyOn(AgesLoop.prototype, 'start');
     game = new Game();
   });
 
   afterEach(() => {
-    gameLoopStartSpy.mockRestore();
+    agesLoopStartSpy.mockRestore();
   });
 
   it('should be well implemented', () => {
@@ -35,6 +35,6 @@ describe('Game', () => {
 
   it('should start the loop', () => {
     game.run();
-    expect(gameLoopStartSpy).toHaveBeenCalledTimes(1);
+    expect(agesLoopStartSpy).toHaveBeenCalledOnce();
   });
 });

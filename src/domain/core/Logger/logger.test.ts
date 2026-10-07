@@ -31,7 +31,7 @@ describe('Logger', () => {
       const message: string = 'Operation successful';
       logger.success(message);
 
-      expect(consoleLogSpy).toHaveBeenCalledTimes(1);
+      expect(consoleLogSpy).toHaveBeenCalledOnce();
       expect(consoleLogSpy).toHaveBeenCalledWith(
         `${LoggerColorEnum.SUCCESS}➔ ${message}${LoggerColorEnum.RESET}`
       );
@@ -43,7 +43,7 @@ describe('Logger', () => {
       const message: string = 'Operation failed';
       logger.fail(message);
 
-      expect(consoleLogSpy).toHaveBeenCalledTimes(1);
+      expect(consoleLogSpy).toHaveBeenCalledOnce();
       expect(consoleLogSpy).toHaveBeenCalledWith(
         `${LoggerColorEnum.FAIL}➔ ${message}${LoggerColorEnum.RESET}`
       );
@@ -55,7 +55,7 @@ describe('Logger', () => {
       const message: string = 'Standard message';
       logger.log(message);
 
-      expect(consoleLogSpy).toHaveBeenCalledTimes(1);
+      expect(consoleLogSpy).toHaveBeenCalledOnce();
       expect(consoleLogSpy).toHaveBeenCalledWith(`➔ ${message}`);
     });
   });
@@ -65,7 +65,7 @@ describe('Logger', () => {
       const message: string = 'Debug message';
       logger.debug(message);
 
-      expect(consoleDebugSpy).toHaveBeenCalledTimes(1);
+      expect(consoleDebugSpy).toHaveBeenCalledOnce();
       expect(consoleDebugSpy).toHaveBeenCalledWith(
         `${LoggerColorEnum.DEBUG}➔ ${message}${LoggerColorEnum.RESET}`
       );
@@ -77,7 +77,7 @@ describe('Logger', () => {
       const message: string = 'Information message';
       logger.info(message);
 
-      expect(consoleInfoSpy).toHaveBeenCalledTimes(1);
+      expect(consoleInfoSpy).toHaveBeenCalledOnce();
       expect(consoleInfoSpy).toHaveBeenCalledWith(
         `${LoggerColorEnum.INFO}➔ ${message}${LoggerColorEnum.RESET}`
       );
@@ -89,7 +89,7 @@ describe('Logger', () => {
       const message: string = 'Warning message';
       logger.warn(message);
 
-      expect(consoleWarnSpy).toHaveBeenCalledTimes(1);
+      expect(consoleWarnSpy).toHaveBeenCalledOnce();
       expect(consoleWarnSpy).toHaveBeenCalledWith(
         `${LoggerColorEnum.WARNING}➔ ${message}${LoggerColorEnum.RESET}`
       );
@@ -101,7 +101,7 @@ describe('Logger', () => {
       const message: string = 'Error message';
       logger.error(message);
 
-      expect(consoleErrorSpy).toHaveBeenCalledTimes(1);
+      expect(consoleErrorSpy).toHaveBeenCalledOnce();
       expect(consoleErrorSpy).toHaveBeenCalledWith(
         `${LoggerColorEnum.ERROR}➔ ${message}${LoggerColorEnum.RESET}`
       );

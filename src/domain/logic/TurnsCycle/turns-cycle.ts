@@ -8,7 +8,7 @@ export class TurnsCycle {
   }
 
   public launch(): void {
-    while (this._turnsLoop.playerOneWarProgress < this._turnsLoop.maxWarProgress) {
+    while (this._turnsLoop.warIsFinished) {
       this._turnsLoop.start();
     }
   }

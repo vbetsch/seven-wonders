@@ -1,6 +1,5 @@
 # Seven Wonders Duel
 
-
 ⚔️ Digital adaptation of the board game
 
 ## 🎮 Overview

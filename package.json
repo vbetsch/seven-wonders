@@ -6,7 +6,6 @@
     "@vbetsch/config-prettier": "^1.0.2",
     "@vbetsch/config-tsconfig": "^1.0.4",
     "@vitest/coverage-v8": "4.1.11",
-    "@vitest/ui": "4.1.11",
     "eslint-config-prettier": "^10.1.5",
     "eslint-import-resolver-typescript": "^4.4.5",
     "eslint-plugin-import": "2.32.0",

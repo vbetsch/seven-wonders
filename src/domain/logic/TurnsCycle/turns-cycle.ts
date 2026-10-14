@@ -8,7 +8,7 @@ export class TurnsCycle {
   }
 
   public launch(): void {
-    while (this._turnsLoop.warIsFinished) {
+    while (!this._turnsLoop.warIsFinished) {
       this._turnsLoop.start();
     }
   }

@@ -30,7 +30,7 @@ export class TurnsLoop implements ILoop {
   }
 
   public get warIsFinished() {
-    return this._playerOne.warProgress < this._rules.maxWarProgress;
+    return this._playerOne.warProgress >= this._rules.maxWarProgress;
   }
 
   public start(): void {

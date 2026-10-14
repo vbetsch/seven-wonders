@@ -8,6 +8,8 @@ export class Age {
   private readonly _cardsNumber: number;
   private readonly _turnsCycle: TurnsCycle;
 
+  private _isTheLastOne: boolean = false;
+
   public constructor(identifier: number, cardsNumber: number) {
     this._logger = container.resolve(Logger);
     this._identifier = identifier;
@@ -17,7 +19,7 @@ export class Age {
 
   public begin(): void {
     this._logger.log(`Age ${this._identifier} started`);
-    this._turnsCycle.launch();
+    this._isTheLastOne = !this._turnsCycle.launch();
     this._logger.log(`Age ${this._identifier} finished`);
   }
 
@@ -27,5 +29,9 @@ export class Age {
 
   public get cardsNumber(): number {
     return this._cardsNumber;
+  }
+
+  public get isTheLastOne(): boolean {
+    return this._isTheLastOne;
   }
 }

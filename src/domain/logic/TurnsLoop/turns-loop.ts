@@ -29,11 +29,7 @@ export class TurnsLoop implements ILoop {
     return this._playerOne;
   }
 
-  public get warIsFinished() {
-    return this._playerOne.warProgress >= this._rules.maxWarProgress;
-  }
-
-  public start(): void {
+  public start(): boolean {
     for (let index = 0; index < this._rules.playersNumber; index++) {
       let currentPlayer: PlayerType | null = null;
       if (this._playerOne.id == index + 1) {
@@ -53,8 +49,9 @@ export class TurnsLoop implements ILoop {
         this._logger.log(
           `War is finished ! Winner=Player ${this._playerOne.id}, Loser=Player ${this._getLoser(this._playerOne).id}`
         );
-        break;
+        return false;
       }
     }
+    return true;
   }
 }

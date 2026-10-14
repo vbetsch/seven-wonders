@@ -7,9 +7,11 @@ export class TurnsCycle {
     this._turnsLoop = new TurnsLoop();
   }
 
-  public launch(): void {
-    while (!this._turnsLoop.warIsFinished) {
-      this._turnsLoop.start();
+  public launch(): boolean {
+    while (true) {
+      if (!this._turnsLoop.start()) {
+        return false;
+      }
     }
   }
 }

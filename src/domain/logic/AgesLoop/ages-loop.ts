@@ -18,7 +18,7 @@ export class AgesLoop implements ILoop {
       }
       const currentAge: Age = new Age(index + 1, currentCardsNumber);
       currentAge.begin();
-      if (index === 0) {
+      if (currentAge.isTheLastOne) {
         break;
       }
     }

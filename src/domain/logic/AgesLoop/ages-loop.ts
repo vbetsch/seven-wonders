@@ -17,10 +17,10 @@ export class AgesLoop implements ILoop {
         throw new Error(`cardsNumber ${currentCardsNumber} is out of range`);
       }
       const currentAge: Age = new Age(index + 1, currentCardsNumber);
-      if (index === 1) {
+      currentAge.begin();
+      if (index === 0) {
         break;
       }
-      currentAge.begin();
     }
   }
 }

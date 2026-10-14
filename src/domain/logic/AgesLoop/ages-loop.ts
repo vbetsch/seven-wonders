@@ -11,9 +11,16 @@ export class AgesLoop implements ILoop {
   }
 
   public start(): void {
-    this._rules.agesCardsNumbers.forEach((value, index) => {
-      const currentAge: Age = new Age(index + 1, value);
+    for (let index = 0; index < this._rules.agesCardsNumbers.length; index++) {
+      const currentCardsNumber: number | undefined = this._rules.agesCardsNumbers[index];
+      if (currentCardsNumber === undefined) {
+        throw new Error(`cardsNumber ${currentCardsNumber} is out of range`);
+      }
+      const currentAge: Age = new Age(index + 1, currentCardsNumber);
+      if (index === 1) {
+        break;
+      }
       currentAge.begin();
-    });
+    }
   }
 }

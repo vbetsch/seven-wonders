@@ -2,11 +2,11 @@ import 'reflect-metadata';
 import { container } from 'tsyringe';
 import { describe, it, expect, beforeEach, afterEach, vi, type Mocked } from 'vitest';
 import { CreateAndRunGameUseCase } from './create-and-run-game.usecase';
-import { Game } from '@engine/Game/game';
-import { Master } from '@engine/Master/master';
+import { Game } from '@/domain/logic/Game/game';
+import { Master } from '@/domain/logic/Master/master';
 
-vi.mock('@engine/Game/game');
-vi.mock('@engine/Master/master');
+vi.mock('@logic/Game/game');
+vi.mock('@logic/Master/master');
 
 describe('CreateAndRunGameUseCase', () => {
   let useCase: CreateAndRunGameUseCase;

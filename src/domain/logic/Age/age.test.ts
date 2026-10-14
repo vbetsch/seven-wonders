@@ -1,8 +1,8 @@
 import 'reflect-metadata';
 import { describe, it, expect, beforeEach, afterEach, vi, type MockInstance } from 'vitest';
-import { Logger } from '@core/Logger/logger';
+import { Logger } from '@/domain/engine/Logger/logger';
 import { Age } from './age';
-import { TurnsCycle } from '@engine/TurnsCycle/turns-cycle';
+import { TurnsCycle } from '@/domain/logic/TurnsCycle/turns-cycle';
 
 describe('Age', () => {
   let loggerLogSpy: MockInstance;
@@ -34,7 +34,8 @@ describe('Age', () => {
     expect(age.cardsNumber).toBe(12);
   });
 
-  it('should log and launch turns cycle during instantiation', () => {
+  it('should log and launch turns cycle when begin', () => {
+    age.begin();
     expect(loggerLogSpy).toHaveBeenCalledWith('Age 1 started');
     expect(turnsCycleLaunchSpy).toHaveBeenCalledOnce();
     expect(loggerLogSpy).toHaveBeenCalledWith('Age 1 finished');

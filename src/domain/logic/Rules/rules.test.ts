@@ -13,6 +13,7 @@ describe('Rules', () => {
   const availableWondersTotalExpected: number = 12;
   const availableWondersPerPlayerExpected: number = 4;
   const maxUsedWondersTotalExpected: number = 7;
+  const maxWarProgressExpected: number = 2;
 
   beforeEach(() => {
     rules = container.resolve(Rules);
@@ -29,6 +30,7 @@ describe('Rules', () => {
     expect(rules.availableWondersTotal).toBe(availableWondersTotalExpected);
     expect(rules.availableWondersPerPlayer).toBe(availableWondersPerPlayerExpected);
     expect(rules.maxUsedWondersTotal).toBe(maxUsedWondersTotalExpected);
+    expect(rules.maxWarProgress).toBe(maxWarProgressExpected);
   });
 
   it('should remain only expected wonders number', () => {

@@ -8,6 +8,7 @@ export class Rules {
   private readonly _availableWondersTotal: number = 12;
   private readonly _availableWondersPerPlayer: number = 4;
   private readonly _maxUsedWondersTotal: number = 7;
+  private readonly _maxWarProgress: number = 2;
 
   /**
    * The number of players (default: 2)
@@ -49,5 +50,12 @@ export class Rules {
    */
   public get availableWondersPerPlayer(): number {
     return this._availableWondersPerPlayer;
+  }
+
+  /**
+   * The maximum of war progress by player (default: 10)
+   */
+  public get maxWarProgress(): number {
+    return this._maxWarProgress;
   }
 }

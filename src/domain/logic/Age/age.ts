@@ -13,10 +13,9 @@ export class Age {
     this._identifier = identifier;
     this._cardsNumber = cardsNumber;
     this._turnsCycle = new TurnsCycle();
-    this._begin();
   }
 
-  private _begin(): void {
+  public begin(): void {
     this._logger.log(`Age ${this._identifier} started`);
     this._turnsCycle.launch();
     this._logger.log(`Age ${this._identifier} finished`);

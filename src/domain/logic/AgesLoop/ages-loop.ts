@@ -12,7 +12,8 @@ export class AgesLoop implements ILoop {
 
   public start(): void {
     this._rules.agesCardsNumbers.forEach((value, index) => {
-      new Age(index + 1, value);
+      const currentAge: Age = new Age(index + 1, value);
+      currentAge.begin();
     });
   }
 }

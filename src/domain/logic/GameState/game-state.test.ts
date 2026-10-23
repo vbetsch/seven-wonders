@@ -28,14 +28,4 @@ describe('GameState', () => {
     expect(gameState.playerOne).toStrictEqual(playerOneExpected);
     expect(gameState.playerTwo).toStrictEqual(playerTwoExpected);
   });
-
-  it('should initialize variables with correct default values', () => {
-    expect(gameState.warCardsConsumed).toBe(0);
-  });
-
-  it('should increment war cards consumed', () => {
-    const state = gameState.pickOneWarCard();
-    expect(state).toBe(1);
-    expect(gameState.warCardsConsumed).toBe(1);
-  });
 });

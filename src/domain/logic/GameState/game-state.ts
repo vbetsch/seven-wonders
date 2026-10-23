@@ -11,20 +11,11 @@ export class GameState {
     id: 2,
     warProgress: 0,
   };
-  private _warCardsConsumed: number = 0;
 
   public get playerOne(): PlayerType {
     return this._playerOne;
   }
   public get playerTwo(): PlayerType {
     return this._playerTwo;
-  }
-  public get warCardsConsumed(): number {
-    return this._warCardsConsumed;
-  }
-
-  public pickOneWarCard(): number {
-    this._warCardsConsumed += 1;
-    return this._warCardsConsumed;
   }
 }

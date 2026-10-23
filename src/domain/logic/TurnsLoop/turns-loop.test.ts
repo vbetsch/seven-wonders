@@ -46,7 +46,6 @@ describe('TurnsLoop', () => {
       playerOne,
       playerTwo,
       players: [playerOne, playerTwo],
-      pickOneWarCard: vi.spyOn(GameState.prototype, 'pickOneWarCard'),
     } as unknown as Mocked<GameState>;
 
     container.registerInstance(Rules, mockRules);
@@ -71,7 +70,6 @@ describe('TurnsLoop', () => {
     loop.start();
 
     expect(loggerLogSpy).toHaveBeenNthCalledWith(1, "It is the Player 1's turn to play.");
-    expect(mockGameState.pickOneWarCard).toHaveBeenCalledOnce();
     expect(loggerLogSpy).toHaveBeenNthCalledWith(
       2,
       'War is finished ! Winner=Player 1, Loser=Player 2'

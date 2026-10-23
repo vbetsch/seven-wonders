@@ -36,12 +36,12 @@ export class TurnsLoop implements ILoop {
       // TODO: Remove this code block
       if (currentPlayer.id === this._gameState.playerOne.id) {
         currentPlayer.warProgress += 1;
-        this._gameState.pickOneWarCard();
       }
 
       // TODO: get cards by age
-      if (this._gameState.warCardsConsumed === this._rules.agesCardsNumbers[0]) {
-        console.log('finish age');
+      if (currentPlayer.warProgress === this._rules.agesCardsNumbers[0]) {
+        // TODO: remove it
+        this._logger.log('finish age');
         return false;
       }
 

@@ -57,7 +57,7 @@ describe('GameStatistics', () => {
 
       const losers: PlayerStatisticsType[] = gameStatistics.getLosersStatistics();
 
-      expect(losers).toHaveLength(2);
+      expect(losers).toHaveLength(2); // playersStatistics length - 1 (winner)
       expect(losers).toEqual([
         { id: 'Player 1', score: 71 },
         { id: 'Player 3', score: 60 },

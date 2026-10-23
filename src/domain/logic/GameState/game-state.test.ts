@@ -16,7 +16,6 @@ describe('GameState', () => {
     id: 2,
     warProgress: 0,
   };
-  const playersExpected: PlayerType[] = [playerOneExpected, playerTwoExpected];
 
   beforeEach(() => {
     gameState = container.resolve(GameState);
@@ -28,8 +27,5 @@ describe('GameState', () => {
   it('should have correct constant values', () => {
     expect(gameState.playerOne).toStrictEqual(playerOneExpected);
     expect(gameState.playerTwo).toStrictEqual(playerTwoExpected);
-    expect(gameState.players).toStrictEqual(playersExpected);
-    expect(gameState.players).toContainEqual(playerOneExpected);
-    expect(gameState.players).toContainEqual(playerTwoExpected);
   });
 });

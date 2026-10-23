@@ -44,12 +44,12 @@ export class TurnsLoop implements ILoop {
 
       // TODO: Remove this code block
       if (currentPlayer?.id == this._playerOne.id) {
-        this._playerOne.warProgress += 1;
+        currentPlayer.warProgress += 1;
       }
 
-      if (this._playerOne.warProgress == this._rules.maxWarProgress) {
+      if (currentPlayer.warProgress == this._rules.maxWarProgress) {
         this._logger.log(
-          `War is finished ! Winner=Player ${this._playerOne.id}, Loser=Player ${this._getLoser(this._playerOne).id}`
+          `War is finished ! Winner=Player ${currentPlayer.id}, Loser=Player ${this._getLoser(currentPlayer).id}`
         );
         return false;
       }

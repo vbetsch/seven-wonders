@@ -1,29 +1,37 @@
 import 'reflect-metadata';
-import { afterEach, beforeEach, describe, expect, it, type MockInstance, vi } from 'vitest';
-import { Logger } from '@/domain/engine/Logger/logger';
+import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest';
 import { TurnsCycle } from './turns-cycle';
 
+const { startMock } = vi.hoisted(() => ({
+  startMock: vi.fn<() => boolean>(),
+}));
+
+vi.mock('@/domain/logic/TurnsLoop/turns-loop', () => ({
+  TurnsLoop: class {
+    public start = startMock;
+  },
+}));
+
 describe('TurnsCycle', () => {
-  let loggerLogSpy: MockInstance;
   let cycle: TurnsCycle;
 
   beforeEach(() => {
-    loggerLogSpy = vi.spyOn(Logger.prototype, 'log');
     cycle = new TurnsCycle();
   });
 
   afterEach(() => {
-    vi.restoreAllMocks();
+    startMock.mockReset();
   });
 
-  it('should run turn by turn', () => {
-    cycle.launch();
-    expect(loggerLogSpy).toHaveBeenNthCalledWith(1, "It is the Player 1's turn to play.");
-    expect(loggerLogSpy).toHaveBeenNthCalledWith(2, "It is the Player 2's turn to play.");
-    expect(loggerLogSpy).toHaveBeenNthCalledWith(3, "It is the Player 1's turn to play.");
-    expect(loggerLogSpy).toHaveBeenNthCalledWith(
-      4,
-      'War is finished ! Winner=Player 1, Loser=Player 2'
-    );
+  it('should start turns loop three times', () => {
+    // Arrange
+    startMock.mockReturnValueOnce(true).mockReturnValueOnce(true).mockReturnValueOnce(false);
+
+    // Act
+    const result = cycle.launch();
+
+    // Assert
+    expect(result).toBe(false);
+    expect(startMock).toHaveBeenCalledTimes(3);
   });
 });

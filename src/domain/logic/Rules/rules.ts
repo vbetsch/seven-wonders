@@ -3,10 +3,7 @@ import { injectable } from 'tsyringe';
 @injectable()
 export class Rules {
   private readonly _playersNumber: number = 2;
-  private readonly _agesNumber: number = 3;
   private readonly _agesCardsNumbers: number[] = [3, 2, 4];
-  private readonly _availableWondersPerPlayer: number = 4;
-  private readonly _maxUsedWondersTotal: number = 7;
   private readonly _maxWarProgress: number = 9;
 
   /**
@@ -17,31 +14,10 @@ export class Rules {
   }
 
   /**
-   * The number of ages (default: 3)
-   */
-  public get agesNumber(): number {
-    return this._agesNumber;
-  }
-
-  /**
    * Numbers of cards by age order by index (default: [...]) -> TODO: put real values
    */
   public get agesCardsNumbers(): number[] {
     return this._agesCardsNumbers;
-  }
-
-  /**
-   * The maximum number of usable wonders (default: 7)
-   */
-  public get maxUsedWondersTotal(): number {
-    return this._maxUsedWondersTotal;
-  }
-
-  /**
-   * The number of wonders available per player (default: 4)
-   */
-  public get availableWondersPerPlayer(): number {
-    return this._availableWondersPerPlayer;
   }
 
   /**

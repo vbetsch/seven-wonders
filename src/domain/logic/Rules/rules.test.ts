@@ -8,10 +8,7 @@ describe('Rules', () => {
 
   // Expected
   const playersNumberExpected: number = 2;
-  const agesNumberExpected: number = 3;
   const agesCardsNumbersExpected: number[] = [3, 2, 4];
-  const availableWondersPerPlayerExpected: number = 4;
-  const maxUsedWondersTotalExpected: number = 7;
   const maxWarProgressExpected: number = 9;
 
   beforeEach(() => {
@@ -24,21 +21,7 @@ describe('Rules', () => {
 
   it('should have correct constant values', () => {
     expect(rules.playersNumber).toBe(playersNumberExpected);
-    expect(rules.agesNumber).toBe(agesNumberExpected);
     expect(rules.agesCardsNumbers).toStrictEqual(agesCardsNumbersExpected);
-    expect(rules.availableWondersPerPlayer).toBe(availableWondersPerPlayerExpected);
-    expect(rules.maxUsedWondersTotal).toBe(maxUsedWondersTotalExpected);
     expect(rules.maxWarProgress).toBe(maxWarProgressExpected);
-  });
-
-  it('should remain only expected wonders number', () => {
-    const wondersRemainingOnceMaximumReachedExpected: number = 1;
-    expect(rules.availableWondersPerPlayer * rules.playersNumber - rules.maxUsedWondersTotal).toBe(
-      wondersRemainingOnceMaximumReachedExpected
-    );
-  });
-
-  it('should be consistent about number of ages', () => {
-    expect(rules.agesCardsNumbers).toHaveLength(rules.agesNumber);
   });
 });

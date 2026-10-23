@@ -3,44 +3,38 @@ import { container } from 'tsyringe';
 import { Rules } from '@/domain/logic/Rules/rules';
 import type { ILoop } from '@/domain/engine/ILoop/loop.interface';
 import type { PlayerType } from '@logic/Player/player.type';
+import { GameState } from '@logic/GameState/game-state';
 
 export class TurnsLoop implements ILoop {
   private readonly _logger: Logger;
   private readonly _rules: Rules;
-
-  private readonly _playerOne: PlayerType = {
-    id: 1,
-    warProgress: 0,
-  };
-  private readonly _playerTwo: PlayerType = {
-    id: 2,
-    warProgress: 0,
-  };
+  private readonly _gameState: GameState;
 
   public constructor() {
     this._logger = container.resolve(Logger);
     this._rules = container.resolve(Rules);
+    this._gameState = container.resolve(GameState);
   }
 
   /* istanbul ignore next */
   private _getLoser(winner: PlayerType): PlayerType {
-    if (winner.id == this._playerOne.id) {
-      return this._playerTwo;
+    if (winner.id == this._gameState.playerOne.id) {
+      return this._gameState.playerTwo;
     }
-    return this._playerOne;
+    return this._gameState.playerOne;
   }
 
   public start(): boolean {
     for (let index = 0; index < this._rules.playersNumber; index++) {
-      let currentPlayer: PlayerType = this._playerOne;
-      if (this._playerTwo.id == index + 1) {
-        currentPlayer = this._playerTwo;
+      let currentPlayer: PlayerType = this._gameState.playerOne;
+      if (this._gameState.playerTwo.id == index + 1) {
+        currentPlayer = this._gameState.playerTwo;
       }
 
       this._logger.log(`It is the Player ${currentPlayer.id}'s turn to play.`);
 
       // TODO: Remove this code block
-      if (currentPlayer.id == this._playerOne.id) {
+      if (currentPlayer.id == this._gameState.playerOne.id) {
         currentPlayer.warProgress += 1;
       }
 

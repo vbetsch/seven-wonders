@@ -13,10 +13,22 @@ import {
 } from 'vitest';
 import { Logger } from '@/domain/engine/Logger/logger';
 import { Rules } from '@logic/Rules/rules';
+import { GameState } from '@logic/GameState/game-state';
+import type { PlayerType } from '@logic/Player/player.type';
+
+const playerOne: PlayerType = {
+  id: 1,
+  warProgress: 0,
+};
+const playerTwo: PlayerType = {
+  id: 2,
+  warProgress: 0,
+};
 
 describe('TurnsLoop', () => {
   let loggerLogSpy: MockInstance;
   let mockRules: Mocked<Rules>;
+  let mockGameState: Mocked<GameState>;
   let loop: TurnsLoop;
 
   beforeEach(() => {
@@ -25,8 +37,14 @@ describe('TurnsLoop', () => {
       playersNumber: 2,
       maxWarProgress: 2,
     } as unknown as Mocked<Rules>;
+    mockGameState = {
+      playerOne,
+      playerTwo,
+      players: [playerOne, playerTwo],
+    } as unknown as Mocked<GameState>;
 
     container.registerInstance(Rules, mockRules);
+    container.registerInstance(GameState, mockGameState);
     loop = container.resolve(TurnsLoop);
   });
 

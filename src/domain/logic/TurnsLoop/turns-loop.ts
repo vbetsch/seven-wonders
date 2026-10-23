@@ -36,6 +36,7 @@ export class TurnsLoop implements ILoop {
       // TODO: Remove this code block
       if (currentPlayer.id == this._gameState.playerOne.id) {
         currentPlayer.warProgress += 1;
+        this._gameState.pickOneWarCard();
       }
 
       if (currentPlayer.warProgress == this._rules.maxWarProgress) {

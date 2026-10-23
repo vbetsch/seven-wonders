@@ -4,7 +4,7 @@ import { injectable } from 'tsyringe';
 export class Rules {
   private readonly _playersNumber: number = 2;
   private readonly _agesNumber: number = 3;
-  private readonly _agesCardsNumbers: number[] = [42, 38, 54];
+  private readonly _agesCardsNumbers: number[] = [3, 2, 4];
   private readonly _availableWondersPerPlayer: number = 4;
   private readonly _maxUsedWondersTotal: number = 7;
   private readonly _maxWarProgress: number = 9;

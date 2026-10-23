@@ -9,7 +9,7 @@ describe('Rules', () => {
   // Expected
   const playersNumberExpected: number = 2;
   const agesNumberExpected: number = 3;
-  const agesCardsNumbersExpected: number[] = [42, 38, 54];
+  const agesCardsNumbersExpected: number[] = [3, 2, 4];
   const availableWondersPerPlayerExpected: number = 4;
   const maxUsedWondersTotalExpected: number = 7;
   const maxWarProgressExpected: number = 9;

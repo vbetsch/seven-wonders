@@ -13,7 +13,7 @@ describe('Rules', () => {
   const availableWondersTotalExpected: number = 12;
   const availableWondersPerPlayerExpected: number = 4;
   const maxUsedWondersTotalExpected: number = 7;
-  const maxWarProgressExpected: number = 2;
+  const maxWarProgressExpected: number = 9;
 
   beforeEach(() => {
     rules = container.resolve(Rules);

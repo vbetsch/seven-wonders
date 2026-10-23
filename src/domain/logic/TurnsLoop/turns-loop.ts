@@ -39,7 +39,12 @@ export class TurnsLoop implements ILoop {
         this._gameState.pickOneWarCard();
       }
 
-      if (currentPlayer.warProgress == this._rules.maxWarProgress) {
+      // TODO: get cards by age
+      if (this._gameState.warCardsConsumed === this._rules.agesCardsNumbers[0]) {
+        console.log('finish age');
+        return false;
+      }
+
       if (currentPlayer.warProgress === this._rules.maxWarProgress) {
         this._logger.log(
           `War is finished ! Winner=Player ${currentPlayer.id}, Loser=Player ${this._getLoser(currentPlayer).id}`

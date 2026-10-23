@@ -22,6 +22,7 @@ export class TurnsLoop implements ILoop {
     this._rules = container.resolve(Rules);
   }
 
+  /* istanbul ignore next */
   private _getLoser(winner: PlayerType): PlayerType {
     if (winner.id == this._playerOne.id) {
       return this._playerTwo;

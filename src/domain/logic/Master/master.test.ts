@@ -9,10 +9,10 @@ import {
   type Mocked,
   type MockInstance,
 } from 'vitest';
-import { type Game } from '@engine/Game/game';
+import { type Game } from '@/domain/logic/Game/game';
 import { Master } from './master';
-import { GamePhase } from '@engine/Game/game-phase.enum';
-import { Logger } from '@core/Logger/logger';
+import { GamePhase } from '@/domain/logic/Game/game-phase.enum';
+import { Logger } from '@/domain/engine/Logger/logger';
 
 describe('Master', () => {
   let game: Mocked<Game>;

@@ -1,7 +1,7 @@
 import { injectable } from 'tsyringe';
-import type { GameResultType } from '@engine/Game/game-result.type';
-import type { PlayerStatisticsType } from '@engine/Player/player-statistics.type';
-import { GameStatistics } from '@engine/GameStatistics/game-statistics';
+import type { GameResultType } from '@/domain/logic/Game/game-result.type';
+import type { PlayerStatisticsType } from '@/domain/logic/Player/player-statistics.type';
+import { GameStatistics } from '@/domain/logic/GameStatistics/game-statistics';
 
 @injectable()
 export class Arbitrator {

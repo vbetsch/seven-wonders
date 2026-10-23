@@ -5,7 +5,6 @@ export class Rules {
   private readonly _playersNumber: number = 2;
   private readonly _agesNumber: number = 3;
   private readonly _agesCardsNumbers: number[] = [42, 38, 54];
-  private readonly _availableWondersTotal: number = 12;
   private readonly _availableWondersPerPlayer: number = 4;
   private readonly _maxUsedWondersTotal: number = 7;
   private readonly _maxWarProgress: number = 9;
@@ -29,13 +28,6 @@ export class Rules {
    */
   public get agesCardsNumbers(): number[] {
     return this._agesCardsNumbers;
-  }
-
-  /**
-   * The total number of wonders available (default: 12)
-   */
-  public get availableWondersTotal(): number {
-    return this._availableWondersTotal;
   }
 
   /**

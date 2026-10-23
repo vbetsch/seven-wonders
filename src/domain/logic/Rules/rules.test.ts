@@ -10,7 +10,6 @@ describe('Rules', () => {
   const playersNumberExpected: number = 2;
   const agesNumberExpected: number = 3;
   const agesCardsNumbersExpected: number[] = [42, 38, 54];
-  const availableWondersTotalExpected: number = 12;
   const availableWondersPerPlayerExpected: number = 4;
   const maxUsedWondersTotalExpected: number = 7;
   const maxWarProgressExpected: number = 9;
@@ -27,7 +26,6 @@ describe('Rules', () => {
     expect(rules.playersNumber).toBe(playersNumberExpected);
     expect(rules.agesNumber).toBe(agesNumberExpected);
     expect(rules.agesCardsNumbers).toStrictEqual(agesCardsNumbersExpected);
-    expect(rules.availableWondersTotal).toBe(availableWondersTotalExpected);
     expect(rules.availableWondersPerPlayer).toBe(availableWondersPerPlayerExpected);
     expect(rules.maxUsedWondersTotal).toBe(maxUsedWondersTotalExpected);
     expect(rules.maxWarProgress).toBe(maxWarProgressExpected);

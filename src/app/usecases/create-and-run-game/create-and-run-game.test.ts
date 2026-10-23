@@ -30,11 +30,10 @@ describe('CreateAndRunGameUseCase', () => {
 
     container.clearInstances();
     useCase = container.resolve(CreateAndRunGameUseCase);
-
-    vi.clearAllMocks();
   });
 
   afterEach(() => {
+    vi.clearAllMocks();
     container.clearInstances();
   });
 

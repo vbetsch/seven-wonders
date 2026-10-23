@@ -3,8 +3,8 @@ import { TurnsLoop } from '@/domain/logic/TurnsLoop/turns-loop';
 export class TurnsCycle {
   private readonly _turnsLoop: TurnsLoop;
 
-  public constructor() {
-    this._turnsLoop = new TurnsLoop();
+  public constructor(ageCardsNumber: number) {
+    this._turnsLoop = new TurnsLoop(ageCardsNumber);
   }
 
   public launch(): boolean {

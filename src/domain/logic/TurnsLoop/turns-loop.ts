@@ -9,11 +9,13 @@ export class TurnsLoop implements ILoop {
   private readonly _logger: Logger;
   private readonly _rules: Rules;
   private readonly _gameState: GameState;
+  private readonly _ageCardsNumber: number;
 
-  public constructor() {
+  public constructor(ageCardsNumber: number) {
     this._logger = container.resolve(Logger);
     this._rules = container.resolve(Rules);
     this._gameState = container.resolve(GameState);
+    this._ageCardsNumber = ageCardsNumber;
   }
 
   /* istanbul ignore next */
@@ -38,8 +40,7 @@ export class TurnsLoop implements ILoop {
         currentPlayer.warProgress += 1;
       }
 
-      // TODO: get cards by age
-      if (currentPlayer.warProgress === this._rules.agesCardsNumbers[0]) {
+      if (currentPlayer.warProgress === this._ageCardsNumber) {
         // TODO: remove it
         this._logger.log('finish age');
         return false;

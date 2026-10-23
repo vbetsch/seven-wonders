@@ -14,7 +14,7 @@ export class Age {
     this._logger = container.resolve(Logger);
     this._identifier = identifier;
     this._cardsNumber = cardsNumber;
-    this._turnsCycle = new TurnsCycle();
+    this._turnsCycle = new TurnsCycle(this._cardsNumber);
   }
 
   public begin(): void {

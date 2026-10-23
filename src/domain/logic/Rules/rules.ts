@@ -24,7 +24,7 @@ export class Rules {
   }
 
   /**
-   * Numbers of cards by age order by index (default: [42, 38, 54])
+   * Numbers of cards by age order by index (default: [...]) -> TODO: put real values
    */
   public get agesCardsNumbers(): number[] {
     return this._agesCardsNumbers;

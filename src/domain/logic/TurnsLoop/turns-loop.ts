@@ -31,13 +31,9 @@ export class TurnsLoop implements ILoop {
 
   public start(): boolean {
     for (let index = 0; index < this._rules.playersNumber; index++) {
-      let currentPlayer: PlayerType | null = null;
-      if (this._playerOne.id == index + 1) {
-        currentPlayer = this._playerOne;
-      } else if (this._playerTwo.id == index + 1) {
+      let currentPlayer: PlayerType = this._playerOne;
+      if (this._playerTwo.id == index + 1) {
         currentPlayer = this._playerTwo;
-      } else {
-        throw new Error('currentPlayer is null');
       }
 
       this._logger.log(`It is the Player ${currentPlayer.id}'s turn to play.`);
@@ -57,3 +53,5 @@ export class TurnsLoop implements ILoop {
     return true;
   }
 }
+
+export default TurnsLoop;

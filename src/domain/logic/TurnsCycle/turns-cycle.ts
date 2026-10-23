@@ -8,6 +8,7 @@ export class TurnsCycle {
   }
 
   public launch(): boolean {
+    // eslint-disable-next-line @typescript-eslint/no-unnecessary-condition
     while (true) {
       if (!this._turnsLoop.start()) {
         return false;

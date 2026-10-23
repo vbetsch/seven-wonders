@@ -40,10 +40,10 @@ export class TurnsLoop implements ILoop {
         throw new Error('currentPlayer is null');
       }
 
-      this._logger.log(`It is the Player ${currentPlayer?.id}'s turn to play.`);
+      this._logger.log(`It is the Player ${currentPlayer.id}'s turn to play.`);
 
       // TODO: Remove this code block
-      if (currentPlayer?.id == this._playerOne.id) {
+      if (currentPlayer.id == this._playerOne.id) {
         currentPlayer.warProgress += 1;
       }
 

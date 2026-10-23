@@ -50,7 +50,7 @@ describe('TurnsLoop', () => {
 
     container.registerInstance(Rules, mockRules);
     container.registerInstance(GameState, mockGameState);
-    loop = container.resolve(TurnsLoop);
+    loop = new TurnsLoop(3);
   });
 
   afterEach(() => {

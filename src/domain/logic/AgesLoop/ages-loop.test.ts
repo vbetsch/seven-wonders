@@ -30,7 +30,7 @@ describe('AgesLoop', () => {
     } as unknown as Mocked<Rules>;
 
     container.registerInstance(Rules, mockRules);
-    loop = container.resolve(AgesLoop);
+    loop = new AgesLoop();
   });
 
   afterEach(() => {

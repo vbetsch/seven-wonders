@@ -48,5 +48,3 @@ export class TurnsLoop implements ILoop {
     return true;
   }
 }
-
-export default TurnsLoop;

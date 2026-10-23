@@ -36,6 +36,8 @@ export class TurnsLoop implements ILoop {
         currentPlayer = this._playerOne;
       } else if (this._playerTwo.id == index + 1) {
         currentPlayer = this._playerTwo;
+      } else {
+        throw new Error('currentPlayer is null');
       }
 
       this._logger.log(`It is the Player ${currentPlayer?.id}'s turn to play.`);

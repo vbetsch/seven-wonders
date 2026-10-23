@@ -8,11 +8,11 @@ export class TurnsLoop implements ILoop {
   private readonly _logger: Logger;
   private readonly _rules: Rules;
 
-  private _playerOne: PlayerType = {
+  private readonly _playerOne: PlayerType = {
     id: 1,
     warProgress: 0,
   };
-  private _playerTwo: PlayerType = {
+  private readonly _playerTwo: PlayerType = {
     id: 2,
     warProgress: 0,
   };

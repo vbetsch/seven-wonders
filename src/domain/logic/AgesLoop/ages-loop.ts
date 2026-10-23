@@ -12,10 +12,7 @@ export class AgesLoop implements ILoop {
 
   public start(): void {
     for (let index = 0; index < this._rules.agesCardsNumbers.length; index++) {
-      const currentCardsNumber: number | null = this._rules.agesCardsNumbers[index] || null;
-      if (currentCardsNumber === null) {
-        throw new Error(`cardsNumber ${currentCardsNumber} is out of range`);
-      }
+      const currentCardsNumber: number = this._rules.agesCardsNumbers[index] as number;
       const currentAge: Age = new Age(index + 1, currentCardsNumber);
       currentAge.begin();
       if (currentAge.isTheLastOne) {

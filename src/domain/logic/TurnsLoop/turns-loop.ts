@@ -40,8 +40,8 @@ export class TurnsLoop implements ILoop {
         currentPlayer.warProgress += 1;
       }
 
+      // TODO: change condition
       if (currentPlayer.warProgress === this._ageCardsNumber) {
-        // TODO: remove it
         this._logger.log('finish age');
         return false;
       }

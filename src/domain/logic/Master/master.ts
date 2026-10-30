@@ -33,5 +33,6 @@ export class Master {
     this._nextPhase(GamePhase.PREPARING, GamePhase.RUNNING);
     this._logger.log('Running the game...');
     this._game.run();
+    this._logger.log('The game is finished !');
   }
 }

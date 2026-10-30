@@ -1,7 +1,7 @@
-import { injectable } from 'tsyringe';
+import { singleton } from 'tsyringe';
 import type { PlayerType } from '@logic/Player/player.type';
 
-@injectable()
+@singleton()
 export class GameState {
   private readonly _playerOne: PlayerType = {
     id: 1,

@@ -41,7 +41,7 @@ export class TurnsLoop implements ILoop {
         currentPlayer.warProgress += 1;
       }
 
-      // TODO: change condition
+      // TODO: CHANGE IT
       if (currentPlayer.warProgress === this._ageCardsNumber) {
         return EventEnum.AGE_IS_FINISHED;
       }

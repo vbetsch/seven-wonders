@@ -43,10 +43,10 @@ describe('TurnsCycle', () => {
       .mockReturnValueOnce(EventEnum.AGE_IS_FINISHED);
 
     // Act
-    const result = cycle.launch();
+    const result: EventEnum = cycle.launch();
 
     // Assert
-    expect(result).toBe(false);
+    expect(result).toBe(EventEnum.AGE_IS_FINISHED);
     expect(startMock).toHaveBeenCalledTimes(3);
   });
 
@@ -58,10 +58,10 @@ describe('TurnsCycle', () => {
       .mockReturnValueOnce(EventEnum.WAR_IS_FINISHED);
 
     // Act
-    const result = cycle.launch();
+    const result: EventEnum = cycle.launch();
 
     // Assert
-    expect(result).toBe(false);
+    expect(result).toBe(EventEnum.WAR_IS_FINISHED);
     expect(startMock).toHaveBeenCalledTimes(3);
   });
 });

@@ -1,14 +1,13 @@
 import { Logger } from '@/domain/engine/Logger/logger';
 import { container } from 'tsyringe';
 import { TurnsCycle } from '@/domain/logic/TurnsCycle/turns-cycle';
+import { EventEnum } from '@logic/Event/event.enum';
 
 export class Age {
   private readonly _logger: Logger;
   private readonly _identifier: number;
   private readonly _cardsNumber: number;
   private readonly _turnsCycle: TurnsCycle;
-
-  private _isTheLastOne: boolean = false;
 
   public constructor(identifier: number, cardsNumber: number) {
     this._logger = container.resolve(Logger);
@@ -17,10 +16,13 @@ export class Age {
     this._turnsCycle = new TurnsCycle(this._cardsNumber);
   }
 
-  public begin(): void {
+  public begin(): EventEnum.AGE_IS_FINISHED | EventEnum.WAR_IS_FINISHED {
     this._logger.log(`Age ${this._identifier} started`);
-    this._isTheLastOne = !this._turnsCycle.launch();
-    this._logger.log(`Age ${this._identifier} finished`);
+    const eventReturned: EventEnum = this._turnsCycle.launch();
+    if (eventReturned === EventEnum.AGE_IS_FINISHED) {
+      this._logger.log(`Age ${this._identifier} finished`);
+    }
+    return eventReturned;
   }
 
   public get identifier(): number {
@@ -29,9 +31,5 @@ export class Age {
 
   public get cardsNumber(): number {
     return this._cardsNumber;
-  }
-
-  public get isTheLastOne(): boolean {
-    return this._isTheLastOne;
   }
 }

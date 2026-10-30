@@ -1,30 +1,26 @@
 import 'reflect-metadata';
-import {
-  describe,
-  it,
-  expect,
-  beforeEach,
-  afterEach,
-  vi,
-  type Mocked,
-  type MockedFunction,
-  type MockInstance,
-} from 'vitest';
+import { describe, it, expect, beforeEach, afterEach, vi, type Mocked } from 'vitest';
 import { container } from 'tsyringe';
 import { AgesLoop } from './ages-loop';
 import { Rules } from '@/domain/logic/Rules/rules';
 import { Age } from '@/domain/logic/Age/age';
+import { EventEnum } from '@logic/Event/event.enum';
 
-vi.mock('@logic/Age/age');
+const { beginMock } = vi.hoisted(() => ({
+  beginMock: vi.fn<() => EventEnum.AGE_IS_FINISHED | EventEnum.WAR_IS_FINISHED>(),
+}));
+
+vi.mock('@logic/Age/age', () => ({
+  Age: vi.fn(function () {
+    return { begin: beginMock };
+  }),
+}));
 
 describe('AgesLoop', () => {
-  let ageBeginSpy: MockInstance;
   let mockRules: Mocked<Rules>;
   let loop: AgesLoop;
-  const ageMock: MockedFunction<typeof Age> = vi.mocked(Age);
 
   beforeEach(() => {
-    ageBeginSpy = vi.spyOn(Age.prototype, 'begin');
     mockRules = {
       agesCardsNumbers: [42, 38, 54],
     } as unknown as Mocked<Rules>;
@@ -34,21 +30,20 @@ describe('AgesLoop', () => {
   });
 
   afterEach(() => {
+    beginMock.mockReset();
     container.clearInstances();
     vi.clearAllMocks();
   });
 
-  it('should instantiate ages', () => {
+  it('should instantiate ages and begin ages', () => {
+    beginMock.mockReturnValueOnce(EventEnum.AGE_IS_FINISHED);
+
     loop.start();
 
-    expect(ageMock).toHaveBeenCalledTimes(3);
-    expect(ageMock).toHaveBeenNthCalledWith(1, 1, 42);
-    expect(ageMock).toHaveBeenNthCalledWith(2, 2, 38);
-    expect(ageMock).toHaveBeenNthCalledWith(3, 3, 54);
-  });
-  it('should begin ages', () => {
-    loop.start();
-
-    expect(ageBeginSpy).toHaveBeenCalledTimes(3);
+    expect(beginMock).toHaveBeenCalledTimes(3);
+    expect(Age).toHaveBeenCalledTimes(3);
+    expect(Age).toHaveBeenNthCalledWith(1, 1, 42);
+    expect(Age).toHaveBeenNthCalledWith(2, 2, 38);
+    expect(Age).toHaveBeenNthCalledWith(3, 3, 54);
   });
 });

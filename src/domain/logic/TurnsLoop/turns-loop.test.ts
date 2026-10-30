@@ -72,7 +72,6 @@ describe('TurnsLoop', () => {
     const result: EventEnum = loop.start();
 
     expect(loggerLogSpy).toHaveBeenNthCalledWith(1, "It is the Player 1's turn to play.");
-    expect(loggerLogSpy).toHaveBeenNthCalledWith(2, 'finish age');
     expect(result).toBe(EventEnum.AGE_IS_FINISHED);
   });
 

@@ -8,11 +8,12 @@ export class TurnsCycle {
     this._turnsLoop = new TurnsLoop(ageCardsNumber);
   }
 
-  public launch(): boolean {
+  public launch(): EventEnum.AGE_IS_FINISHED | EventEnum.WAR_IS_FINISHED {
     // eslint-disable-next-line @typescript-eslint/no-unnecessary-condition
     while (true) {
-      if (this._turnsLoop.start() !== EventEnum.GAME_CONTINUES) {
-        return false;
+      const eventReturned: EventEnum = this._turnsLoop.start();
+      if (eventReturned !== EventEnum.GAME_CONTINUES) {
+        return eventReturned;
       }
     }
   }

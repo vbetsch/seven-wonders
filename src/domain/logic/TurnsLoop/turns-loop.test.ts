@@ -15,6 +15,7 @@ import { Logger } from '@/domain/engine/Logger/logger';
 import { Rules } from '@logic/Rules/rules';
 import { GameState } from '@logic/GameState/game-state';
 import type { PlayerType } from '@logic/Player/player.type';
+import { EventEnum } from '@logic/Event/event.enum';
 
 describe('TurnsLoop', () => {
   let loggerLogSpy: MockInstance;
@@ -58,21 +59,33 @@ describe('TurnsLoop', () => {
     vi.restoreAllMocks();
   });
 
-  it('should run turn by turn', () => {
-    loop.start();
+  it('should run turn by turn without stopping', () => {
+    const result: EventEnum = loop.start();
 
     expect(loggerLogSpy).toHaveBeenNthCalledWith(1, "It is the Player 1's turn to play.");
     expect(loggerLogSpy).toHaveBeenNthCalledWith(2, "It is the Player 2's turn to play.");
+    expect(result).toBe(EventEnum.GAME_CONTINUES);
+  });
+
+  it('should trigger age is finished', () => {
+    playerOne.warProgress = 2;
+    const result: EventEnum = loop.start();
+
+    expect(loggerLogSpy).toHaveBeenNthCalledWith(1, "It is the Player 1's turn to play.");
+    expect(loggerLogSpy).toHaveBeenNthCalledWith(2, 'finish age');
+    expect(result).toBe(EventEnum.AGE_IS_FINISHED);
   });
 
   it('should trigger war end - player one wins', () => {
     playerOne.warProgress = 1;
-    loop.start();
+
+    const result: EventEnum = loop.start();
 
     expect(loggerLogSpy).toHaveBeenNthCalledWith(1, "It is the Player 1's turn to play.");
     expect(loggerLogSpy).toHaveBeenNthCalledWith(
       2,
       'War is finished ! Winner=Player 1, Loser=Player 2'
     );
+    expect(result).toBe(EventEnum.WAR_IS_FINISHED);
   });
 });

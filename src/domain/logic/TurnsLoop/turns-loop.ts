@@ -4,6 +4,7 @@ import { Rules } from '@/domain/logic/Rules/rules';
 import type { ILoop } from '@/domain/engine/ILoop/loop.interface';
 import type { PlayerType } from '@logic/Player/player.type';
 import { GameState } from '@logic/GameState/game-state';
+import { EventEnum } from '@logic/Event/event.enum';
 
 export class TurnsLoop implements ILoop {
   private readonly _logger: Logger;
@@ -26,7 +27,7 @@ export class TurnsLoop implements ILoop {
     return this._gameState.playerOne;
   }
 
-  public start(): boolean {
+  public start(): EventEnum {
     for (let index = 0; index < this._rules.playersNumber; index++) {
       let currentPlayer: PlayerType = this._gameState.playerOne;
       if (this._gameState.playerTwo.id === index + 1) {
@@ -43,16 +44,16 @@ export class TurnsLoop implements ILoop {
       // TODO: change condition
       if (currentPlayer.warProgress === this._ageCardsNumber) {
         this._logger.log('finish age');
-        return false;
+        return EventEnum.AGE_IS_FINISHED;
       }
 
       if (currentPlayer.warProgress === this._rules.maxWarProgress) {
         this._logger.log(
           `War is finished ! Winner=Player ${currentPlayer.id}, Loser=Player ${this._getLoser(currentPlayer).id}`
         );
-        return false;
+        return EventEnum.WAR_IS_FINISHED;
       }
     }
-    return true;
+    return EventEnum.GAME_CONTINUES;
   }
 }

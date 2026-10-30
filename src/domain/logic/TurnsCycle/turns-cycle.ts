@@ -1,4 +1,5 @@
 import { TurnsLoop } from '@/domain/logic/TurnsLoop/turns-loop';
+import { EventEnum } from '@logic/Event/event.enum';
 
 export class TurnsCycle {
   private readonly _turnsLoop: TurnsLoop;
@@ -10,7 +11,7 @@ export class TurnsCycle {
   public launch(): boolean {
     // eslint-disable-next-line @typescript-eslint/no-unnecessary-condition
     while (true) {
-      if (!this._turnsLoop.start()) {
+      if (this._turnsLoop.start() !== EventEnum.GAME_CONTINUES) {
         return false;
       }
     }

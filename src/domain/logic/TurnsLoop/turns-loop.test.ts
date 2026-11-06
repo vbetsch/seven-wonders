@@ -17,7 +17,18 @@ import { GameState } from '@logic/GameState/game-state';
 import type { PlayerType } from '@logic/Player/player.type';
 import { EventEnum } from '@logic/Event/event.enum';
 
+const { consumeCardMock } = vi.hoisted(() => ({
+  consumeCardMock: vi.fn<() => number>(),
+}));
+
+vi.mock('@/domain/logic/AgeCurrentState/age-current-state', () => ({
+  AgeCurrentState: class {
+    public consumeCard = consumeCardMock;
+  },
+}));
+
 describe('TurnsLoop', () => {
+  const ageCardsNumberMock: number = 3;
   let loggerLogSpy: MockInstance;
   let mockRules: Mocked<Rules>;
   let mockGameState: Mocked<GameState>;
@@ -49,10 +60,11 @@ describe('TurnsLoop', () => {
 
     container.registerInstance(Rules, mockRules);
     container.registerInstance(GameState, mockGameState);
-    loop = new TurnsLoop(3);
+    loop = new TurnsLoop(ageCardsNumberMock);
   });
 
   afterEach(() => {
+    consumeCardMock.mockReset();
     container.clearInstances();
     vi.restoreAllMocks();
   });
@@ -66,7 +78,7 @@ describe('TurnsLoop', () => {
   });
 
   it('should trigger age is finished', () => {
-    playerOne.warProgress = 2;
+    consumeCardMock.mockReturnValueOnce(ageCardsNumberMock);
     const result: EventEnum = loop.start();
 
     expect(loggerLogSpy).toHaveBeenNthCalledWith(1, "It is the Player 1's turn to play.");

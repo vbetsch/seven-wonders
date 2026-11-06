@@ -8,7 +8,7 @@ describe('Rules', () => {
 
   // Expected
   const playersNumberExpected: number = 2;
-  const agesCardsNumbersExpected: number[] = [3, 2, 4];
+  const agesCardsNumbersExpected: number[] = [6, 7, 8];
   const maxWarProgressExpected: number = 9;
 
   beforeEach(() => {

@@ -45,7 +45,6 @@ describe('TurnsLoop', () => {
     mockGameState = {
       playerOne,
       playerTwo,
-      players: [playerOne, playerTwo],
     } as unknown as Mocked<GameState>;
 
     container.registerInstance(Rules, mockRules);

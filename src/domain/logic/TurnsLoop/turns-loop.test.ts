@@ -31,7 +31,6 @@ describe('TurnsLoop', () => {
     mockRules = {
       playersNumber: 2,
       maxWarProgress: 2,
-      agesCardsNumbers: [3, 2, 4],
     } as unknown as Mocked<Rules>;
 
     playerOne = {

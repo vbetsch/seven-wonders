@@ -3,7 +3,7 @@ import { injectable } from 'tsyringe';
 @injectable()
 export class Rules {
   private readonly _playersNumber: number = 2;
-  private readonly _agesCardsNumbers: number[] = [3, 2, 4];
+  private readonly _agesCardsNumbers: number[] = [6, 7, 8];
   private readonly _maxWarProgress: number = 9;
 
   /**

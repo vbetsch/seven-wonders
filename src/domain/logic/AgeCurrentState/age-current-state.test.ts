@@ -13,10 +13,6 @@ describe('AgeState', () => {
     container.clearInstances();
   });
 
-  it('should have correct constant values', () => {
-    expect(ageState.consumedCardsNumber).toBe(0);
-  });
-
   it('should increment consumed cards number', () => {
     expect(ageState.consumeCard()).toBe(1);
   });

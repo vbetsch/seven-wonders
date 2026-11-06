@@ -5,17 +5,20 @@ import type { ILoop } from '@/domain/engine/ILoop/loop.interface';
 import type { PlayerType } from '@logic/Player/player.type';
 import { GameState } from '@logic/GameState/game-state';
 import { EventEnum } from '@logic/Event/event.enum';
+import { AgeCurrentState } from '@logic/AgeCurrentState/age-current-state';
 
 export class TurnsLoop implements ILoop {
   private readonly _logger: Logger;
   private readonly _rules: Rules;
   private readonly _gameState: GameState;
+  private readonly _ageCurrentState: AgeCurrentState;
   private readonly _ageCardsNumber: number;
 
   public constructor(ageCardsNumber: number) {
     this._logger = container.resolve(Logger);
     this._rules = container.resolve(Rules);
     this._gameState = container.resolve(GameState);
+    this._ageCurrentState = container.resolve(AgeCurrentState);
     this._ageCardsNumber = ageCardsNumber;
   }
 
@@ -41,8 +44,7 @@ export class TurnsLoop implements ILoop {
         currentPlayer.warProgress += 1;
       }
 
-      // TODO: CHANGE IT
-      if (currentPlayer.warProgress === this._ageCardsNumber) {
+      if (this._ageCurrentState.consumeCard() === this._ageCardsNumber) {
         return EventEnum.AGE_IS_FINISHED;
       }
 

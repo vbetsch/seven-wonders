@@ -18,7 +18,8 @@ export class Age {
 
   public begin(): EventEnum.AGE_IS_FINISHED | EventEnum.WAR_IS_FINISHED {
     this._logger.log(`Age ${this._identifier} started`);
-    const eventReturned: EventEnum = this._turnsCycle.launch();
+    const eventReturned: EventEnum.AGE_IS_FINISHED | EventEnum.WAR_IS_FINISHED =
+      this._turnsCycle.launch();
     if (eventReturned === EventEnum.AGE_IS_FINISHED) {
       this._logger.log(`Age ${this._identifier} finished`);
     }

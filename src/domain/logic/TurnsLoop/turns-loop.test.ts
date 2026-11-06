@@ -1,0 +1,100 @@
+import 'reflect-metadata';
+import { container } from 'tsyringe';
+import { TurnsLoop } from './turns-loop';
+import {
+  afterEach,
+  beforeEach,
+  describe,
+  expect,
+  it,
+  type Mocked,
+  type MockInstance,
+  vi,
+} from 'vitest';
+import { Logger } from '@/domain/engine/Logger/logger';
+import { Rules } from '@logic/Rules/rules';
+import { GameState } from '@logic/GameState/game-state';
+import type { PlayerType } from '@logic/Player/player.type';
+import { EventEnum } from '@logic/Event/event.enum';
+
+const { consumeCardMock } = vi.hoisted(() => ({
+  consumeCardMock: vi.fn<() => number>(),
+}));
+
+vi.mock('@/domain/logic/AgeCurrentState/age-current-state', () => ({
+  AgeCurrentState: class {
+    public consumeCard = consumeCardMock;
+  },
+}));
+
+describe('TurnsLoop', () => {
+  const ageCardsNumberMock: number = 3;
+  let loggerLogSpy: MockInstance;
+  let mockRules: Mocked<Rules>;
+  let mockGameState: Mocked<GameState>;
+  let playerOne: PlayerType;
+  let playerTwo: PlayerType;
+  let loop: TurnsLoop;
+
+  beforeEach(() => {
+    loggerLogSpy = vi.spyOn(Logger.prototype, 'log');
+
+    mockRules = {
+      playersNumber: 2,
+      maxWarProgress: 2,
+    } as unknown as Mocked<Rules>;
+
+    playerOne = {
+      id: 1,
+      warProgress: 0,
+    } satisfies PlayerType;
+    playerTwo = {
+      id: 2,
+      warProgress: 0,
+    } satisfies PlayerType;
+
+    mockGameState = {
+      playerOne,
+      playerTwo,
+    } as unknown as Mocked<GameState>;
+
+    container.registerInstance(Rules, mockRules);
+    container.registerInstance(GameState, mockGameState);
+    loop = new TurnsLoop(ageCardsNumberMock);
+  });
+
+  afterEach(() => {
+    consumeCardMock.mockReset();
+    container.clearInstances();
+    vi.restoreAllMocks();
+  });
+
+  it('should run turn by turn without stopping', () => {
+    const result: EventEnum = loop.start();
+
+    expect(loggerLogSpy).toHaveBeenNthCalledWith(1, "It is the Player 1's turn to play.");
+    expect(loggerLogSpy).toHaveBeenNthCalledWith(2, "It is the Player 2's turn to play.");
+    expect(result).toBe(EventEnum.GAME_CONTINUES);
+  });
+
+  it('should trigger age is finished', () => {
+    consumeCardMock.mockReturnValueOnce(ageCardsNumberMock);
+    const result: EventEnum = loop.start();
+
+    expect(loggerLogSpy).toHaveBeenNthCalledWith(1, "It is the Player 1's turn to play.");
+    expect(result).toBe(EventEnum.AGE_IS_FINISHED);
+  });
+
+  it('should trigger war end - player one wins', () => {
+    playerOne.warProgress = 1;
+
+    const result: EventEnum = loop.start();
+
+    expect(loggerLogSpy).toHaveBeenNthCalledWith(1, "It is the Player 1's turn to play.");
+    expect(loggerLogSpy).toHaveBeenNthCalledWith(
+      2,
+      'War is finished ! Winner=Player 1, Loser=Player 2'
+    );
+    expect(result).toBe(EventEnum.WAR_IS_FINISHED);
+  });
+});

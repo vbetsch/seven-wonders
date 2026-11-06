@@ -1,5 +1,5 @@
-import { Game } from '@engine/Game/game';
-import { Master } from '@engine/Master/master';
+import { Game } from '@/domain/logic/Game/game';
+import { Master } from '@/domain/logic/Master/master';
 import type { IUseCase } from '@usecases/abstract/usecase.interface';
 import { injectable } from 'tsyringe';
 

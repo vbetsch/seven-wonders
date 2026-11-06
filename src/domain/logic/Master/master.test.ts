@@ -1,0 +1,80 @@
+import 'reflect-metadata';
+import {
+  describe,
+  it,
+  expect,
+  beforeEach,
+  afterEach,
+  vi,
+  type Mocked,
+  type MockInstance,
+} from 'vitest';
+import { type Game } from '@/domain/logic/Game/game';
+import { Master } from './master';
+import { GamePhase } from '@/domain/logic/Game/game-phase.enum';
+import { Logger } from '@/domain/engine/Logger/logger';
+
+describe('Master', () => {
+  let game: Mocked<Game>;
+  let master: Master;
+  let loggerLogSpy: MockInstance;
+
+  beforeEach(() => {
+    game = {
+      phase: GamePhase.WAITING,
+      run: vi.fn(),
+    } as unknown as Mocked<Game>;
+    master = new Master(game);
+    loggerLogSpy = vi.spyOn(Logger.prototype, 'log');
+  });
+
+  afterEach(() => {
+    loggerLogSpy.mockRestore();
+  });
+
+  it('should be well implemented', () => {
+    expect(master).toBeDefined();
+    expect(master).toBeInstanceOf(Master);
+  });
+
+  it('should install a game', () => {
+    master.install();
+    expect(game.phase).toStrictEqual(GamePhase.INSTALLING);
+    expect(loggerLogSpy).toHaveBeenCalledWith(expect.stringContaining('Installing the game'));
+  });
+
+  it('should not prepare a game without install', () => {
+    expect(() => {
+      master.prepare();
+    }).toThrow('Impossible to go to next phase');
+  });
+
+  it('should prepare a game', () => {
+    master.install();
+    master.prepare();
+    expect(game.phase).toStrictEqual(GamePhase.PREPARING);
+    expect(loggerLogSpy).toHaveBeenCalledWith(expect.stringContaining('Preparing the game'));
+  });
+
+  it('should not run a game without preparing and install', () => {
+    expect(() => {
+      master.run();
+    }).toThrow('Impossible to go to next phase');
+  });
+
+  it('should not run a game without preparing', () => {
+    master.install();
+    expect(() => {
+      master.run();
+    }).toThrow('Impossible to go to next phase');
+  });
+
+  it('should run a game', () => {
+    master.install();
+    master.prepare();
+    master.run();
+    expect(game.phase).toStrictEqual(GamePhase.RUNNING);
+    expect(game.run).toHaveBeenCalledOnce();
+    expect(loggerLogSpy).toHaveBeenCalledWith(expect.stringContaining('Running the game'));
+  });
+});

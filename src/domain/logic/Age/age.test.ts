@@ -39,8 +39,8 @@ describe('Age', () => {
   });
 
   it('should have a number of cards', () => {
-    expect(age.cardsNumber).toBeDefined();
-    expect(age.cardsNumber).toBe(12);
+    expect(age.totalCardsNumber).toBeDefined();
+    expect(age.totalCardsNumber).toBe(12);
   });
 
   it('should finish age when turns cycle authorize it', () => {

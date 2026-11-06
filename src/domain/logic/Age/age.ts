@@ -6,14 +6,14 @@ import { EventEnum } from '@logic/Event/event.enum';
 export class Age {
   private readonly _logger: Logger;
   private readonly _identifier: number;
-  private readonly _cardsNumber: number;
+  private readonly _totalCardsNumber: number;
   private readonly _turnsCycle: TurnsCycle;
 
-  public constructor(identifier: number, cardsNumber: number) {
+  public constructor(identifier: number, totalCardsNumber: number) {
     this._logger = container.resolve(Logger);
     this._identifier = identifier;
-    this._cardsNumber = cardsNumber;
-    this._turnsCycle = new TurnsCycle(this._cardsNumber);
+    this._totalCardsNumber = totalCardsNumber;
+    this._turnsCycle = new TurnsCycle(this._totalCardsNumber);
   }
 
   public begin(): EventEnum.AGE_IS_FINISHED | EventEnum.WAR_IS_FINISHED {
@@ -29,7 +29,7 @@ export class Age {
     return this._identifier;
   }
 
-  public get cardsNumber(): number {
-    return this._cardsNumber;
+  public get totalCardsNumber(): number {
+    return this._totalCardsNumber;
   }
 }

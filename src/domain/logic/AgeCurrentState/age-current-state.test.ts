@@ -16,4 +16,11 @@ describe('AgeState', () => {
   it('should increment consumed cards number', () => {
     expect(ageState.consumeCard()).toBe(1);
   });
+
+  it('should reset consumed cards number', () => {
+    ageState.consumeCard();
+    ageState.reset();
+
+    expect(ageState.currentAgeConsumedCardsNumber).toBe(0);
+  });
 });

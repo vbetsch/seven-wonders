@@ -46,4 +46,17 @@ describe('AgesLoop', () => {
     expect(Age).toHaveBeenNthCalledWith(2, 2, 38);
     expect(Age).toHaveBeenNthCalledWith(3, 3, 54);
   });
+
+  it('should stop to create ages if war is finished', () => {
+    beginMock
+      .mockReturnValueOnce(EventEnum.AGE_IS_FINISHED)
+      .mockReturnValueOnce(EventEnum.WAR_IS_FINISHED);
+
+    loop.start();
+
+    expect(beginMock).toHaveBeenCalledTimes(2);
+    expect(Age).toHaveBeenCalledTimes(2);
+    expect(Age).toHaveBeenNthCalledWith(1, 1, 42);
+    expect(Age).toHaveBeenNthCalledWith(2, 2, 38);
+  });
 });

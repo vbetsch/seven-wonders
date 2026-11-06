@@ -23,6 +23,10 @@ cov: node_modules
 
 .PHONY: dev test lint format build cov
 
+# level 2
+ci: lint cov build
+	@echo '[OK] CI passed !'
+
 # Aliases
 tests: test
 ci: lint cov build

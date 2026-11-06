@@ -1,13 +1,13 @@
 import 'reflect-metadata';
 import { afterEach, beforeEach, describe, expect, it } from 'vitest';
 import { container } from 'tsyringe';
-import { AgeState } from '@logic/AgeState/age-state';
+import { AgeCurrentState } from '@logic/AgeCurrentState/age-current-state';
 
 describe('AgeState', () => {
-  let ageState: AgeState;
+  let ageState: AgeCurrentState;
 
   beforeEach(() => {
-    ageState = container.resolve(AgeState);
+    ageState = container.resolve(AgeCurrentState);
   });
   afterEach(() => {
     container.clearInstances();

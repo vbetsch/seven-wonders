@@ -1,7 +1,7 @@
 import { singleton } from 'tsyringe';
 
 @singleton()
-export class AgeState {
+export class AgeCurrentState {
   private _consumedCardsNumber: number = 0;
 
   public get consumedCardsNumber(): number {

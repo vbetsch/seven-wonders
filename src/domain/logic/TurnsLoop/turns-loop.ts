@@ -44,15 +44,15 @@ export class TurnsLoop implements ILoop {
         currentPlayer.warProgress += 1;
       }
 
-      if (this._ageCurrentState.consumeCard() === this._ageCardsNumber) {
-        return EventEnum.AGE_IS_FINISHED;
-      }
-
       if (currentPlayer.warProgress === this._rules.maxWarProgress) {
         this._logger.log(
           `War is finished ! Winner=Player ${currentPlayer.id}, Loser=Player ${this._getLoser(currentPlayer).id}`
         );
         return EventEnum.WAR_IS_FINISHED;
+      }
+
+      if (this._ageCurrentState.consumeCard() === this._ageCardsNumber) {
+        return EventEnum.AGE_IS_FINISHED;
       }
     }
     return EventEnum.GAME_CONTINUES;

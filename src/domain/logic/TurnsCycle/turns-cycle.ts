@@ -4,8 +4,8 @@ import { EventEnum } from '@logic/Event/event.enum';
 export class TurnsCycle {
   private readonly _turnsLoop: TurnsLoop;
 
-  public constructor(ageCardsNumber: number) {
-    this._turnsLoop = new TurnsLoop(ageCardsNumber);
+  public constructor() {
+    this._turnsLoop = new TurnsLoop();
   }
 
   public launch(): EventEnum.AGE_IS_FINISHED | EventEnum.WAR_IS_FINISHED {

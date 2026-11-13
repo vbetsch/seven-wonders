@@ -12,14 +12,12 @@ export class TurnsLoop implements ILoop {
   private readonly _rules: Rules;
   private readonly _gameState: GameState;
   private readonly _ageCurrentState: AgeCurrentState;
-  private readonly _ageCardsNumber: number;
 
-  public constructor(ageCardsNumber: number) {
+  public constructor() {
     this._logger = container.resolve(Logger);
     this._rules = container.resolve(Rules);
     this._gameState = container.resolve(GameState);
     this._ageCurrentState = container.resolve(AgeCurrentState);
-    this._ageCardsNumber = ageCardsNumber;
   }
 
   /* istanbul ignore next */
@@ -53,7 +51,7 @@ export class TurnsLoop implements ILoop {
         return EventEnum.WAR_IS_FINISHED;
       }
 
-      if (this._ageCurrentState.consumedCardsNumber === this._ageCardsNumber) {
+      if (this._ageCurrentState.consumedCardsNumber === this._ageCurrentState.maxCardsNumber) {
         return EventEnum.AGE_IS_FINISHED;
       }
     }

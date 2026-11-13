@@ -16,7 +16,7 @@ export class Age {
     this._ageCurrentState = container.resolve(AgeCurrentState);
     this._identifier = identifier;
     this._totalCardsNumber = totalCardsNumber;
-    this._turnsCycle = new TurnsCycle(this._totalCardsNumber);
+    this._turnsCycle = new TurnsCycle();
     this._ageCurrentState.initialize(this._totalCardsNumber);
   }
 

@@ -17,7 +17,7 @@ describe('TurnsCycle', () => {
   let cycle: TurnsCycle;
 
   beforeEach(() => {
-    cycle = new TurnsCycle(3);
+    cycle = new TurnsCycle();
   });
 
   afterEach(() => {

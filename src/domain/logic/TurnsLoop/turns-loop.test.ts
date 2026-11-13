@@ -54,13 +54,14 @@ describe('TurnsLoop', () => {
 
     mockAgeCurrentState = {
       consumedCardsNumber: 0,
+      maxCardsNumber: ageCardsNumberMock,
       consumeCard: consumeCardSpy,
     } as unknown as Mocked<AgeCurrentState>;
 
     container.registerInstance(Rules, mockRules);
     container.registerInstance(GameState, mockGameState);
     container.registerInstance(AgeCurrentState, mockAgeCurrentState);
-    loop = new TurnsLoop(ageCardsNumberMock);
+    loop = new TurnsLoop();
   });
 
   afterEach(() => {
@@ -82,7 +83,7 @@ describe('TurnsLoop', () => {
       consumedCardsNumber: ageCardsNumberMock,
     } as unknown as Mocked<AgeCurrentState>;
     container.registerInstance(AgeCurrentState, mockAgeCurrentState);
-    loop = new TurnsLoop(ageCardsNumberMock);
+    loop = new TurnsLoop();
 
     const result: EventEnum = loop.start();
 

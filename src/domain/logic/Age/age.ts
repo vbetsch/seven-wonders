@@ -7,17 +7,17 @@ import { AgeCurrentState } from '@logic/AgeCurrentState/age-current-state';
 export class Age {
   private readonly _logger: Logger;
   private readonly _identifier: number;
-  private readonly _totalCardsNumber: number;
+  private readonly _cardsNumber: number;
   private readonly _turnsCycle: TurnsCycle;
   private readonly _ageCurrentState: AgeCurrentState;
 
-  public constructor(identifier: number, totalCardsNumber: number) {
+  public constructor(identifier: number, cardsNumber: number) {
     this._logger = container.resolve(Logger);
     this._ageCurrentState = container.resolve(AgeCurrentState);
     this._identifier = identifier;
-    this._totalCardsNumber = totalCardsNumber;
+    this._cardsNumber = cardsNumber;
     this._turnsCycle = new TurnsCycle();
-    this._ageCurrentState.initialize(this._totalCardsNumber);
+    this._ageCurrentState.initialize(this._cardsNumber);
   }
 
   public begin(): EventEnum.AGE_IS_FINISHED | EventEnum.WAR_IS_FINISHED {
@@ -34,7 +34,7 @@ export class Age {
     return this._identifier;
   }
 
-  public get totalCardsNumber(): number {
-    return this._totalCardsNumber;
+  public get cardsNumber(): number {
+    return this._cardsNumber;
   }
 }

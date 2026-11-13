@@ -31,4 +31,15 @@ describe('AgeState', () => {
     ageState.consumeCard();
     expect(ageState.consumedCardsNumber).toBe(1);
   });
+
+  it('should return age is not finished', () => {
+    ageState.initialize(46);
+    expect(ageState.isFinished()).toBe(false);
+  });
+
+  it('should return age is finished if ageCardsNumber is equal to maxCardsNumber', () => {
+    ageState.initialize(1);
+    ageState.consumeCard();
+    expect(ageState.isFinished()).toBe(true);
+  });
 });

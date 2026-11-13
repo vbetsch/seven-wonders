@@ -24,4 +24,8 @@ export class AgeCurrentState {
   public consumeCard(): void {
     this._consumedCardsNumber += 1;
   }
+
+  public isFinished(): boolean {
+    return this.maxCardsNumber === this.consumedCardsNumber;
+  }
 }

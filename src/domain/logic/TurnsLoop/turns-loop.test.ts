@@ -16,28 +16,22 @@ import { Rules } from '@logic/Rules/rules';
 import { GameState } from '@logic/GameState/game-state';
 import type { PlayerType } from '@logic/Player/player.type';
 import { EventEnum } from '@logic/Event/event.enum';
-
-const { consumeCardMock } = vi.hoisted(() => ({
-  consumeCardMock: vi.fn<() => number>(),
-}));
-
-vi.mock('@/domain/logic/AgeCurrentState/age-current-state', () => ({
-  AgeCurrentState: class {
-    public consumeCard = consumeCardMock;
-  },
-}));
+import { AgeCurrentState } from '@logic/AgeCurrentState/age-current-state';
 
 describe('TurnsLoop', () => {
   const ageCardsNumberMock: number = 3;
   let loggerLogSpy: MockInstance;
+  let consumeCardSpy: MockInstance;
   let mockRules: Mocked<Rules>;
   let mockGameState: Mocked<GameState>;
+  let mockAgeCurrentState: Mocked<AgeCurrentState>;
   let playerOne: PlayerType;
   let playerTwo: PlayerType;
   let loop: TurnsLoop;
 
   beforeEach(() => {
     loggerLogSpy = vi.spyOn(Logger.prototype, 'log');
+    consumeCardSpy = vi.spyOn(AgeCurrentState.prototype, 'consumeCard');
 
     mockRules = {
       playersNumber: 2,
@@ -58,13 +52,18 @@ describe('TurnsLoop', () => {
       playerTwo,
     } as unknown as Mocked<GameState>;
 
+    mockAgeCurrentState = {
+      currentAgeConsumedCardsNumber: 0,
+      consumeCard: consumeCardSpy,
+    } as unknown as Mocked<AgeCurrentState>;
+
     container.registerInstance(Rules, mockRules);
     container.registerInstance(GameState, mockGameState);
+    container.registerInstance(AgeCurrentState, mockAgeCurrentState);
     loop = new TurnsLoop(ageCardsNumberMock);
   });
 
   afterEach(() => {
-    consumeCardMock.mockReset();
     container.clearInstances();
     vi.restoreAllMocks();
   });
@@ -78,9 +77,16 @@ describe('TurnsLoop', () => {
   });
 
   it('should trigger age is finished', () => {
-    consumeCardMock.mockReturnValueOnce(ageCardsNumberMock);
+    mockAgeCurrentState = {
+      ...mockAgeCurrentState,
+      currentAgeConsumedCardsNumber: ageCardsNumberMock,
+    } as unknown as Mocked<AgeCurrentState>;
+    container.registerInstance(AgeCurrentState, mockAgeCurrentState);
+    loop = new TurnsLoop(ageCardsNumberMock);
+
     const result: EventEnum = loop.start();
 
+    expect(consumeCardSpy).toHaveBeenCalled();
     expect(loggerLogSpy).toHaveBeenNthCalledWith(1, "It is the Player 1's turn to play.");
     expect(result).toBe(EventEnum.AGE_IS_FINISHED);
   });

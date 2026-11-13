@@ -39,6 +39,8 @@ export class TurnsLoop implements ILoop {
 
       this._logger.log(`It is the Player ${currentPlayer.id}'s turn to play.`);
 
+      this._ageCurrentState.consumeCard();
+
       // TODO: Remove this code block
       if (currentPlayer.id === this._gameState.playerOne.id) {
         currentPlayer.warProgress += 1;
@@ -51,7 +53,7 @@ export class TurnsLoop implements ILoop {
         return EventEnum.WAR_IS_FINISHED;
       }
 
-      if (this._ageCurrentState.consumeCard() === this._ageCardsNumber) {
+      if (this._ageCurrentState.currentAgeConsumedCardsNumber === this._ageCardsNumber) {
         return EventEnum.AGE_IS_FINISHED;
       }
     }

@@ -8,9 +8,8 @@ export class AgeCurrentState {
     return this._currentAgeConsumedCardsNumber;
   }
 
-  public consumeCard(): number {
+  public consumeCard(): void {
     this._currentAgeConsumedCardsNumber += 1;
-    return this._currentAgeConsumedCardsNumber;
   }
 
   public reset(): void {

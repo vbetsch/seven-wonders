@@ -15,13 +15,13 @@ describe('AgeState', () => {
 
   it('should increment consumed cards number', () => {
     ageState.consumeCard();
-    expect(ageState.currentAgeConsumedCardsNumber).toBe(1);
+    expect(ageState.consumedCardsNumber).toBe(1);
   });
 
   it('should reset consumed cards number', () => {
     ageState.consumeCard();
     ageState.reset();
 
-    expect(ageState.currentAgeConsumedCardsNumber).toBe(0);
+    expect(ageState.consumedCardsNumber).toBe(0);
   });
 });

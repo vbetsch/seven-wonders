@@ -53,7 +53,7 @@ describe('TurnsLoop', () => {
     } as unknown as Mocked<GameState>;
 
     mockAgeCurrentState = {
-      currentAgeConsumedCardsNumber: 0,
+      consumedCardsNumber: 0,
       consumeCard: consumeCardSpy,
     } as unknown as Mocked<AgeCurrentState>;
 
@@ -79,7 +79,7 @@ describe('TurnsLoop', () => {
   it('should trigger age is finished', () => {
     mockAgeCurrentState = {
       ...mockAgeCurrentState,
-      currentAgeConsumedCardsNumber: ageCardsNumberMock,
+      consumedCardsNumber: ageCardsNumberMock,
     } as unknown as Mocked<AgeCurrentState>;
     container.registerInstance(AgeCurrentState, mockAgeCurrentState);
     loop = new TurnsLoop(ageCardsNumberMock);

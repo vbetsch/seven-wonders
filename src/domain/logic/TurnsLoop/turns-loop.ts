@@ -53,7 +53,7 @@ export class TurnsLoop implements ILoop {
         return EventEnum.WAR_IS_FINISHED;
       }
 
-      if (this._ageCurrentState.currentAgeConsumedCardsNumber === this._ageCardsNumber) {
+      if (this._ageCurrentState.consumedCardsNumber === this._ageCardsNumber) {
         return EventEnum.AGE_IS_FINISHED;
       }
     }

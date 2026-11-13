@@ -13,8 +13,8 @@
       "@/*": ["./src/*"],
       "@commands/*": ["./src/app/commands/*"],
       "@usecases/*": ["./src/app/usecases/*"],
-      "@core/*": ["./src/domain/core/*"],
-      "@engine/*": ["./src/domain/engine/*"]
+      "@engine/*": ["./src/domain/engine/*"],
+      "@logic/*": ["./src/domain/logic/*"]
     }
   }
 }

@@ -38,11 +38,11 @@ describe('TurnsLoop', () => {
     playerOne = {
       id: 1,
       warProgress: 0,
-    } satisfies PlayerType;
+    };
     playerTwo = {
       id: 2,
       warProgress: 0,
-    } satisfies PlayerType;
+    };
 
     mockGameState = {
       playerOne,

@@ -18,7 +18,7 @@ describe('AgeState', () => {
     ageState.initialize(46);
 
     expect(ageState.consumedCardsNumber).toBe(0);
-    expect(ageState.totalCardsNumber).toBe(46);
+    expect(ageState.maxCardsNumber).toBe(46);
   });
 
   it('should increment consumed cards number', () => {

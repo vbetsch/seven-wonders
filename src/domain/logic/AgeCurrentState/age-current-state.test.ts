@@ -13,6 +13,12 @@ describe('AgeState', () => {
     container.clearInstances();
   });
 
+  it('should throw an error if we try to get maxCardsNumber before initialize', () => {
+    expect(() => ageState.maxCardsNumber).toThrow(
+      'This instance of AgeCurrentState need to be initialized'
+    );
+  });
+
   it('should init consumed cards number and max cards number', () => {
     ageState.consumeCard();
     ageState.initialize(46);

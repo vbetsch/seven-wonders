@@ -10,6 +10,9 @@ export class AgeCurrentState {
   }
 
   public get maxCardsNumber(): number {
+    if (this._maxCardsNumber === 0) {
+      throw new Error('This instance of AgeCurrentState need to be initialized');
+    }
     return this._maxCardsNumber;
   }
 

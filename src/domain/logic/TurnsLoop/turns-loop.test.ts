@@ -19,9 +19,7 @@ import { EventEnum } from '@logic/Event/event.enum';
 import { AgeCurrentState } from '@logic/AgeCurrentState/age-current-state';
 
 describe('TurnsLoop', () => {
-  const ageCardsNumberMock: number = 3;
   let loggerLogSpy: MockInstance;
-  let consumeCardSpy: MockInstance;
   let mockRules: Mocked<Rules>;
   let mockGameState: Mocked<GameState>;
   let mockAgeCurrentState: Mocked<AgeCurrentState>;
@@ -31,7 +29,6 @@ describe('TurnsLoop', () => {
 
   beforeEach(() => {
     loggerLogSpy = vi.spyOn(Logger.prototype, 'log');
-    consumeCardSpy = vi.spyOn(AgeCurrentState.prototype, 'consumeCard');
 
     mockRules = {
       playersNumber: 2,
@@ -53,9 +50,8 @@ describe('TurnsLoop', () => {
     } as unknown as Mocked<GameState>;
 
     mockAgeCurrentState = {
-      consumedCardsNumber: 0,
-      maxCardsNumber: ageCardsNumberMock,
-      consumeCard: consumeCardSpy,
+      consumeCard: vi.spyOn(AgeCurrentState.prototype, 'consumeCard'),
+      isFinished: vi.fn(),
     } as unknown as Mocked<AgeCurrentState>;
 
     container.registerInstance(Rules, mockRules);
@@ -72,22 +68,18 @@ describe('TurnsLoop', () => {
   it('should run turn by turn without stopping', () => {
     const result: EventEnum = loop.start();
 
+    expect(mockAgeCurrentState.consumeCard).toHaveBeenCalled();
+    expect(mockAgeCurrentState.isFinished).toHaveBeenCalled();
     expect(loggerLogSpy).toHaveBeenNthCalledWith(1, "It is the Player 1's turn to play.");
     expect(loggerLogSpy).toHaveBeenNthCalledWith(2, "It is the Player 2's turn to play.");
     expect(result).toBe(EventEnum.GAME_CONTINUES);
   });
 
   it('should trigger age is finished', () => {
-    mockAgeCurrentState = {
-      ...mockAgeCurrentState,
-      consumedCardsNumber: ageCardsNumberMock,
-    } as unknown as Mocked<AgeCurrentState>;
-    container.registerInstance(AgeCurrentState, mockAgeCurrentState);
-    loop = new TurnsLoop();
-
+    mockAgeCurrentState.isFinished.mockReturnValueOnce(true);
     const result: EventEnum = loop.start();
 
-    expect(consumeCardSpy).toHaveBeenCalled();
+    expect(mockAgeCurrentState.consumeCard).toHaveBeenCalled();
     expect(loggerLogSpy).toHaveBeenNthCalledWith(1, "It is the Player 1's turn to play.");
     expect(result).toBe(EventEnum.AGE_IS_FINISHED);
   });
@@ -97,6 +89,7 @@ describe('TurnsLoop', () => {
 
     const result: EventEnum = loop.start();
 
+    expect(mockAgeCurrentState.consumeCard).toHaveBeenCalled();
     expect(loggerLogSpy).toHaveBeenNthCalledWith(1, "It is the Player 1's turn to play.");
     expect(loggerLogSpy).toHaveBeenNthCalledWith(
       2,

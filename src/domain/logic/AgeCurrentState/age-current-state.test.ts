@@ -13,7 +13,7 @@ describe('AgeState', () => {
     container.clearInstances();
   });
 
-  it('should init consumed cards number and total cards number', () => {
+  it('should init consumed cards number and max cards number', () => {
     ageState.consumeCard();
     ageState.initialize(46);
 

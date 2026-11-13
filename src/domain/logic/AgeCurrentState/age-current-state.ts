@@ -13,11 +13,12 @@ export class AgeCurrentState {
     return this._totalCardsNumber;
   }
 
-  public consumeCard(): void {
-    this._consumedCardsNumber += 1;
+  public initialize(ageCardsNumber: number): void {
+    this._consumedCardsNumber = 0;
+    this._totalCardsNumber = ageCardsNumber;
   }
 
-  public reset(): void {
-    this._consumedCardsNumber = 0;
+  public consumeCard(): void {
+    this._consumedCardsNumber += 1;
   }
 }

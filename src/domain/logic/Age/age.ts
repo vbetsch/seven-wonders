@@ -17,7 +17,7 @@ export class Age {
     this._identifier = identifier;
     this._totalCardsNumber = totalCardsNumber;
     this._turnsCycle = new TurnsCycle(this._totalCardsNumber);
-    this._ageCurrentState.reset();
+    this._ageCurrentState.initialize(this._totalCardsNumber);
   }
 
   public begin(): EventEnum.AGE_IS_FINISHED | EventEnum.WAR_IS_FINISHED {

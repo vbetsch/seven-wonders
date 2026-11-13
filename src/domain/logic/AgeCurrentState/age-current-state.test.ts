@@ -13,15 +13,16 @@ describe('AgeState', () => {
     container.clearInstances();
   });
 
+  it('should init consumed cards number and total cards number', () => {
+    ageState.consumeCard();
+    ageState.initialize(46);
+
+    expect(ageState.consumedCardsNumber).toBe(0);
+    expect(ageState.totalCardsNumber).toBe(46);
+  });
+
   it('should increment consumed cards number', () => {
     ageState.consumeCard();
     expect(ageState.consumedCardsNumber).toBe(1);
-  });
-
-  it('should reset consumed cards number', () => {
-    ageState.consumeCard();
-    ageState.reset();
-
-    expect(ageState.consumedCardsNumber).toBe(0);
   });
 });
